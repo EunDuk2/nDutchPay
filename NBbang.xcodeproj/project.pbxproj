@@ -25,6 +25,7 @@
 		61BD970229D321D100125849 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD970129D321D100125849 /* User.swift */; };
 		61BD970429D3236F00125849 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD970329D3236F00125849 /* Menu.swift */; };
 		61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CC2A027C9B00E9A657 /* Place.swift */; };
+		61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */; };
 		6B5E2F7D5CF5BC4176244338 /* Pods_NBbang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2644F08F4E867D38D02433FD /* Pods_NBbang.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		61BD970129D321D100125849 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		61BD970329D3236F00125849 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		61CE09CC2A027C9B00E9A657 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
 		D7BB13FFFAE633BE038FB84E /* Pods-NBbang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBbang.release.xcconfig"; path = "Target Support Files/Pods-NBbang/Pods-NBbang.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				61BD96EF29D31E5B00125849 /* ViewController.swift */,
 				6196657E29FCD7860056A591 /* AddPartyViewController.swift */,
 				61BD96F129D31E5B00125849 /* Main.storyboard */,
+				61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */,
 				61A621E729FD4740006B9DC9 /* InPartyViewController.swift */,
 				61CE09CC2A027C9B00E9A657 /* Place.swift */,
 				61A621E929FD4B7F006B9DC9 /* InviteUserViewController.swift */,
@@ -254,6 +257,7 @@
 				61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */,
 				61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */,
 				61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */,
+				61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */,
 				6196657F29FCD7860056A591 /* AddPartyViewController.swift in Sources */,
 				61A621EA29FD4B7F006B9DC9 /* InviteUserViewController.swift in Sources */,
 				619A49F529FD0B7B007B445E /* UserTableCell.swift in Sources */,

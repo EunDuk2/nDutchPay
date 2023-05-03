@@ -5,6 +5,7 @@ class Party: Object {
     
     @objc dynamic var name:String?
     var user = List<User>()
+    var place = List<Place>()
     
     convenience init(name: String? = nil) {
         self.init()
