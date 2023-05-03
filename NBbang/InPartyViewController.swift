@@ -35,7 +35,24 @@ class InPartyViewController: UIViewController {
     }
     
     @IBAction func onAddPlace(_ sender: Any) {
-        
+        //addPlaceNsaveDB(name: "test")
+        let alert = UIAlertController(title: "장소 추가", message: "ex) 술집, 노래방, 편의점", preferredStyle: .alert)
+        alert.addTextField()
+        let ok = UIAlertAction(title: "추가", style: .default) { (ok) in
+            self.addPlaceNsaveDB(name: alert.textFields?[0].text)
+        }
+
+        let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+
+             //code
+
+        }
+
+        alert.addAction(cancel)
+
+        alert.addAction(ok)
+
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
