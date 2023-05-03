@@ -62,12 +62,9 @@ class InviteUserViewController: UIViewController {
             
         }
         
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func onCancel(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
 }
 
 extension InviteUserViewController: UITableViewDelegate, UITableViewDataSource {
