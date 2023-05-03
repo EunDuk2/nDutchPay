@@ -121,6 +121,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblPlaceName" destination="kbT-Ay-rfp" id="ulS-R1-uaa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

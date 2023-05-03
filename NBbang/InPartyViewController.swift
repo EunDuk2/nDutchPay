@@ -24,6 +24,12 @@ class InPartyViewController: UIViewController {
         }
     }
     
+    func addPlace(name:String?) {
+        try! realm.write {
+            party()[self.index!].addParty(name: name)
+        }
+    }
+    
     @IBAction func onInviteUser(_ sender: Any) {
         
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InviteUserViewController") as? InviteUserViewController else {
@@ -39,20 +45,19 @@ class InPartyViewController: UIViewController {
         let alert = UIAlertController(title: "장소 추가", message: "ex) 술집, 노래방, 편의점", preferredStyle: .alert)
         alert.addTextField()
         let ok = UIAlertAction(title: "추가", style: .default) { (ok) in
-            self.addPlaceNsaveDB(name: alert.textFields?[0].text)
+            
+            self.addPlace(name: alert.textFields?[0].text)
         }
 
         let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
 
-             //code
-
         }
 
         alert.addAction(cancel)
-
         alert.addAction(ok)
 
         self.present(alert, animated: true, completion: nil)
+        
     }
     
 }
@@ -63,7 +68,12 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let row = party()[index!].place[indexPath.row].name
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableCell") as! PlaceTableCell
+        
+        cell.lblPlaceName?.text = row
         
         return cell
     }
