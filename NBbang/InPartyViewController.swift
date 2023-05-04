@@ -5,9 +5,13 @@ class InPartyViewController: UIViewController {
     let realm = try! Realm()
     var index:Int?
     
+    @IBOutlet var table: UITableView!
+    
     override func viewDidLoad() {
-        navigationItem.title = party()[index!].name
-        navigationItem.title! += " ("+String(party()[index!].user.count)+")"
+        if let i = index {
+            navigationItem.title = party()[i].name
+            navigationItem.title! += " ("+String(party()[i].user.count)+")"
+        }
         
     }
     
@@ -19,16 +23,16 @@ class InPartyViewController: UIViewController {
         return realm.objects(Place.self)
     }
     
-    func addPlaceNsaveDB(name:String?) {
+    func addPlaceNsaveDB(name:String?, price: Int) {
         
         try! realm.write {
-            realm.add(Place(name: name))
+            realm.add(Place(name: name, price: price))
         }
     }
     
-    func addPlace(name:String?) {
+    func addPlace(name:String?, price:Int) {
         try! realm.write {
-            party()[self.index!].addParty(name: name)
+            party()[self.index!].addPlace(name: name, price: price)
         }
     }
     
@@ -43,22 +47,33 @@ class InPartyViewController: UIViewController {
     }
     
     @IBAction func onAddPlace(_ sender: Any) {
-        //addPlaceNsaveDB(name: "test")
-        let alert = UIAlertController(title: "장소 추가", message: "ex) 술집, 노래방, 편의점", preferredStyle: .alert)
-        alert.addTextField()
-        let ok = UIAlertAction(title: "추가", style: .default) { (ok) in
-            
-            self.addPlace(name: alert.textFields?[0].text)
-        }
-
-        let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
-
-        }
-
-        alert.addAction(cancel)
-        alert.addAction(ok)
-
-        self.present(alert, animated: true, completion: nil)
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPlaceViewController") as? AddPlaceViewController else {
+                    return
+                }
+        
+        //du.index = indexPath.row
+        //du.date = checkKey()
+        du.party = party()[index!]
+        
+        du.modalPresentationStyle = .fullScreen
+        self.present(du, animated: true)
+        
+//        let alert = UIAlertController(title: "장소 추가", message: "ex) 술집, 노래방, 편의점", preferredStyle: .alert)
+//        alert.addTextField()
+//        let ok = UIAlertAction(title: "추가", style: .default) { (ok) in
+//
+//            self.addPlace(name: alert.textFields?[0].text)
+//            self.table.reloadData()
+//        }
+//
+//        let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+//
+//        }
+//
+//        alert.addAction(cancel)
+//        alert.addAction(ok)
+//
+//        self.present(alert, animated: true, completion: nil)
         
     }
     

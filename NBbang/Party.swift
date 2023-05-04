@@ -15,7 +15,7 @@ class Party: Object {
     func addUser(id: String?, name: String?, phone: String?, account: String?) {
         user.append(User(id: id, name: name, phone: phone, account: account))
     }
-    func addParty(name: String?) {
-        place.append(Place(name: name))
+    func addPlace(name: String?, price:Int) {
+        place.append(Place(name: name, price: price))
     }
 }
