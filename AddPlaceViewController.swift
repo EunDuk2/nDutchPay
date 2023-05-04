@@ -18,18 +18,6 @@ class AddPlaceViewController: UIViewController {
         }
     }
     
-    func addUser(userIndex: Int) {
-        try! realm.write {
-            let existingUser = realm.objects(User.self).filter("name == %@ AND phone == %@ AND account == %@", party?.user[userIndex].name,
-                                                               party?.user[userIndex].phone, party?.user[userIndex].account).first
-                if let existingUser = existingUser {
-                    party?.user.append(existingUser)
-                } else {
-                    party?.user.append((party?.user[userIndex])!)
-                }
-        }
-    }
-    
     func addPlaceUser(user:User?) {
         // 방금 추가한 장소 index
         var index: Int = (party?.place.count)!-1
