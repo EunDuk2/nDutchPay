@@ -7,6 +7,8 @@ class InPartyViewController: UIViewController {
     
     override func viewDidLoad() {
         navigationItem.title = party()[index!].name
+        navigationItem.title! += " ("+String(party()[index!].user.count)+")"
+        
     }
     
     func party() -> Results<Party> {
@@ -69,7 +71,7 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = party()[index!].place[indexPath.row].name
+        var row = party()[index!].place[indexPath.row].name
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableCell") as! PlaceTableCell
         
@@ -78,5 +80,18 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70 // 고정된 높이 값을 반환합니다.
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPartyViewController") as? InPartyViewController else {
+                    return
+                }
+        na.index = indexPath.row
+
+        self.navigationController?.pushViewController(na, animated: true)
+        
+    }
     
 }
