@@ -162,16 +162,19 @@
             </objects>
             <point key="canvasLocation" x="2623.6641221374043" y="-180.28169014084509"/>
         </scene>
-        <!--In Flace View Controller-->
+        <!--Title-->
         <scene sceneID="nwH-Sg-eVe">
             <objects>
-                <viewController id="XcV-gi-0XQ" customClass="InFlaceViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InPlaceViewController" id="XcV-gi-0XQ" customClass="InPlaceViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GaW-v6-hWJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="eiP-oX-cJq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="9bq-Q8-I9b">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="uC9-gg-gU6"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibv-21-89E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

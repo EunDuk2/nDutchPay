@@ -66,7 +66,7 @@ class InPartyViewController: UIViewController {
 
 extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return place().count
+        return party()[index!].place.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,10 +85,11 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPartyViewController") as? InPartyViewController else {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPlaceViewController") as? InPlaceViewController else {
                     return
                 }
-        na.index = indexPath.row
+        //na.index = indexPath.row
+        na.place = party()[index!].place[indexPath.row]
 
         self.navigationController?.pushViewController(na, animated: true)
         
