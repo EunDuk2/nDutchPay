@@ -5,7 +5,7 @@ class Place: Object {
     
     @objc dynamic var name:String?
     var enjoyer = List<User>()
-    @objc dynamic var price:String?
+    @objc dynamic var price:Int = 0
     
     convenience init(name: String? = nil) {
         self.init()
