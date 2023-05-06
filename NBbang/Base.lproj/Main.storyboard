@@ -197,16 +197,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메뉴 추가"/>
+                                <connections>
+                                    <action selector="onAddMenu:" destination="XcV-gi-0XQ" eventType="touchUpInside" id="dha-Kf-Zct"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이 장소에서 사용한 총 금액: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffm-Gu-yqe">
-                                <rect key="frame" x="16" y="68" width="250" height="21"/>
+                                <rect key="frame" x="16" y="107" width="250" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이 장소에 참여한 파티원:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWZ-Eh-WPd">
-                                <rect key="frame" x="16" y="97" width="250" height="21"/>
+                                <rect key="frame" x="16" y="136" width="250" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -222,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibv-21-89E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3409.9236641221373" y="-180.28169014084509"/>
+            <point key="canvasLocation" x="3338" y="-180"/>
         </scene>
         <!--Add Place View Controller-->
         <scene sceneID="4ve-aY-SZt">
@@ -380,6 +383,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIe-N5-Wa3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2624" y="-839"/>
+        </scene>
+        <!--Add Menu View Controller-->
+        <scene sceneID="Ict-nw-cr4">
+            <objects>
+                <viewController storyboardIdentifier="AddMenuViewController" id="rK1-Hr-OL6" customClass="AddMenuViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zak-43-6oa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-ce-mMV">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="메뉴 추가" id="zCO-J5-ksW">
+                                        <barButtonItem key="leftBarButtonItem" title="취소" id="dOj-0m-hNc"/>
+                                        <barButtonItem key="rightBarButtonItem" title="완료" id="D4U-Co-CEj"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QY7-aA-xWQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uL4-gW-IcM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3338" y="-839"/>
         </scene>
         <!--Add Party View Controller-->
         <scene sceneID="ZWi-vz-KaQ">

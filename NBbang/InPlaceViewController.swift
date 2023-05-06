@@ -10,6 +10,18 @@ class InPlaceViewController: UIViewController {
         navigationItem.title = place?.name
     }
     
+    
+    @IBAction func onAddMenu(_ sender: Any) {
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddMenuViewController") as? AddMenuViewController else {
+                    return
+                }
+        //na.index = index
+        
+        du.modalPresentationStyle = .fullScreen
+        self.present(du, animated: true)
+    }
+    
+    
 }
 
 extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
