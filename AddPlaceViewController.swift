@@ -30,7 +30,7 @@ class AddPlaceViewController: UIViewController {
     func resetUserMemberDB() {
         for i in 0..<(party?.user.count)! {
             try! realm.write {
-                party?.user[i].member = 0
+                party?.user[i].member = 1
             }
         }
     }
@@ -76,7 +76,7 @@ extension AddPlaceViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.index = indexPath.row
         cell.lblName?.text = row
-        cell.btnCheck?.setTitle("🟩", for: .normal)
+        cell.btnCheck?.setTitle("✅", for: .normal)
         
         cell.delegate = self
         

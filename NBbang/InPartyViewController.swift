@@ -16,6 +16,7 @@ class InPartyViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
         if let i = index {
             navigationItem.title = party()[i].name
             navigationItem.title! += " ("+String(party()[i].user.count)+")"
