@@ -3,13 +3,30 @@ import UIKit
 class InPlaceViewController: UIViewController {
     
     var place: Place?
-    
     var index:Int?
+    
+    @IBOutlet var lblTotalPrice: UILabel!
+    @IBOutlet var lblPlaceEnjoyer: UILabel!
     
     override func viewDidLoad() {
         navigationItem.title = place?.name
+        updateLabel()
     }
     
+    func updateLabel() {
+        lblTotalPrice.text = String((place?.totalPrice)!)
+        
+        var temp: String = ""
+        for i in 0..<(place?.enjoyer.count)! {
+            if(i != (place?.enjoyer.count)!-1) {
+                temp += (place?.enjoyer[i].name)! + ","
+            } else {
+                temp += (place?.enjoyer[i].name)!
+            }
+            
+        }
+        lblPlaceEnjoyer.text = temp
+    }
     
     @IBAction func onAddMenu(_ sender: Any) {
         guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddMenuViewController") as? AddMenuViewController else {
