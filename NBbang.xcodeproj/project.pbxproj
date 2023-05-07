@@ -18,6 +18,7 @@
 		61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */; };
 		61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB20E329D3C93200817839 /* PartyTableCell.swift */; };
 		61B18ED82A069D1D0092CAAD /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */; };
+		61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */; };
 		61BD96EC29D31E5B00125849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96EB29D31E5B00125849 /* AppDelegate.swift */; };
 		61BD96EE29D31E5B00125849 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96ED29D31E5B00125849 /* SceneDelegate.swift */; };
 		61BD96F029D31E5B00125849 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96EF29D31E5B00125849 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserTableCell.swift; sourceTree = "<group>"; };
 		61AB20E329D3C93200817839 /* PartyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableCell.swift; sourceTree = "<group>"; };
 		61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
+		61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuTableCell.swift; sourceTree = "<group>"; };
 		61BD96E829D31E5B00125849 /* NBbang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBbang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BD96EB29D31E5B00125849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BD96ED29D31E5B00125849 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				61BD96EF29D31E5B00125849 /* ViewController.swift */,
 				6196657E29FCD7860056A591 /* AddPartyViewController.swift */,
 				61BD96F129D31E5B00125849 /* Main.storyboard */,
+				61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */,
 				61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */,
 				619E48152A037B2400371795 /* MenuTableCell.swift */,
 				61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */,
@@ -271,6 +274,7 @@
 				61BD96EC29D31E5B00125849 /* AppDelegate.swift in Sources */,
 				61BD970029D31FDD00125849 /* Party.swift in Sources */,
 				61BD970229D321D100125849 /* User.swift in Sources */,
+				61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */,
 				61FC48472A03909200D36559 /* AddPlaceViewController.swift in Sources */,
 				61BD96EE29D31E5B00125849 /* SceneDelegate.swift in Sources */,
 				61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */,
