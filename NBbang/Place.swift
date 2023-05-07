@@ -6,6 +6,7 @@ class Place: Object {
     @objc dynamic var name:String?
     var enjoyer = List<User>()
     @objc dynamic var price:Int = 0
+    var menu = List<Menu>()
     
     convenience init(name: String? = nil, price: Int = 0) {
         self.init()
@@ -18,5 +19,8 @@ class Place: Object {
 //    }
     func addEnjoyer(user:User) {
         enjoyer.append(user)
+    }
+    func addMenu(name: String? = nil, price: Int, count: Int){
+        menu.append(Menu(name: name, price: price, count: count))
     }
 }

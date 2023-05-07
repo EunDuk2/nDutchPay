@@ -15,7 +15,7 @@ class InPlaceViewController: UIViewController {
         guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddMenuViewController") as? AddMenuViewController else {
                     return
                 }
-        //na.index = index
+        du.place = self.place
         
         du.modalPresentationStyle = .fullScreen
         self.present(du, animated: true)
@@ -26,12 +26,15 @@ class InPlaceViewController: UIViewController {
 
 extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return (place?.menu.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = place?.menu[indexPath.row].name
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableCell") as! MenuTableCell
+        
+        cell.lblName.text = row
         
         return cell
     }
