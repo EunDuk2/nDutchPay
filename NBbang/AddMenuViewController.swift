@@ -4,6 +4,7 @@ import RealmSwift
 class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     let realm = try! Realm()
     var place: Place?
+    var party: Party?
     
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtPrice: UITextField!
@@ -12,7 +13,10 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     
     
     override func viewDidLoad() {
-        
+        resetUserMemberDB()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        resetUserMemberDB()
     }
     
     func resetUserMemberDB() {
@@ -24,7 +28,6 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     }
     
     func addMenuUser(user:User?) {
-        
         try! realm.write {
             place?.menu[(place?.menu.count)!-1].addEnjoyer(user: user!)
         }
@@ -35,6 +38,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         try! realm.write {
             place?.addMenu(name: txtName.text ,price: Int(txtPrice.text ?? "") ?? 0, count: Int(txtCount.text ?? "") ?? 0)
             place?.plusPrice(price: (Int(txtPrice.text ?? "") ?? 0) * (Int(txtCount.text ?? "") ?? 0))
+            party?.plusPrice(price: (Int(txtPrice.text ?? "") ?? 0) * (Int(txtCount.text ?? "") ?? 0))
         }
         
         for i in 0..<(place?.enjoyer.count)! {

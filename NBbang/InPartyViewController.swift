@@ -113,6 +113,7 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
                 }
         //na.index = indexPath.row
         na.place = party()[index!].place[indexPath.row]
+        na.party = party()[index!]
 
         self.navigationController?.pushViewController(na, animated: true)
         

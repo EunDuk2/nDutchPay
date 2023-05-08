@@ -4,6 +4,7 @@ import RealmSwift
 class User: Object {
     @objc dynamic var id: String?
     @objc dynamic var name: String?
+    @objc dynamic var money: Int = 0
     @objc dynamic var phone: String?
     @objc dynamic var account: String?
     @objc dynamic var member: Int = 0

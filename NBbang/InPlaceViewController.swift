@@ -2,15 +2,22 @@ import UIKit
 
 class InPlaceViewController: UIViewController {
     
+    var party: Party?
     var place: Place?
     var index:Int?
     
     @IBOutlet var lblTotalPrice: UILabel!
     @IBOutlet var lblPlaceEnjoyer: UILabel!
+    @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         navigationItem.title = place?.name
         updateLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateLabel()
+        table.reloadData()
     }
     
     func updateLabel() {
@@ -33,11 +40,21 @@ class InPlaceViewController: UIViewController {
                     return
                 }
         du.place = self.place
+        du.party = self.party
         
         du.modalPresentationStyle = .fullScreen
         self.present(du, animated: true)
     }
     
+    @IBAction func onSettle(_ sender: Any) {
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
+                    return
+                }
+        du.party = self.party
+        
+        du.modalPresentationStyle = .fullScreen
+        self.present(du, animated: true)
+    }
     
 }
 

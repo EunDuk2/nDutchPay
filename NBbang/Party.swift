@@ -20,4 +20,7 @@ class Party: Object {
     func addPlace(name: String?, price: Int) {
         place.append(Place(name: name, price: price))
     }
+    func plusPrice(price: Int) {
+        totalPrice += price
+    }
 }

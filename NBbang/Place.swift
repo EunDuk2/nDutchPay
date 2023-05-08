@@ -22,7 +22,6 @@ class Place: Object {
         menu.append(Menu(name: name, price: price, count: count))
     }
     func plusPrice(price:Int) {
-        
         totalPrice += price
     }
 }
