@@ -5,14 +5,13 @@ class Place: Object {
     
     @objc dynamic var name:String?
     var enjoyer = List<User>()
-    @objc dynamic var price:Int = 0
     var menu = List<Menu>()
     @objc dynamic var totalPrice:Int = 0
     
-    convenience init(name: String? = nil, price: Int = 0) {
+    convenience init(name: String? = nil, totalPrice: Int = 0) {
         self.init()
         self.name = name
-        self.price = price
+        self.totalPrice = totalPrice
     }
     
     func addEnjoyer(user:User) {

@@ -298,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BcH-Hh-jNV">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="-1" y="59" width="394" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="정산 내역" id="ety-vE-Rns">
@@ -414,7 +414,7 @@
                     </view>
                     <connections>
                         <outlet property="txtName" destination="fh2-2h-63c" id="FY8-1T-GUh"/>
-                        <outlet property="txtPrice" destination="PYX-pO-H69" id="r5w-U8-an1"/>
+                        <outlet property="txtPrice" destination="PYX-pO-H69" id="fJG-NZ-p8o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yso-Wb-d7f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -495,7 +495,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-ce-mMV">
-                                <rect key="frame" x="-1" y="59" width="394" height="44"/>
+                                <rect key="frame" x="-1" y="59" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="메뉴 추가" id="zCO-J5-ksW">
@@ -623,7 +623,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="szB-cB-vUt">
-                                <rect key="frame" x="-5" y="59" width="393" height="44"/>
+                                <rect key="frame" x="-5" y="59" width="392" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="파티 생성" id="gxo-jk-TTm"/>
@@ -684,7 +684,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MvJ-Ma-3X0">
-                                <rect key="frame" x="-9" y="59" width="391" height="44"/>
+                                <rect key="frame" x="-10" y="59" width="392" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="systemBackgroundColor"/>
                                 <items>

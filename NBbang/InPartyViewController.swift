@@ -34,13 +34,13 @@ class InPartyViewController: UIViewController {
     func addPlaceNsaveDB(name:String?, price: Int) {
         
         try! realm.write {
-            realm.add(Place(name: name, price: price))
+            realm.add(Place(name: name, totalPrice: price))
         }
     }
     
-    func addPlace(name:String?, price:Int) {
+    func addPlace(name:String?, totalPrice:Int) {
         try! realm.write {
-            party()[self.index!].addPlace(name: name, price: price)
+            party()[self.index!].addPlace(name: name, totalPrice: totalPrice)
         }
     }
     

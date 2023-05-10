@@ -37,7 +37,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     @IBAction func onSubmit(_ sender: Any) {
         try! realm.write {
             place?.addMenu(name: txtName.text ,price: Int(txtPrice.text ?? "") ?? 0, count: Int(txtCount.text ?? "") ?? 0)
-            place?.plusPrice(price: (Int(txtPrice.text ?? "") ?? 0) * (Int(txtCount.text ?? "") ?? 0))
+            //place?.plusPrice(price: (Int(txtPrice.text ?? "") ?? 0) * (Int(txtCount.text ?? "") ?? 0))
             party?.plusPrice(price: (Int(txtPrice.text ?? "") ?? 0) * (Int(txtCount.text ?? "") ?? 0))
         }
         

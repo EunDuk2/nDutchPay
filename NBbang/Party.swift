@@ -14,11 +14,14 @@ class Party: Object {
         self.name = name
     }
     
-    func addUser(id: String?, name: String?, phone: String?, account: String?) {
+    func addUser(id: String?, name: String?, phone: String?="", account: String?="") {
         user.append(User(id: id, name: name, phone: phone, account: account))
     }
-    func addPlace(name: String?, price: Int) {
-        place.append(Place(name: name, price: price))
+    func addUser(user:User?) {
+        self.user.append(user!)
+    }
+    func addPlace(name: String?, totalPrice: Int) {
+        place.append(Place(name: name, totalPrice: totalPrice))
     }
     func plusPrice(price: Int) {
         totalPrice += price

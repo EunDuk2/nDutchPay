@@ -37,7 +37,7 @@ class AddPlaceViewController: UIViewController {
     
     @IBAction func onSubmit(_ sender: Any) {
         try! realm.write {
-            party?.addPlace(name: txtName.text, price: Int(txtPrice.text ?? "") ?? 0) // ?? 는 nil값일 때 디폴트 값 지정
+            party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0) // ?? 는 nil값일 때 디폴트 값 지정
         }
         
         for i in 0..<(party?.user.count)! {

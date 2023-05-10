@@ -34,12 +34,12 @@ class InviteUserViewController: UIViewController {
     
     func addUser(userIndex: Int) {
         try! realm.write {
-            let existingUser = realm.objects(User.self).filter("name == %@ AND phone == %@ AND account == %@", user()[userIndex].name,
-                                                               user()[userIndex].phone, user()[userIndex].account).first
+            let existingUser = realm.objects(User.self).filter("id == %@", user()[userIndex].id).first
+                
                 if let existingUser = existingUser {
-                    party()[index!].user.append(existingUser)
+                    party()[index!].addUser(user: existingUser)
                 } else {
-                    party()[index!].user.append(user()[userIndex])
+                    //party()[index!].addUser(id: user()[userIndex].id, name: user()[userIndex].name)
                 }
         }
     }
