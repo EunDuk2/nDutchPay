@@ -9,12 +9,13 @@ class Menu: Object {
     @objc dynamic var totalPrice: Int = 0
     var enjoyer = List<User>()
     
-    convenience init(name: String? = nil, price: Int, count: Int) {
+    convenience init(name: String? = nil, price: Int, count: Int, enjoyer: List<User>?=nil) {
         self.init()
         self.name = name
         self.price = price
         self.count = count
         self.totalPrice = price * count
+        self.enjoyer = enjoyer!
     }
     
     func addEnjoyer(user:User) {

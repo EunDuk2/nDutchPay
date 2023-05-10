@@ -35,6 +35,18 @@ class AddPlaceViewController: UIViewController {
         }
     }
     
+    func addDefaultMenu(index: Int, totalPrice: Int?) {
+        try! realm.write {
+            party!.place[index].addMenu(name: "기타 메뉴", price: totalPrice!, count: 1, enjoyer: party?.user)
+//            // 파티원 전체 추가
+//            
+//            if let user = party?.user {
+//                party!.place[index].menu[0].enjoyer = user
+//            }
+            
+        }
+    }
+    
     @IBAction func onSubmit(_ sender: Any) {
         try! realm.write {
             party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0) // ?? 는 nil값일 때 디폴트 값 지정
@@ -45,6 +57,8 @@ class AddPlaceViewController: UIViewController {
                 addPlaceUser(user: party?.user[i])
             }
         }
+        
+        addDefaultMenu(index: (party?.place.count)!-1, totalPrice: Int(txtPrice.text ?? "") ?? 0)
         
         self.dismiss(animated: true)
     }

@@ -17,8 +17,8 @@ class Place: Object {
     func addEnjoyer(user:User) {
         enjoyer.append(user)
     }
-    func addMenu(name: String? = nil, price: Int, count: Int){
-        menu.append(Menu(name: name, price: price, count: count))
+    func addMenu(name: String? = nil, price: Int=0, count: Int=0, enjoyer: List<User>?=nil){
+        menu.append(Menu(name: name, price: price, count: count, enjoyer: enjoyer))
     }
     func plusPrice(price:Int) {
         totalPrice += price
