@@ -31,6 +31,12 @@ class SettleViewController: UIViewController {
             // 장소 가져오고
             place = party?.place[i]
             
+            let dMenuEnjoyerCount: Int = (place?.defaultMenu?.enjoyer.count)!
+            for j in 0..<(dMenuEnjoyerCount) {
+                try! realm.write {
+                    place?.defaultMenu?.enjoyer[j].money += (place?.defaultMenu!.totalPrice)! / dMenuEnjoyerCount
+                }
+            }
             
             for j in 0..<(place?.menu.count)! {
                 // 장소안에 메뉴랑 사용자 가져오고
@@ -53,7 +59,6 @@ class SettleViewController: UIViewController {
             lbl += String((party?.user[i].money)!) + "(원)\n"
         }
         lblTemp.text = lbl
-        print(lbl)
     }
     
     @IBAction func onDone(_ sender: Any) {

@@ -36,13 +36,9 @@ class AddPlaceViewController: UIViewController {
     }
     
     func addDefaultMenu(index: Int, totalPrice: Int?) {
+        let tempList: List<User>? = party?.place[index].enjoyer
         try! realm.write {
-            party!.place[index].addMenu(name: "기타 메뉴", price: totalPrice!, count: 1, enjoyer: party?.user)
-//            // 파티원 전체 추가
-//            
-//            if let user = party?.user {
-//                party!.place[index].menu[0].enjoyer = user
-//            }
+            party?.place[index].setDefaultMenu(defaultMenu: Menu(name: "기타 메뉴", price: totalPrice!, count: 1, enjoyer: tempList))
             
         }
     }

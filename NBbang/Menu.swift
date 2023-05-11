@@ -15,7 +15,9 @@ class Menu: Object {
         self.price = price
         self.count = count
         self.totalPrice = price * count
-        self.enjoyer = enjoyer!
+        if let enjoyers = enjoyer {
+            self.enjoyer = enjoyer!
+        }
     }
     
     func addEnjoyer(user:User) {

@@ -79,54 +79,51 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return (place?.menu.count)!
+            if((place?.menu.count)! > 0) {
+                return (place?.menu.count)!
+            }
+         
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableCell") as! MenuTableCell
         
         if indexPath.section == 0 {
-            var calPrice: Int? = place?.totalPrice
-            var calEnjoyer: String? = "("
-            
-            cell.lblName.text = "기타 메뉴"
-            
-            for i in 0..<(place?.enjoyer.count)! {
-                if(i != (place?.enjoyer.count)!) {
-                    calEnjoyer! += (place?.enjoyer[i].name)! + ", "
-                } else {
-                    calEnjoyer! += (place?.enjoyer[i].name)!
+                cell.lblName.text = place?.defaultMenu!.name
+                
+                var calEnjoyer: String? = "("
+                for i in 0..<(place?.defaultMenu!.enjoyer.count)! {
+                    if(i != (place?.defaultMenu!.enjoyer.count)!) {
+                        calEnjoyer! += (place?.defaultMenu!.enjoyer[i].name)! + ", "
+                    } else {
+                        calEnjoyer! += (place?.defaultMenu!.enjoyer[i].name)!
+                    }
                 }
-            }
-            calEnjoyer! += ")"
-            
-            cell.lblEnjoyer.text = calEnjoyer
-            
-            for i in 0..<(place?.menu.count)! {
-                calPrice! -= (place?.menu[i].totalPrice)!
-            }
-            
-            cell.lblTotalPrice.text = String(calPrice!)
+                calEnjoyer! += ")"
+
+                cell.lblEnjoyer.text = calEnjoyer
+                cell.lblTotalPrice.text = String((place?.defaultMenu?.totalPrice)!)
         }
         else if indexPath.section == 1 {
-            let row1 = place?.menu[indexPath.row].name
-            var row2: String = "("
-            let row3 = place?.menu[indexPath.row].totalPrice
-            
-            for i in 0..<(place?.menu[indexPath.row].enjoyer.count)! {
-                if(i != (place?.menu[indexPath.row].enjoyer.count)!-1) {
-                    row2 += (place?.menu[indexPath.row].enjoyer[i].name)! + ", "
-                } else {
-                    row2 += (place?.menu[indexPath.row].enjoyer[i].name)!
-                }
+                let row1 = place?.menu[indexPath.row].name
+                var row2: String = "("
+                let row3 = place?.menu[indexPath.row].totalPrice
                 
-            }
-            row2 += ")"
-            
-            cell.lblName.text = row1
-            cell.lblEnjoyer.text = row2
-            cell.lblTotalPrice.text = String(row3!) + "(원)"
+                for i in 0..<(place?.menu[indexPath.row].enjoyer.count)! {
+                    if(i != (place?.menu[indexPath.row].enjoyer.count)!-1) {
+                        row2 += (place?.menu[indexPath.row].enjoyer[i].name)! + ", "
+                    } else {
+                        row2 += (place?.menu[indexPath.row].enjoyer[i].name)!
+                    }
+                    
+                }
+                row2 += ")"
+                
+                cell.lblName.text = row1
+                cell.lblEnjoyer.text = row2
+                cell.lblTotalPrice.text = String(row3!) + "(원)"
         }
         
         return cell
