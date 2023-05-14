@@ -768,6 +768,7 @@
                     </view>
                     <connections>
                         <outlet property="account" destination="7Ze-dK-rBc" id="2hs-rI-gws"/>
+                        <outlet property="btnSubmit" destination="z17-Xb-Z0R" id="zE0-Qd-ArY"/>
                         <outlet property="lblWarning" destination="OFn-6t-2f0" id="Q3Y-ta-n15"/>
                         <outlet property="name" destination="gGu-HO-hQT" id="ExW-yK-ZYD"/>
                         <outlet property="phone" destination="2IG-YL-jBn" id="8A7-lt-Sc5"/>
