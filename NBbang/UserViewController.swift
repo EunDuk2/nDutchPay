@@ -44,5 +44,16 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "EditUserViewController") as? EditUserViewController else {
+                    return
+                }
+        na.index = indexPath.row
+
+        
+        self.navigationController?.pushViewController(na, animated: true)
+        
+    }
     
 }
