@@ -670,6 +670,16 @@
                                     <outlet property="delegate" destination="dvW-CU-638" id="7dp-2n-KTa"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-bl-aAG">
+                                <rect key="frame" x="16" y="266" width="62" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="🟩 전체 선택"/>
+                                <connections>
+                                    <action selector="onAllCheck:" destination="dvW-CU-638" eventType="touchUpInside" id="3eV-cE-O1v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dTb-CB-Wu5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -678,7 +688,9 @@
                     <navigationItem key="navigationItem" id="fzT-1B-vxC"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnCheck" destination="Acn-bl-aAG" id="3sy-tS-HAC"/>
                         <outlet property="partyName" destination="QAS-j1-0Qg" id="as5-Hw-3ak"/>
+                        <outlet property="table" destination="EZS-aC-frK" id="7SP-QE-4cV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGA-yU-zH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

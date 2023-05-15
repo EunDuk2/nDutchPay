@@ -4,8 +4,11 @@ import RealmSwift
 class AddPartyViewController: UIViewController {
     
     @IBOutlet var partyName: UITextField!
+    @IBOutlet var btnCheck: UIButton!
+    @IBOutlet var table: UITableView!
     
     let realm = try! Realm()
+    var allCheck: Bool = false
     
     override func viewDidLoad() {
         resetUserMemberDB()
@@ -30,6 +33,13 @@ class AddPartyViewController: UIViewController {
         for i in 0..<user().count {
             try! realm.write {
                 user()[i].member = 0
+            }
+        }
+    }
+    func setUserMemberDB() {
+        for i in 0..<user().count {
+            try! realm.write {
+                user()[i].member = 1
             }
         }
     }
@@ -64,6 +74,19 @@ class AddPartyViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onAllCheck(_ sender: Any) {
+        if(allCheck == false) {
+            allCheck = true
+            btnCheck.setTitle("✅ 전체 해제", for: .normal)
+            setUserMemberDB()
+        } else {
+            allCheck = false
+            btnCheck.setTitle("🟩 전체 선택", for: .normal)
+            resetUserMemberDB()
+        }
+        table.reloadData()
+    }
+    
 }
 
 extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +101,14 @@ extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.index = indexPath.row
         cell.lblName?.text = row
-        cell.btnCheck.setTitle("🟩", for: .normal)
+        
+        if(allCheck == false) {
+            cell.btnCheck.setTitle("🟩", for: .normal)
+        } else {
+            cell.btnCheck.setTitle("✅", for: .normal)
+        }
+        
+        
         
         cell.delegate = self
         
