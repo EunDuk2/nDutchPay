@@ -96,7 +96,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addParty(_ sender: Any) {
-        print("test")
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
                     return
                 }

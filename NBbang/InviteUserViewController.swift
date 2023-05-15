@@ -98,9 +98,7 @@ extension InviteUserViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension InviteUserViewController: TableViewCellDelegate {
     
-    
     func didTapButton(cellIndex: Int?, button: UIButton?) {
-        
         if(button?.title(for: .normal) != "🟩") {
             button?.setTitle("🟩", for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
