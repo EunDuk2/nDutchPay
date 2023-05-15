@@ -5,7 +5,8 @@ class AddUserViewController: UserViewController {
     @IBOutlet var name: UITextField!
     @IBOutlet var phone: UITextField!
     @IBOutlet var account: UITextField!
-    @IBOutlet var lblWarning: UILabel!
+    @IBOutlet var lblNameWarning: UILabel!
+    @IBOutlet var lblPhoneWarning: UILabel!
     @IBOutlet var btnSubmit: UIBarButtonItem!
     
     var maxLength:Int = 8
@@ -83,14 +84,14 @@ extension AddUserViewController: UITextFieldDelegate {
                     }
                     
                     else if text.count < 1 {
-                        lblWarning.text = "1글자 이상 8글자 이하로 입력해주세요"
-                        lblWarning.textColor = .red
+                        lblNameWarning.text = "1글자 이상 8글자 이하로 입력해주세요"
+                        lblNameWarning.textColor = .red
                         nameBool = false
                         isSubmit()
                     }
                     else {
-                        lblWarning.text = "사용 가능한 닉네임입니다."
-                        lblWarning.textColor = .green
+                        lblNameWarning.text = "사용 가능한 닉네임입니다."
+                        lblNameWarning.textColor = .green
                         nameBool = true
                         isSubmit()
                     }
@@ -107,12 +108,21 @@ extension AddUserViewController: UITextFieldDelegate {
                         let newString = text[text.startIndex..<index]
                         textField.text = String(newString)
                     }
-                    
+                    else if text.count < 10 {
+                        lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
+                        lblPhoneWarning.textColor = .red
+                        phoneBool = false
+                        isSubmit()
+                    }
                     else {
                         if(isPhone(candidate: textField.text!) == true) {
                             phoneBool = true
+                            lblPhoneWarning.text = "형식에 맞는 전화 번호입니다"
+                            lblPhoneWarning.textColor = .green
                             isSubmit()
                         } else {
+                            lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
+                            lblPhoneWarning.textColor = .red
                             phoneBool = false
                             isSubmit()
                         }

@@ -644,7 +644,7 @@
             </objects>
             <point key="canvasLocation" x="1921" y="-839"/>
         </scene>
-        <!--User View Controller-->
+        <!--친구 목록-->
         <scene sceneID="s0W-gx-qWN">
             <objects>
                 <viewController id="rbh-jx-coL" customClass="UserViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
@@ -687,17 +687,18 @@
                                 <rect key="frame" x="-11" y="59" width="392" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="systemBackgroundColor"/>
-                                <items>
-                                    <navigationItem title="친구 목록" id="jbh-l7-gaq">
-                                        <barButtonItem key="rightBarButtonItem" springLoaded="YES" style="plain" systemItem="add" id="8Nj-AW-68f"/>
-                                    </navigationItem>
-                                </items>
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u8o-Ae-OjN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EVI-OZ-9Mn"/>
+                    <navigationItem key="navigationItem" title="친구 목록" id="EVI-OZ-9Mn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vA6-S3-i1e">
+                            <connections>
+                                <segue destination="f2r-m8-F1Z" kind="presentation" modalPresentationStyle="fullScreen" id="5xa-sf-QQO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="e53-AK-f7Z" id="Z4M-ZF-aUb"/>
                     </connections>
@@ -752,7 +753,14 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFn-6t-2f0">
-                                <rect key="frame" x="36" y="197" width="321" height="21"/>
+                                <rect key="frame" x="36" y="197" width="321" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J85-Ys-sTd">
+                                <rect key="frame" x="36" y="259" width="321" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -765,16 +773,17 @@
                     <connections>
                         <outlet property="account" destination="7Ze-dK-rBc" id="2hs-rI-gws"/>
                         <outlet property="btnSubmit" destination="z17-Xb-Z0R" id="zE0-Qd-ArY"/>
-                        <outlet property="lblWarning" destination="OFn-6t-2f0" id="Q3Y-ta-n15"/>
+                        <outlet property="lblNameWarning" destination="OFn-6t-2f0" id="3R5-5j-L6j"/>
+                        <outlet property="lblPhoneWarning" destination="J85-Ys-sTd" id="pfy-Iz-LCQ"/>
                         <outlet property="name" destination="gGu-HO-hQT" id="ExW-yK-ZYD"/>
                         <outlet property="phone" destination="2IG-YL-jBn" id="8A7-lt-Sc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2L-33-Lw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608.3969465648852" y="474.64788732394368"/>
+            <point key="canvasLocation" x="2606.8702290076335" y="474.64788732394368"/>
         </scene>
-        <!--Title-->
+        <!--편집-->
         <scene sceneID="UYx-wm-TAn">
             <objects>
                 <viewController storyboardIdentifier="EditUserViewController" id="idY-o4-d2o" customClass="EditUserViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
@@ -790,20 +799,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="전화번호: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mu9-hE-gdz">
-                                <rect key="frame" x="16" y="204" width="68" height="21"/>
+                                <rect key="frame" x="16" y="234" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-NV-UhC">
-                                <rect key="frame" x="92" y="197" width="285" height="34"/>
+                                <rect key="frame" x="92" y="227" width="285" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiB-yQ-HVw">
-                                <rect key="frame" x="153" y="256" width="88" height="35"/>
+                                <rect key="frame" x="152" y="351" width="88" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="친구 삭제">
@@ -819,11 +828,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6J-9v-OWV">
+                                <rect key="frame" x="16" y="193" width="361" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pP-D6-rqK">
+                                <rect key="frame" x="16" y="263" width="361" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Lm-OX-93l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Kem-bq-pMd">
+                    <navigationItem key="navigationItem" title="편집" id="Kem-bq-pMd">
                         <barButtonItem key="rightBarButtonItem" title="완료" id="7fR-zf-TBh">
                             <connections>
                                 <action selector="onSubmit:" destination="idY-o4-d2o" id="sQL-zV-bxi"/>
@@ -831,13 +854,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnSubmit" destination="7fR-zf-TBh" id="12Z-gW-95w"/>
+                        <outlet property="lblNameWarning" destination="d6J-9v-OWV" id="5s2-Ng-NTR"/>
+                        <outlet property="lblPhoneWarning" destination="9pP-D6-rqK" id="U1c-ft-QQo"/>
                         <outlet property="txtName" destination="3w7-eF-s1m" id="OMS-Iv-tw6"/>
                         <outlet property="txtPhone" destination="Jfs-NV-UhC" id="vjw-cP-77x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r13-Yf-ZBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921" y="1135"/>
+            <point key="canvasLocation" x="1919.8473282442746" y="1134.5070422535211"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h1j-3a-alt">
