@@ -71,29 +71,19 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         checkName(text: contact.givenName + contact.familyName, textField: name)
         
         if let phoneNumber = contact.phoneNumbers.first?.value.stringValue {
-            let formattedPhoneNumber = formatPhoneNumber(phoneNumber)
+            let digitsOnly = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            var formattedPhoneNumber: String
+            if digitsOnly.hasPrefix("82") {
+                formattedPhoneNumber = "010" + digitsOnly.dropFirst(2)
+            } else {
+                formattedPhoneNumber = digitsOnly
+            }
             phone.text = formattedPhoneNumber
             checkPhone(text: formattedPhoneNumber, textField: phone)
         } else {
             phone.text = "No phone number available"
         }
 
-        
-    }
-    func formatPhoneNumber(_ phoneNumber: String) -> String {
-        let digits = phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        
-        if digits.hasPrefix("82") {
-            let index = digits.index(digits.startIndex, offsetBy: 2)
-            let phone = digits[index...]
-            return "010\(phone)"
-        } else if digits.hasPrefix("0") {
-            let index = digits.index(digits.startIndex, offsetBy: 1)
-            let phone = digits[index...]
-            return "+82\(phone)"
-        }
-        
-        return phoneNumber
     }
 }
 
