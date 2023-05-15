@@ -766,6 +766,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BQ-IR-FKg">
+                                <rect key="frame" x="116" y="122" width="161" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="연락처에서 가져오기"/>
+                                <connections>
+                                    <action selector="onGetContact:" destination="f2r-m8-F1Z" eventType="touchUpInside" id="j8q-af-BxJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x6F-DE-J5g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -864,6 +873,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r13-Yf-ZBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1919.8473282442746" y="1134.5070422535211"/>
+        </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="aaB-Bi-wau">
+            <objects>
+                <viewController storyboardIdentifier="ContactViewController" modalPresentationStyle="fullScreen" id="lGt-Iv-Cmk" customClass="ContactViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gBf-Hp-uc5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0Fz-eF-v87"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87d-kV-iBM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2624" y="1135"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h1j-3a-alt">

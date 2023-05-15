@@ -11,6 +11,7 @@
 		6198CC6329FD2FFD0031E923 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */; };
 		619A49F329FD0B03007B445E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A49F229FD0B03007B445E /* UserViewController.swift */; };
 		619A49F529FD0B7B007B445E /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A49F429FD0B7B007B445E /* UserTableCell.swift */; };
+		619AFAE72A11FC8E00103ABA /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AFAE62A11FC8E00103ABA /* ContactViewController.swift */; };
 		619E48142A03751C00371795 /* InPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E48132A03751C00371795 /* InPlaceViewController.swift */; };
 		619E48162A037B2400371795 /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E48152A037B2400371795 /* MenuTableCell.swift */; };
 		61A621E829FD4740006B9DC9 /* InPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621E729FD4740006B9DC9 /* InPartyViewController.swift */; };
@@ -45,6 +46,7 @@
 		6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		619A49F229FD0B03007B445E /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		619A49F429FD0B7B007B445E /* UserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableCell.swift; sourceTree = "<group>"; };
+		619AFAE62A11FC8E00103ABA /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		619E48132A03751C00371795 /* InPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPlaceViewController.swift; sourceTree = "<group>"; };
 		619E48152A037B2400371795 /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
 		61A621E729FD4740006B9DC9 /* InPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPartyViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				61A621E929FD4B7F006B9DC9 /* InviteUserViewController.swift */,
 				61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */,
 				6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */,
+				619AFAE62A11FC8E00103ABA /* ContactViewController.swift */,
 				619A49F429FD0B7B007B445E /* UserTableCell.swift */,
 				61AB20E329D3C93200817839 /* PartyTableCell.swift */,
 				61BD96FF29D31FDD00125849 /* Party.swift */,
@@ -287,6 +290,7 @@
 				61BD970229D321D100125849 /* User.swift in Sources */,
 				61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */,
 				61AA23312A08D3180020AFC9 /* SettleViewController.swift in Sources */,
+				619AFAE72A11FC8E00103ABA /* ContactViewController.swift in Sources */,
 				61FC48472A03909200D36559 /* AddPlaceViewController.swift in Sources */,
 				61BD96EE29D31E5B00125849 /* SceneDelegate.swift in Sources */,
 				61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */,
@@ -444,6 +448,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53TT286T39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NBbang/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -472,6 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 53TT286T39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NBbang/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

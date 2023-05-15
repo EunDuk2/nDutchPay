@@ -82,6 +82,53 @@ class EditUserViewController: UIViewController {
 }
 
 extension EditUserViewController: UITextFieldDelegate {
+    func checkName(text: String, textField: UITextField) {
+        
+        if text.count >= maxLength {
+            let index = text.index(text.startIndex, offsetBy: maxLength)
+            let newString = text[text.startIndex..<index]
+            textField.text = String(newString)
+        } else {
+            if text.count < 1 {
+                lblNameWarning.text = "1글자 이상 8글자 이하로 입력해주세요"
+                lblNameWarning.textColor = .red
+                nameBool = false
+                isSubmit()
+            }
+            else {
+                lblNameWarning.text = "사용 가능한 닉네임입니다."
+                lblNameWarning.textColor = .green
+                nameBool = true
+                isSubmit()
+            }
+        }
+    }
+    func checkPhone(text: String, textField: UITextField) {
+        if text.count >= 11 {
+            let index = text.index(text.startIndex, offsetBy: 11)
+            let newString = text[text.startIndex..<index]
+            textField.text = String(newString)
+        }
+        if text.count <= 10 {
+            lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
+            lblPhoneWarning.textColor = .red
+            phoneBool = false
+            isSubmit()
+        }
+        else {
+            if(isPhone(candidate: textField.text!) == true) {
+                phoneBool = true
+                lblPhoneWarning.text = "형식에 맞는 전화 번호입니다"
+                lblPhoneWarning.textColor = .green
+                isSubmit()
+            } else {
+                lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
+                lblPhoneWarning.textColor = .red
+                phoneBool = false
+                isSubmit()
+            }
+        }
+    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             guard let text = textField.text else {return false}
             
@@ -96,58 +143,14 @@ extension EditUserViewController: UITextFieldDelegate {
     @objc private func nameDidChange(_ notification: Notification) {
             if let textField = notification.object as? UITextField {
                 if let text = textField.text {
-                    
-                    // 초과되는 텍스트 제거
-                    if text.count >= maxLength {
-                        let index = text.index(text.startIndex, offsetBy: maxLength)
-                        let newString = text[text.startIndex..<index]
-                        textField.text = String(newString)
-                    }
-                    
-                    else if text.count < 1 {
-                        lblNameWarning.text = "1글자 이상 8글자 이하로 입력해주세요"
-                        lblNameWarning.textColor = .red
-                        nameBool = false
-                        isSubmit()
-                    }
-                    else {
-                        lblNameWarning.text = "사용 가능한 닉네임입니다."
-                        lblNameWarning.textColor = .green
-                        nameBool = true
-                        isSubmit()
-                    }
+                    checkName(text: text, textField: textField)
                 }
             }
         }
     @objc private func phoneDidChange(_ notification: Notification) {
             if let textField = notification.object as? UITextField {
                 if let text = textField.text {
-                    
-                    // 초과되는 텍스트 제거
-                    if text.count >= 11 {
-                        let index = text.index(text.startIndex, offsetBy: 11)
-                        let newString = text[text.startIndex..<index]
-                        textField.text = String(newString)
-                    }
-                    else if text.count < 10 {
-                        lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
-                        lblPhoneWarning.textColor = .red
-                        phoneBool = false
-                        isSubmit()
-                    }
-                    else {
-                        if(isPhone(candidate: textField.text!) == true) {
-                            phoneBool = true
-                            lblPhoneWarning.text = "형식에 맞는 전화 번호입니다"
-                            lblPhoneWarning.textColor = .green
-                            isSubmit()
-                        } else {
-                            lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
-                            lblPhoneWarning.textColor = .red
-                            phoneBool = false
-                            isSubmit()
-                        }
-                    }
+                    checkPhone(text: text, textField: textField)
                 }
             }
         }
