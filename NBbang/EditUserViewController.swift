@@ -45,6 +45,22 @@ class EditUserViewController: UIViewController {
         }
     }
     
+    func delCheck() {
+        let alert = UIAlertController(title: "친구 삭제", message: user()[index!].name! + " 님을 삭제 하시겠습니까?", preferredStyle: .alert)
+
+        let clear = UIAlertAction(title: "확인", style: .default) { (_) in
+            self.delUser()
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .destructive)
+        
+        alert.addAction(clear)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true)
+    }
+    
     func isSubmit() {
         if(nameBool == true && phoneBool == true) {
             btnSubmit.isEnabled = true
@@ -69,8 +85,7 @@ class EditUserViewController: UIViewController {
     }
     
     @IBAction func onDelete(_ sender: Any) {
-        delUser()
-        self.navigationController?.popViewController(animated: true)
+        delCheck()
     }
 
     @IBAction func onSubmit(_ sender: Any) {
