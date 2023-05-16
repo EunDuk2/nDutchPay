@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        firstLaunch()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         //saveDB()
@@ -31,6 +31,20 @@ class ViewController: UIViewController {
         if let tableView = table {
                 tableView.reloadData()
             }
+    }
+    
+    func firstLaunch() {
+        if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
+            
+            guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddUserViewController") as? AddUserViewController else {
+                        return
+                    }
+            du.initBool = true
+            
+            self.present(du, animated: true)
+            
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
     }
     
     func party() -> Results<Party> {

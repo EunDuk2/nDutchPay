@@ -9,13 +9,21 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
     @IBOutlet var lblNameWarning: UILabel!
     @IBOutlet var lblPhoneWarning: UILabel!
     @IBOutlet var btnSubmit: UIBarButtonItem!
+    @IBOutlet var btnCancel: UIBarButtonItem!
+    @IBOutlet var navBar: UINavigationBar!
     
     var maxLength:Int = 8
     var nameBool: Bool = false
     var phoneBool: Bool = false
+    var initBool: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(initBool == true) {
+            self.navBar?.topItem?.title = "본인 등록"
+            btnCancel?.isHidden = true
+        }
         
         btnSubmit.isEnabled = false
         

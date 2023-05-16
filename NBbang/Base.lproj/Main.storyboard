@@ -391,7 +391,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-ut-JoE">
-                                <rect key="frame" x="-1" y="59" width="393" height="44"/>
+                                <rect key="frame" x="-2" y="59" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="장소 추가" id="Lt3-ys-3Qi">
@@ -623,7 +623,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="szB-cB-vUt">
-                                <rect key="frame" x="-5" y="59" width="391" height="44"/>
+                                <rect key="frame" x="-5" y="59" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="파티 생성" id="gxo-jk-TTm"/>
@@ -737,7 +737,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MvJ-Ma-3X0">
-                                <rect key="frame" x="-11" y="59" width="392" height="44"/>
+                                <rect key="frame" x="-12" y="59" width="392" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="systemBackgroundColor"/>
                             </navigationBar>
@@ -763,7 +763,7 @@
         <!--Add User View Controller-->
         <scene sceneID="fP6-Nr-f85">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="f2r-m8-F1Z" customClass="AddUserViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddUserViewController" modalPresentationStyle="fullScreen" id="f2r-m8-F1Z" customClass="AddUserViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KgH-Rt-nNH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -787,17 +787,17 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KeM-J7-L1Y">
-                                <rect key="frame" x="-7" y="59" width="394" height="44"/>
+                                <rect key="frame" x="-8" y="59" width="395" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="새로운 친구 추가" id="VJ1-nY-Bzs">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="048-UJ-opS">
+                                        <barButtonItem key="leftBarButtonItem" title="취소" style="plain" id="048-UJ-opS">
                                             <connections>
                                                 <action selector="onCancel:" destination="f2r-m8-F1Z" id="lTG-DW-3ei"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="z17-Xb-Z0R">
+                                        <barButtonItem key="rightBarButtonItem" title="확인" style="plain" id="z17-Xb-Z0R">
                                             <connections>
                                                 <action selector="onSubmit:" destination="f2r-m8-F1Z" id="dUX-xn-Orx"/>
                                             </connections>
@@ -834,10 +834,12 @@
                     </view>
                     <connections>
                         <outlet property="account" destination="7Ze-dK-rBc" id="2hs-rI-gws"/>
+                        <outlet property="btnCancel" destination="048-UJ-opS" id="hDh-B0-Wdm"/>
                         <outlet property="btnSubmit" destination="z17-Xb-Z0R" id="zE0-Qd-ArY"/>
                         <outlet property="lblNameWarning" destination="OFn-6t-2f0" id="3R5-5j-L6j"/>
                         <outlet property="lblPhoneWarning" destination="J85-Ys-sTd" id="pfy-Iz-LCQ"/>
                         <outlet property="name" destination="gGu-HO-hQT" id="ExW-yK-ZYD"/>
+                        <outlet property="navBar" destination="KeM-J7-L1Y" id="erk-b8-hgn"/>
                         <outlet property="phone" destination="2IG-YL-jBn" id="8A7-lt-Sc5"/>
                     </connections>
                 </viewController>
@@ -904,6 +906,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbj-fB-BW6">
+                                <rect key="frame" x="331" y="92" width="41" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="☆">
+                                    <color key="titleColor" systemColor="systemYellowColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Lm-OX-93l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1006,6 +1017,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
