@@ -46,7 +46,7 @@ class EditUserViewController: UIViewController {
     }
     
     func delCheck() {
-        let alert = UIAlertController(title: "친구 삭제", message: user()[index!].name! + " 님을 삭제 하시겠습니까?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "친구 삭제", message: user()[index!].name! + " 님을 삭제 하시겠습니까?\n", preferredStyle: .alert)
 
         let clear = UIAlertAction(title: "확인", style: .default) { (_) in
             self.delUser()
@@ -55,8 +55,8 @@ class EditUserViewController: UIViewController {
         }
         let cancel = UIAlertAction(title: "취소", style: .destructive)
         
-        alert.addAction(clear)
         alert.addAction(cancel)
+        alert.addAction(clear)
         
         self.present(alert, animated: true)
     }
