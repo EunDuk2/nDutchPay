@@ -55,7 +55,20 @@ class InviteUserViewController: UIViewController {
     
     func delUser(userIndex: Int) {
         try! realm.write {
-            party()[index!].user.remove(at: userIndex)
+            
+            if let userIndex = party()[index!].user.index(of: user()[userIndex]) {
+                party()[index!].user.remove(at: userIndex)
+                for place in user()[userIndex].places {
+                    if let userIndexInPlace = place.enjoyer.index(of: user()[userIndex]) {
+                        place.enjoyer.remove(at: userIndexInPlace)
+                    }
+                }
+                for menu in user()[userIndex].menus {
+                    if let userIndexInMenu = menu.enjoyer.index(of: user()[userIndex]) {
+                        menu.enjoyer.remove(at: userIndexInMenu)
+                    }
+                }
+            }
         }
     }
     
