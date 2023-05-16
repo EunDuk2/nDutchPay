@@ -157,7 +157,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="파티 이름" id="eWf-VR-A06">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c3U-ws-4IV">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-메뉴-64.png" style="plain" id="c3U-ws-4IV">
                             <connections>
                                 <action selector="onInviteUser:" destination="XWo-fW-i68" id="fqD-v5-wgZ"/>
                             </connections>
@@ -1012,6 +1012,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-메뉴-64.png" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

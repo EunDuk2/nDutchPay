@@ -53,13 +53,33 @@ class InviteUserViewController: UIViewController {
         return false
     }
     
+    func delUser(userIndex: Int) {
+        try! realm.write {
+            party()[index!].user.remove(at: userIndex)
+        }
+    }
+    
+    func sortUser() {
+        try! realm.write {
+            party()[index!].user.sort(by: { $0.id! < $1.id! })
+        }
+
+    }
+    
     @IBAction func onSubmit(_ sender: Any) {
         
         for i in 0..<user().count {
-            if(user()[i].member == 1) {
-                addUser(userIndex: i)
+            if(user()[i].member == 0) {
+                if(checkExistingUser(indexPathRow: i)) {
+                    delUser(userIndex: i)
+                    sortUser()
+                }
+            } else {
+                if(checkExistingUser(indexPathRow: i) == false) {
+                    addUser(userIndex: i)
+                    sortUser()
+                }
             }
-            
         }
         
         self.navigationController?.popViewController(animated: true)
@@ -83,7 +103,10 @@ extension InviteUserViewController: UITableViewDelegate, UITableViewDataSource {
         
         if(checkExistingUser(indexPathRow: indexPath.row) == true) {
             cell.btnCheck?.setTitle("✅", for: .normal)
-            cell.btnCheck?.isEnabled = false
+            
+            try! realm.write {
+                user()[indexPath.row].member = 1
+            }
         } else {
             cell.btnCheck?.setTitle("🟩", for: .normal)
         }

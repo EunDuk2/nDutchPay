@@ -34,6 +34,7 @@
 		61C1B6FD2A1104AB00906D4E /* name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C1B6FC2A1104AB00906D4E /* name.swift */; };
 		61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CC2A027C9B00E9A657 /* Place.swift */; };
 		61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */; };
+		61D647FE2A13A89D0065B707 /* icons8-메뉴-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */; };
 		61FC48472A03909200D36559 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FC48462A03909200D36559 /* AddPlaceViewController.swift */; };
 		61FC484B2A03967900D36559 /* AddPlaceUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FC484A2A03967900D36559 /* AddPlaceUserTableCell.swift */; };
 		6B5E2F7D5CF5BC4176244338 /* Pods_NBbang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2644F08F4E867D38D02433FD /* Pods_NBbang.framework */; };
@@ -71,6 +72,7 @@
 		61C1B6FC2A1104AB00906D4E /* name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = name.swift; sourceTree = "<group>"; };
 		61CE09CC2A027C9B00E9A657 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
+		61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-메뉴-64.png"; sourceTree = "<group>"; };
 		61FC48462A03909200D36559 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPlaceViewController.swift; path = ../AddPlaceViewController.swift; sourceTree = "<group>"; };
 		61FC484A2A03967900D36559 /* AddPlaceUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceUserTableCell.swift; sourceTree = "<group>"; };
 		D7BB13FFFAE633BE038FB84E /* Pods-NBbang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBbang.release.xcconfig"; path = "Target Support Files/Pods-NBbang/Pods-NBbang.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		61BD96EA29D31E5B00125849 /* NBbang */ = {
 			isa = PBXGroup;
 			children = (
+				61D647FC2A13A8160065B707 /* images */,
 				61FC48462A03909200D36559 /* AddPlaceViewController.swift */,
 				61FC484A2A03967900D36559 /* AddPlaceUserTableCell.swift */,
 				61BD96EB29D31E5B00125849 /* AppDelegate.swift */,
@@ -150,6 +153,14 @@
 				61BD96F929D31E5D00125849 /* Info.plist */,
 			);
 			path = NBbang;
+			sourceTree = "<group>";
+		};
+		61D647FC2A13A8160065B707 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		B046F603602215D191F8345B /* Frameworks */ = {
@@ -221,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61BD96F829D31E5D00125849 /* LaunchScreen.storyboard in Resources */,
+				61D647FE2A13A89D0065B707 /* icons8-메뉴-64.png in Resources */,
 				61BD96F529D31E5D00125849 /* Assets.xcassets in Resources */,
 				61BD96F329D31E5B00125849 /* Main.storyboard in Resources */,
 			);
