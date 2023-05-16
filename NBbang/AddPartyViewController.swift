@@ -62,9 +62,22 @@ class AddPartyViewController: UIViewController {
         }
     }
     
+    func partyNameCount() -> Int {
+        do {
+            let partiesWithName = realm.objects(Party.self).filter("name CONTAINS %@", "이름 없는 파티방")
+            let count = partiesWithName.count
+            return count + 1
+        } catch {
+            print("Realm 오류: \(error)")
+            return 0
+        }
+    }
+    
     @IBAction func onAddParty(_ sender: Any) {
         if(partyName.text == "") {
-            addPartyNsaveDB(name: "이름 없는 파티방"+String(party().count+1))
+            addPartyNsaveDB(name: "이름 없는 파티방"+String(partyNameCount()))
+        } else {
+            addPartyNsaveDB(name: partyName.text!)
         }
         for i in 0..<user().count {
             if(user()[i].member == 1) {
