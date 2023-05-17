@@ -8,6 +8,7 @@ class EditUserViewController: UIViewController {
     @IBOutlet var lblNameWarning: UILabel!
     @IBOutlet var lblPhoneWarning: UILabel!
     @IBOutlet var btnSubmit: UIBarButtonItem!
+    @IBOutlet var btnBookmark: UIButton!
     
     var maxLength:Int = 8
     var index: Int?
@@ -94,6 +95,20 @@ class EditUserViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func onBookmark(_ sender: Any) {
+        if(btnBookmark.title(for: .normal) == "☆") {
+            btnBookmark.setTitle("★", for: .normal)
+            try! realm.write {
+                user()[index!].bookmark = true
+            }
+        } else {
+            btnBookmark.setTitle("☆", for: .normal)
+            try! realm.write {
+                user()[index!].bookmark = false
+            }
+        }
+    }
+    
 }
 
 extension EditUserViewController: UITextFieldDelegate {

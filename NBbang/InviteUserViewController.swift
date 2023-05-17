@@ -53,6 +53,33 @@ class InviteUserViewController: UIViewController {
         return false
     }
     
+    func delBeforeAlert() {
+        let alert = UIAlertController(title: "파티원 추가 및 삭제", message: "파티원을 편집하시겠습니까?\n파티원 삭제 시 모든 장소 및 메뉴에서 삭제됩니다.", preferredStyle: .alert)
+        let clear = UIAlertAction(title: "확인", style: .default) { (_) in
+            for i in 0..<self.user().count {
+                if(self.user()[i].member == 0) {
+                    if(self.checkExistingUser(indexPathRow: i)) {
+                        self.delUser(userIndex: i)
+                        self.sortUser()
+                    }
+                } else {
+                    if(self.checkExistingUser(indexPathRow: i) == false) {
+                        self.addUser(userIndex: i)
+                        self.sortUser()
+                    }
+                }
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .destructive)
+        
+        alert.addAction(cancel)
+        alert.addAction(clear)
+        
+        self.present(alert, animated: true)
+    }
+    
     func delUser(userIndex: Int) {
         try! realm.write {
             
@@ -80,22 +107,7 @@ class InviteUserViewController: UIViewController {
     }
     
     @IBAction func onSubmit(_ sender: Any) {
-        
-        for i in 0..<user().count {
-            if(user()[i].member == 0) {
-                if(checkExistingUser(indexPathRow: i)) {
-                    delUser(userIndex: i)
-                    sortUser()
-                }
-            } else {
-                if(checkExistingUser(indexPathRow: i) == false) {
-                    addUser(userIndex: i)
-                    sortUser()
-                }
-            }
-        }
-        
-        self.navigationController?.popViewController(animated: true)
+        delBeforeAlert()
     }
     
 }

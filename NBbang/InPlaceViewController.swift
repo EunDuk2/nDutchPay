@@ -67,13 +67,13 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
            return 2
        }
        
-       // Returns the title of the section.
-       func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-           
-           let sections:[String] = ["추가되지 않은 메뉴", "추가된 메뉴"]
-           
-           return sections[section]
-       }
+   // Returns the title of the section.
+   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+       
+       let sections:[String] = ["추가되지 않은 메뉴", "추가된 메뉴"]
+       
+       return sections[section]
+   }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
