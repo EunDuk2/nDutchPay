@@ -32,6 +32,7 @@
 		61BD970429D3236F00125849 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD970329D3236F00125849 /* Menu.swift */; };
 		61C1B6FB2A1104A000906D4E /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */; };
 		61C1B6FD2A1104AB00906D4E /* name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C1B6FC2A1104AB00906D4E /* name.swift */; };
+		61C738D62A162E82002D56AD /* EditPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C738D52A162E82002D56AD /* EditPlaceViewController.swift */; };
 		61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CC2A027C9B00E9A657 /* Place.swift */; };
 		61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */; };
 		61D647FE2A13A89D0065B707 /* icons8-메뉴-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */; };
@@ -70,6 +71,7 @@
 		61BD970329D3236F00125849 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		61C1B6FC2A1104AB00906D4E /* name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = name.swift; sourceTree = "<group>"; };
+		61C738D52A162E82002D56AD /* EditPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaceViewController.swift; sourceTree = "<group>"; };
 		61CE09CC2A027C9B00E9A657 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
 		61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-메뉴-64.png"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				61AA23302A08D3180020AFC9 /* SettleViewController.swift */,
 				61C1B6FC2A1104AB00906D4E /* name.swift */,
 				61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */,
+				61C738D52A162E82002D56AD /* EditPlaceViewController.swift */,
 				61BD96F429D31E5D00125849 /* Assets.xcassets */,
 				61BD96F629D31E5D00125849 /* LaunchScreen.storyboard */,
 				61BD96F929D31E5D00125849 /* Info.plist */,
@@ -311,6 +314,7 @@
 				61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */,
 				61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */,
 				6196657F29FCD7860056A591 /* AddPartyViewController.swift in Sources */,
+				61C738D62A162E82002D56AD /* EditPlaceViewController.swift in Sources */,
 				61A621EA29FD4B7F006B9DC9 /* InviteUserViewController.swift in Sources */,
 				619A49F529FD0B7B007B445E /* UserTableCell.swift in Sources */,
 			);

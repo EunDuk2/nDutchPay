@@ -58,6 +58,17 @@ class InPlaceViewController: UIViewController {
         self.present(du, animated: true)
     }
     
+    @IBAction func onEdit(_ sender: Any) {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as? EditPlaceViewController else {
+            return
+        }
+        
+        na.party = self.party
+        na.place = self.place
+        
+        self.navigationController?.pushViewController(na, animated: true)
+    }
+    
 }
 
 extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
