@@ -421,7 +421,7 @@
             </objects>
             <point key="canvasLocation" x="3550.3816793893129" y="474.64788732394368"/>
         </scene>
-        <!--친구 초대-->
+        <!--파티 관리-->
         <scene sceneID="oaq-vb-4Cn">
             <objects>
                 <viewController storyboardIdentifier="InviteUserViewController" id="xXf-vw-G92" customClass="InviteUserViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
@@ -430,7 +430,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jaI-VQ-T4m">
-                                <rect key="frame" x="16" y="103" width="361" height="680"/>
+                                <rect key="frame" x="16" y="240" width="361" height="543"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -470,21 +470,48 @@
                                     <outlet property="delegate" destination="xXf-vw-G92" id="bBU-rS-zFH"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="파티명:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Zu-6x2">
+                                <rect key="frame" x="16" y="103" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-WR-GBe">
+                                <rect key="frame" x="73" y="96" width="304" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAN-U7-xk9">
+                                <rect key="frame" x="153" y="147" width="88" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="파티 삭제">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onDelete:" destination="xXf-vw-G92" eventType="touchUpInside" id="3M8-2w-XJr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L7N-h7-uQH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="친구 초대" id="woD-hY-4SG">
-                        <barButtonItem key="rightBarButtonItem" title="추가" id="FnW-c0-nQt">
+                    <navigationItem key="navigationItem" title="파티 관리" id="woD-hY-4SG">
+                        <barButtonItem key="rightBarButtonItem" title="완료" id="FnW-c0-nQt">
                             <connections>
                                 <action selector="onSubmit:" destination="xXf-vw-G92" id="Ykn-cn-CyG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="txtName" destination="DYf-WR-GBe" id="2G2-Vo-xmk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIe-N5-Wa3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2624" y="-839"/>
+            <point key="canvasLocation" x="2623.6641221374043" y="-839.43661971830988"/>
         </scene>
         <!--Add Menu View Controller-->
         <scene sceneID="Ict-nw-cr4">

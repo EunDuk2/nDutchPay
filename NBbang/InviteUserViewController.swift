@@ -3,6 +3,8 @@ import RealmSwift
 
 class InviteUserViewController: UIViewController {
     
+    @IBOutlet var txtName: UITextField!
+    
     let realm = try! Realm()
     var index:Int?
     
@@ -108,6 +110,30 @@ class InviteUserViewController: UIViewController {
     
     @IBAction func onSubmit(_ sender: Any) {
         delBeforeAlert()
+    }
+    @IBAction func onDelete(_ sender: Any) {
+        let alert = UIAlertController(title: "파티 삭제", message: "파티를 삭제하면 모든 정보가 삭제됩니다.", preferredStyle: .alert)
+        let clear = UIAlertAction(title: "삭제", style: .destructive) { (_) in
+            try! self.realm.write {
+                self.realm.delete(self.party()[self.index!])
+            }
+            if let navigationController = self.navigationController {
+                    let viewControllers = navigationController.viewControllers
+                    guard viewControllers.count >= 3 else {
+                        // 이전 화면이 적어도 3개 이상 있어야 함
+                        return
+                    }
+                    
+                    let previousViewController = viewControllers[viewControllers.count - 3]
+                    navigationController.popToViewController(previousViewController, animated: true)
+                }
+        }
+        let cancel = UIAlertAction(title: "취소", style: .default)
+        
+        alert.addAction(cancel)
+        alert.addAction(clear)
+        
+        self.present(alert, animated: true)
     }
     
 }
