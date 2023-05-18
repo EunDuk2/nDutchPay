@@ -10,6 +10,7 @@ class InviteUserViewController: UIViewController {
     
     override func viewDidLoad() {
         resetUserMemberDB()
+        printPartyName()
     }
     
     func user() -> Results<User> {
@@ -56,7 +57,7 @@ class InviteUserViewController: UIViewController {
     }
     
     func delBeforeAlert() {
-        let alert = UIAlertController(title: "파티원 추가 및 삭제", message: "파티원을 편집하시겠습니까?\n파티원 삭제 시 모든 장소 및 메뉴에서 삭제됩니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "파티방 정보 변경", message: "파티방 정보를 변경하시겠습니까?\n(파티원 삭제 시 모든 장소 및 메뉴에서 삭제됩니다.)", preferredStyle: .alert)
         let clear = UIAlertAction(title: "확인", style: .default) { (_) in
             for i in 0..<self.user().count {
                 if(self.user()[i].member == 0) {
@@ -108,8 +109,21 @@ class InviteUserViewController: UIViewController {
 
     }
     
+    func printPartyName() {
+        txtName.text = party()[index!].name
+    }
+    
+    func changePartyName() {
+        if (txtName.text != "") {
+            try! realm.write {
+                party()[index!].name = txtName.text
+            }
+        }
+    }
+    
     @IBAction func onSubmit(_ sender: Any) {
         delBeforeAlert()
+        changePartyName()
     }
     @IBAction func onDelete(_ sender: Any) {
         let alert = UIAlertController(title: "파티 삭제", message: "파티를 삭제하면 모든 정보가 삭제됩니다.", preferredStyle: .alert)
