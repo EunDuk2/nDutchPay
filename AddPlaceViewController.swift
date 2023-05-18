@@ -8,8 +8,17 @@ class AddPlaceViewController: UIViewController {
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtName: UITextField!
     
+    @IBOutlet var btnSubmit: UIBarButtonItem!
+    
     override func viewDidLoad() {
         resetUserMemberDB()
+        btnSubmit.isEnabled = false
+        
+        txtPrice.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(priceDidChange(_:)),
+                                                    name: UITextField.textDidChangeNotification,
+                                                    object: txtPrice)
     }
     
     func updateUserDB(userIndex: Int?, value: Int) {
@@ -45,7 +54,12 @@ class AddPlaceViewController: UIViewController {
     
     @IBAction func onSubmit(_ sender: Any) {
         try! realm.write {
-            party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0) // ?? 는 nil값일 때 디폴트 값 지정
+            if(txtName.text == "") {
+                party?.addPlace(name: "이름 없는 장소"+String((party?.place.count)!+1), totalPrice: Int(txtPrice.text ?? "") ?? 0)
+            } else {
+                party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+            }
+            
         }
         
         for i in 0..<(party?.user.count)! {
@@ -108,4 +122,19 @@ extension AddPlaceViewController: AddPlaceUserTableCellDelegate {
         
     }
     
+}
+
+extension AddPlaceViewController: UITextFieldDelegate {
+    @objc private func priceDidChange(_ notification: Notification) {
+            if let textField = notification.object as? UITextField {
+                if let text = textField.text {
+                    //checkName(text: text, textField: textField)
+                    if(text == "" || Int(text) == 0) {
+                        btnSubmit.isEnabled = false
+                    } else {
+                        btnSubmit.isEnabled = true
+                    }
+                }
+            }
+        }
 }
