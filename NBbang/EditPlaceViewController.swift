@@ -37,18 +37,49 @@ class EditPlaceViewController: UIViewController {
         txtPrice.text = String((place?.totalPrice)!)
     }
     
-    func changePrice() {
+    func changeTotalPrice() {
         // 텍스트필드에 있는 돈으로 현재 장소 토탈금액 바꾸기
         // 근데 디폴트메뉴 빼고 존재하는 메뉴 가격 다 더해서 그것보다 크게 설정하게 해야함(추가로 메뉴 추가할 때 토탈 금액 못넘게 제한하기)
         // 가격 수정했을 때 디폴트 메뉴 업데이트
-        print("changePrice")
         var totalPrice = Int(txtPrice.text!)!
         
         if (txtPrice.text != "" && totalPrice >= 0) {
             try! realm.write {
                 place?.totalPrice = totalPrice
                 place?.defaultMenu?.totalPrice = totalPrice
+                calculateMenu()
             }
+        }
+    }
+    
+    func calculateMenu() -> Bool{
+        
+        var totalPrice = Int(txtPrice.text!)!
+        var allMenuPrice: Int = 0
+        
+        for i in 0..<(place?.menu.count)! {
+            allMenuPrice += (place?.menu[i].totalPrice)!
+        }
+        print(allMenuPrice)
+        if(allMenuPrice > totalPrice) {
+            let alert = UIAlertController(title: "금액 경고", message: "입력하신 금액이 해당 장소의 모든 메뉴들의 총가격보다 낮습니다.\n메뉴들의 총가격: "+String(allMenuPrice)+" 원", preferredStyle: .alert)
+            let clear = UIAlertAction(title: "확인", style: .default)
+            
+            alert.addAction(clear)
+            
+            self.present(alert, animated: true)
+            
+            return false
+        } else {
+            if (txtPrice.text != "" && totalPrice >= 0) {
+                try! realm.write {
+                    place?.totalPrice = totalPrice
+                    place?.defaultMenu?.totalPrice = totalPrice
+                    place?.defaultMenu?.totalPrice -= allMenuPrice
+                }
+            }
+            
+            return true
         }
     }
     
@@ -104,7 +135,10 @@ class EditPlaceViewController: UIViewController {
     func delBeforeAlert() {
         let alert = UIAlertController(title: "장소 정보 변경", message: "장소 정보를 변경하시겠습니까?\n(해당 장소의 파티원 삭제 시 모든 메뉴에서 삭제됩니다.)", preferredStyle: .alert)
         let clear = UIAlertAction(title: "확인", style: .default) { (_) in
-            self.changePrice()
+            
+            if(self.calculateMenu() == false) {
+                return
+            }
             
             for i in 0..<(self.party?.user.count)! {
                 if(self.party?.user[i].member == 0) {
