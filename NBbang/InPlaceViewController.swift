@@ -21,7 +21,7 @@ class InPlaceViewController: UIViewController {
     }
     
     func updateLabel() {
-        lblTotalPrice.text = String((place?.totalPrice)!)
+        lblTotalPrice.text = fc(amount: place!.totalPrice)
         
         var temp: String = ""
         for i in 0..<(place?.enjoyer.count)! {
@@ -145,3 +145,18 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+extension InPlaceViewController {
+    // formatCurrency()
+    func fc(amount: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale(identifier: "ko_KR")
+        
+        if let formattedAmount = numberFormatter.string(from: NSNumber(value: amount)) {
+            return formattedAmount
+        } else {
+            return ""
+        }
+    }
+}
+

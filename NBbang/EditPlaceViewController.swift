@@ -37,24 +37,9 @@ class EditPlaceViewController: UIViewController {
         txtPrice.text = String((place?.totalPrice)!)
     }
     
-    func changeTotalPrice() {
-        // 텍스트필드에 있는 돈으로 현재 장소 토탈금액 바꾸기
-        // 근데 디폴트메뉴 빼고 존재하는 메뉴 가격 다 더해서 그것보다 크게 설정하게 해야함(추가로 메뉴 추가할 때 토탈 금액 못넘게 제한하기)
-        // 가격 수정했을 때 디폴트 메뉴 업데이트
-        var totalPrice = Int(txtPrice.text!)!
-        
-        if (txtPrice.text != "" && totalPrice >= 0) {
-            try! realm.write {
-                place?.totalPrice = totalPrice
-                place?.defaultMenu?.totalPrice = totalPrice
-                calculateMenu()
-            }
-        }
-    }
-    
     func calculateMenu() -> Bool{
         
-        var totalPrice = Int(txtPrice.text!)!
+        let totalPrice = Int(txtPrice.text!)!
         var allMenuPrice: Int = 0
         
         for i in 0..<(place?.menu.count)! {
