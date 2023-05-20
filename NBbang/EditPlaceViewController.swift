@@ -13,8 +13,21 @@ class EditPlaceViewController: UIViewController {
     var place: Place?
     
     override func viewDidLoad() {
+        resetUserMemberDB()
         printPlaceName()
         printPrice()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        resetUserMemberDB()
+    }
+    
+    func resetUserMemberDB() {
+        for i in 0..<(party?.user.count)! {
+            try! realm.write {
+                party?.user[i].member = 0
+            }
+        }
     }
     
     func user() -> Results<User> {
@@ -45,7 +58,7 @@ class EditPlaceViewController: UIViewController {
         for i in 0..<(place?.menu.count)! {
             allMenuPrice += (place?.menu[i].totalPrice)!
         }
-        print(allMenuPrice)
+        
         if(allMenuPrice > totalPrice) {
             let alert = UIAlertController(title: "금액 경고", message: "입력하신 금액이 해당 장소의 모든 메뉴들의 총가격보다 낮습니다.\n메뉴들의 총가격: "+String(allMenuPrice)+" 원", preferredStyle: .alert)
             let clear = UIAlertAction(title: "확인", style: .default)
