@@ -113,7 +113,7 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 calEnjoyer! += ")"
-
+            print(place?.defaultMenu?.totalPrice)
                 cell.lblEnjoyer.text = calEnjoyer
                 cell.lblTotalPrice.text = String((place?.defaultMenu?.totalPrice)!)
         }
