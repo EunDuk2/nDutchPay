@@ -14,6 +14,7 @@
 		619AFAE72A11FC8E00103ABA /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AFAE62A11FC8E00103ABA /* ContactViewController.swift */; };
 		619E48142A03751C00371795 /* InPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E48132A03751C00371795 /* InPlaceViewController.swift */; };
 		619E48162A037B2400371795 /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E48152A037B2400371795 /* MenuTableCell.swift */; };
+		619EB3642A19D54F0052216A /* EditMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619EB3632A19D54F0052216A /* EditMenuViewController.swift */; };
 		61A621E829FD4740006B9DC9 /* InPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621E729FD4740006B9DC9 /* InPartyViewController.swift */; };
 		61A621EA29FD4B7F006B9DC9 /* InviteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621E929FD4B7F006B9DC9 /* InviteUserViewController.swift */; };
 		61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */; };
@@ -51,6 +52,7 @@
 		619AFAE62A11FC8E00103ABA /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		619E48132A03751C00371795 /* InPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPlaceViewController.swift; sourceTree = "<group>"; };
 		619E48152A037B2400371795 /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
+		619EB3632A19D54F0052216A /* EditMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMenuViewController.swift; sourceTree = "<group>"; };
 		61A621E729FD4740006B9DC9 /* InPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPartyViewController.swift; sourceTree = "<group>"; };
 		61A621E929FD4B7F006B9DC9 /* InviteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserViewController.swift; sourceTree = "<group>"; };
 		61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserTableCell.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				61C1B6FC2A1104AB00906D4E /* name.swift */,
 				61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */,
 				61C738D52A162E82002D56AD /* EditPlaceViewController.swift */,
+				619EB3632A19D54F0052216A /* EditMenuViewController.swift */,
 				61BD96F429D31E5D00125849 /* Assets.xcassets */,
 				61BD96F629D31E5D00125849 /* LaunchScreen.storyboard */,
 				61BD96F929D31E5D00125849 /* Info.plist */,
@@ -299,6 +302,7 @@
 				61BD970429D3236F00125849 /* Menu.swift in Sources */,
 				619A49F329FD0B03007B445E /* UserViewController.swift in Sources */,
 				61BD96F029D31E5B00125849 /* ViewController.swift in Sources */,
+				619EB3642A19D54F0052216A /* EditMenuViewController.swift in Sources */,
 				61BD96EC29D31E5B00125849 /* AppDelegate.swift in Sources */,
 				61BD970029D31FDD00125849 /* Party.swift in Sources */,
 				61C1B6FD2A1104AB00906D4E /* name.swift in Sources */,

@@ -139,6 +139,28 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "EditMenuViewController") as? EditMenuViewController else {
+                    return
+                }
+        
+        na.party = self.party
+        na.place = self.place
+        
+        if indexPath.section == 0 {
+            
+            na.section = 0
+            
+        }
+        else if indexPath.section == 1 {
+            
+            na.section = 1
+            na.index = indexPath.row
+            
+        }
+        self.navigationController?.pushViewController(na, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100 // 고정된 높이 값을 반환합니다.
     }

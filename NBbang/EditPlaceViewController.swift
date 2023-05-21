@@ -137,7 +137,7 @@ class EditPlaceViewController: UIViewController {
         }
     }
     
-    func delBeforeAlert() {
+    func EditBeforeAlert() {
         let alert = UIAlertController(title: "장소 정보 변경", message: "장소 정보를 변경하시겠습니까?\n(해당 장소의 파티원 삭제 시 모든 메뉴에서 삭제됩니다.)", preferredStyle: .alert)
         let clear = UIAlertAction(title: "확인", style: .default) { (_) in
             
@@ -170,7 +170,7 @@ class EditPlaceViewController: UIViewController {
     }
     
     @IBAction func onSubmit(_ sender: Any) {
-        delBeforeAlert()
+        EditBeforeAlert()
         changePlaceName()
     }
     @IBAction func onDelete(_ sender: Any) {

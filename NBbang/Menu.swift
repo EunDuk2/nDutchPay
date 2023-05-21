@@ -23,4 +23,12 @@ class Menu: Object {
     func addEnjoyer(user:User) {
         enjoyer.append(user)
     }
+    func updateName(name: String?) {
+        self.name = name
+    }
+    func updateInfo(price: Int, count: Int) {
+        self.price = price
+        self.count = count
+        self.totalPrice = price * count
+    }
 }
