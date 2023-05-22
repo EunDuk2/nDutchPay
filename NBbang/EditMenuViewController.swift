@@ -203,6 +203,10 @@ class EditMenuViewController: UIViewController {
             // 알림으로 초과 됐다고 말하고
             let alert = UIAlertController(title: "금액 초과", message: "이 메뉴의 금액을 변경하면 장소의 총 사용 금액이 초과됩니다.\n메뉴를 변경하고 총 사용 금액을 늘리시겠습니까?", preferredStyle: .alert)
             let clear = UIAlertAction(title: "확인", style: .default) { [self] (_) in
+                
+                try! realm.write {
+                    party?.plusPrice(price: newPrice - (place?.menu[index!].totalPrice)!)
+                }
                 self.bool = true
                 updateMenu(name: txtName.text, price: Int((txtPrice.text)!)!, count: Int((txtCount.text)!)!, DmunuMinus: false)
                 

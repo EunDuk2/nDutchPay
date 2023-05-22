@@ -78,6 +78,7 @@ class EditPlaceViewController: UIViewController {
         } else {
             if (txtPrice.text != "" && totalPrice >= 0) {
                 try! realm.write {
+                    party?.plusPrice(price: (totalPrice - Int(place!.totalPrice)))
                     place?.totalPrice = totalPrice
                     place?.defaultMenu?.totalPrice = totalPrice
                     place?.defaultMenu?.totalPrice -= allMenuPrice
@@ -175,8 +176,9 @@ class EditPlaceViewController: UIViewController {
     }
     @IBAction func onDelete(_ sender: Any) {
         let alert = UIAlertController(title: "장소 삭제", message: "장소를 삭제하면 해당 장소의 모든 정보가 삭제됩니다.", preferredStyle: .alert)
-        let clear = UIAlertAction(title: "삭제", style: .destructive) { (_) in
+        let clear = UIAlertAction(title: "삭제", style: .destructive) { [self] (_) in
             try! self.realm.write {
+                self.party?.minusPrice(price: place!.totalPrice)
                 self.realm.delete(self.place!)
             }
             if let navigationController = self.navigationController {

@@ -26,4 +26,7 @@ class Party: Object {
     func plusPrice(price: Int) {
         totalPrice += price
     }
+    func minusPrice(price: Int) {
+        totalPrice -= price
+    }
 }

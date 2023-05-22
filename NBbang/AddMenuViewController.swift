@@ -5,6 +5,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     let realm = try! Realm()
     var place: Place?
     var party: Party?
+    var intdex: Int?
     
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtPrice: UITextField!
@@ -56,6 +57,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
             let alert = UIAlertController(title: "금액 초과", message: "이 메뉴를 추가하면 장소의 총 사용 금액이 초과됩니다.\n메뉴를 추가하고 총 사용 금액을 늘리시겠습니까?", preferredStyle: .alert)
             let clear = UIAlertAction(title: "확인", style: .default) { [self] (_) in
                 try! realm.write {
+                    party?.plusPrice(price: newPrice - (place?.defaultMenu!.totalPrice)!)
                     place?.totalPrice = totalMenuPrice
                     place?.defaultMenu?.price = place!.totalPrice - totalMenuPrice
                     place?.defaultMenu?.totalPrice = place!.totalPrice - totalMenuPrice
@@ -89,7 +91,6 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
             } else {
                 place?.addMenu(name: txtName.text, price: textPrice, count: textCount)
             }
-            party?.plusPrice(price: totalPrice)
             if(DmunuMinus == true) {
                 place?.minusDmenuPrice(price: totalPrice)
             }

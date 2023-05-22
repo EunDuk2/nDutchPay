@@ -6,13 +6,11 @@ class SettleViewController: UIViewController {
     var party: Party?
     var place: Place?
     
-    @IBOutlet var lblTemp: UILabel!
     @IBOutlet var lblPartyInfo: UILabel!
     
     override func viewDidLoad() {
         printPartyInfoLable()
         plusUserMoney()
-        updateLabel()
     }
     
     func initMoney() {
@@ -54,22 +52,14 @@ class SettleViewController: UIViewController {
             }
         }
     }
-    func updateLabel() {
-        var lbl: String = ""
-        for i in 0..<(party?.user.count)! {
-            lbl += (party?.user[i].name)! + ": "
-            lbl += String((party?.user[i].money)!) + "(원)\n"
-        }
-        lblTemp.text = lbl
-    }
     
     func printPartyInfoLable() {
-        try! realm.write {
-            party?.totalPrice = 0
-            for i in 0..<(party?.place.count)! {
-                    party?.totalPrice += (party?.place[i].totalPrice)!
-            }
-        }
+//        try! realm.write {
+//            party?.totalPrice = 0
+//            for i in 0..<(party?.place.count)! {
+//                    party?.totalPrice += (party?.place[i].totalPrice)!
+//            }
+//        }
         
         var lbl: String = "파티명: "
         lblPartyInfo.text! += (party?.name)! + ", 총 사용 금액: "
@@ -82,20 +72,49 @@ class SettleViewController: UIViewController {
 }
 
 extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        let sections:[String] = ["파티원 정산", "장소 및 메뉴 세부사항"]
+        
+        return sections[section]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (party?.user.count)!
+        
+        if(section == 0 ) {
+            return (party?.user.count)!
+        } else {
+            return (party?.place.count)!
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var row1 = party?.user[indexPath.row].name
-        var row2 = party?.user[indexPath.row].money
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettleUserTableCell") as! SettleUserTableCell
-        
-        cell.lblName.text = row1
-        cell.lblPrice.text = fc(amount: row2!) + " (원)"
-        
-        return cell
+        if(indexPath.section == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettleUserTableCell") as! SettleUserTableCell
+            
+            var row1 = party?.user[indexPath.row].name
+            var row2 = party?.user[indexPath.row].money
+            
+            cell.lblName.text = row1
+            cell.lblPrice.text = fc(amount: row2!) + " (원)"
+            
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
+            
+            var row1 = (party?.place[indexPath.row].name)! + ", "
+            var row2 = String((party?.place[indexPath.row].totalPrice)!)
+            
+            
+            
+            return cell
+        }
     }
     
     

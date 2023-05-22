@@ -48,7 +48,6 @@ class AddPlaceViewController: UIViewController {
         let tempList: List<User>? = party?.place[index].enjoyer
         try! realm.write {
             party?.place[index].setDefaultMenu(defaultMenu: Menu(name: "기타 메뉴", price: totalPrice!, count: 1, enjoyer: tempList))
-            
         }
     }
     
@@ -59,7 +58,7 @@ class AddPlaceViewController: UIViewController {
             } else {
                 party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0)
             }
-            
+            party?.plusPrice(price: Int(txtPrice.text!)!)
         }
         
         for i in 0..<(party?.user.count)! {
@@ -69,6 +68,7 @@ class AddPlaceViewController: UIViewController {
         }
         
         addDefaultMenu(index: (party?.place.count)!-1, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+        
         
         self.dismiss(animated: true)
     }
