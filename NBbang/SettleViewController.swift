@@ -54,16 +54,15 @@ class SettleViewController: UIViewController {
     }
     
     func printPartyInfoLable() {
-//        try! realm.write {
-//            party?.totalPrice = 0
-//            for i in 0..<(party?.place.count)! {
-//                    party?.totalPrice += (party?.place[i].totalPrice)!
-//            }
-//        }
-        
         var lbl: String = "파티명: "
-        lblPartyInfo.text! += (party?.name)! + ", 총 사용 금액: "
+        lblPartyInfo.text! += (party?.name)! + "/" + String((party?.user.count)!) + "명\n총 사용 금액: "
         lblPartyInfo.text! += String((party?.totalPrice)!)
+    }
+    
+    func calPlaceUserMoney(place: Place) -> String {
+        var money =  place.totalPrice / place.enjoyer.count
+        
+        return String(money)
     }
     
     @IBAction func onDone(_ sender: Any) {
@@ -108,16 +107,31 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
             
-            var row1 = (party?.place[indexPath.row].name)! + ", "
-            var row2 = String((party?.place[indexPath.row].totalPrice)!)
+            var row1 = (party?.place[indexPath.row].name)! + "(" + String((party?.place[indexPath.row].enjoyer.count)!) +  "), "
+            var row2 = String((party?.place[indexPath.row].totalPrice)!) + "(원)"
+            var row3:String = ""
             
+            for i in 0..<(party?.place[indexPath.row].enjoyer.count)! {
+                row3 += (party?.place[indexPath.row].enjoyer[i].name)!
+                row3 += "("
+                row3 += calPlaceUserMoney(place: (party?.place[indexPath.row])!)
+                row3 += "원)"
+            }
             
+            cell.lblName.text = row1 + row2
+            cell.lblUsers.text = row3
             
             return cell
         }
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 1) {
+            return 70
+        } else {
+            return 44
+        }
+    }
 }
 
 extension SettleViewController {

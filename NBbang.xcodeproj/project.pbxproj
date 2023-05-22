@@ -110,7 +110,6 @@
 		61BD96DF29D31E5B00125849 = {
 			isa = PBXGroup;
 			children = (
-				619A8B852A1B4E5E0079E961 /* SettlePlaceTableCell.swift */,
 				61BD96EA29D31E5B00125849 /* NBbang */,
 				61BD96E929D31E5B00125849 /* Products */,
 				2DC797FC49B277F4BD774E2E /* Pods */,
@@ -156,6 +155,7 @@
 				619A49F229FD0B03007B445E /* UserViewController.swift */,
 				61AA23302A08D3180020AFC9 /* SettleViewController.swift */,
 				61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */,
+				619A8B852A1B4E5E0079E961 /* SettlePlaceTableCell.swift */,
 				61C1B6FC2A1104AB00906D4E /* name.swift */,
 				61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */,
 				61C738D52A162E82002D56AD /* EditPlaceViewController.swift */,
