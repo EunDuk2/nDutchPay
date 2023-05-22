@@ -241,6 +241,7 @@ class EditMenuViewController: UIViewController {
         let alert = UIAlertController(title: "메뉴 삭제", message: "메뉴를 삭제하면 해당 메뉴의 모든 정보가 삭제됩니다.", preferredStyle: .alert)
         let clear = UIAlertAction(title: "삭제", style: .destructive) { (_) in
             try! self.realm.write {
+                self.place?.defaultMenu?.totalPrice += (self.place?.menu[self.index!].totalPrice)!
                 self.realm.delete((self.place?.menu[self.index!])!)
             }
             

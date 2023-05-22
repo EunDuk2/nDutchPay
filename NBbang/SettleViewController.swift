@@ -7,8 +7,10 @@ class SettleViewController: UIViewController {
     var place: Place?
     
     @IBOutlet var lblTemp: UILabel!
+    @IBOutlet var lblPartyInfo: UILabel!
     
     override func viewDidLoad() {
+        printPartyInfoLable()
         plusUserMoney()
         updateLabel()
     }
@@ -61,7 +63,54 @@ class SettleViewController: UIViewController {
         lblTemp.text = lbl
     }
     
+    func printPartyInfoLable() {
+        try! realm.write {
+            party?.totalPrice = 0
+            for i in 0..<(party?.place.count)! {
+                    party?.totalPrice += (party?.place[i].totalPrice)!
+            }
+        }
+        
+        var lbl: String = "파티명: "
+        lblPartyInfo.text! += (party?.name)! + ", 총 사용 금액: "
+        lblPartyInfo.text! += String((party?.totalPrice)!)
+    }
+    
     @IBAction func onDone(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+}
+
+extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (party?.user.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var row1 = party?.user[indexPath.row].name
+        var row2 = party?.user[indexPath.row].money
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettleUserTableCell") as! SettleUserTableCell
+        
+        cell.lblName.text = row1
+        cell.lblPrice.text = fc(amount: row2!) + " (원)"
+        
+        return cell
+    }
+    
+    
+}
+
+extension SettleViewController {
+    func fc(amount: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale(identifier: "ko_KR")
+        
+        if let formattedAmount = numberFormatter.string(from: NSNumber(value: amount)) {
+            return formattedAmount
+        } else {
+            return ""
+        }
     }
 }

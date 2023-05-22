@@ -20,6 +20,7 @@
 		61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */; };
 		61AA23312A08D3180020AFC9 /* SettleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA23302A08D3180020AFC9 /* SettleViewController.swift */; };
 		61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB20E329D3C93200817839 /* PartyTableCell.swift */; };
+		61B135CF2A1B218700EA671B /* SettleUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */; };
 		61B18ED82A069D1D0092CAAD /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */; };
 		61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */; };
 		61BD96EC29D31E5B00125849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96EB29D31E5B00125849 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserTableCell.swift; sourceTree = "<group>"; };
 		61AA23302A08D3180020AFC9 /* SettleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleViewController.swift; sourceTree = "<group>"; };
 		61AB20E329D3C93200817839 /* PartyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableCell.swift; sourceTree = "<group>"; };
+		61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleUserTableCell.swift; sourceTree = "<group>"; };
 		61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
 		61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuTableCell.swift; sourceTree = "<group>"; };
 		61BD96E829D31E5B00125849 /* NBbang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBbang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				61BD970329D3236F00125849 /* Menu.swift */,
 				619A49F229FD0B03007B445E /* UserViewController.swift */,
 				61AA23302A08D3180020AFC9 /* SettleViewController.swift */,
+				61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */,
 				61C1B6FC2A1104AB00906D4E /* name.swift */,
 				61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */,
 				61C738D52A162E82002D56AD /* EditPlaceViewController.swift */,
@@ -311,6 +314,7 @@
 				61AA23312A08D3180020AFC9 /* SettleViewController.swift in Sources */,
 				619AFAE72A11FC8E00103ABA /* ContactViewController.swift in Sources */,
 				61FC48472A03909200D36559 /* AddPlaceViewController.swift in Sources */,
+				61B135CF2A1B218700EA671B /* SettleUserTableCell.swift in Sources */,
 				61BD96EE29D31E5B00125849 /* SceneDelegate.swift in Sources */,
 				61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */,
 				619E48142A03751C00371795 /* InPlaceViewController.swift in Sources */,
