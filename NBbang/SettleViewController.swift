@@ -5,7 +5,7 @@ class SettleViewController: UIViewController {
     let realm = try! Realm()
     var party: Party?
     var place: Place?
-    var selectedIndexPath: IndexPath? // 선택한 셀의 인덱스를 저장하는 변수
+    var selectedIndexPath: IndexPath?
     
     @IBOutlet var lblPartyInfo: UILabel!
     @IBOutlet var table: UITableView!
@@ -156,11 +156,21 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         
         if(indexPath.section == 1) {
             tableView.deselectRow(at: indexPath, animated: true)
-            print(indexPath)
+            
+            
+            
             if selectedIndexPath == indexPath {
                 selectedIndexPath = nil // 선택한 셀이 이미 있는 경우 해제
+                
             } else {
                 selectedIndexPath = indexPath // 선택한 셀의 인덱스 저장
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
+                    let currentOffset = tableView.contentOffset
+                    let newOffset = CGPoint(x: currentOffset.x, y: currentOffset.y + 100)
+                    tableView.setContentOffset(newOffset, animated: true)
+                }
+
             }
             
             tableView.beginUpdates()
@@ -174,9 +184,9 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 1 {
             if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
                 let menuCount = party?.place[indexPath.row].menu.count ?? 0
-                let menuHeight = CGFloat(120 * (menuCount+1))
+                let menuHeight = CGFloat(130 * (menuCount+1))
                 let totalHeight = 70 + menuHeight
-                return min(totalHeight, 350)
+                return min(totalHeight, 400)
             }
             return 70
         }
