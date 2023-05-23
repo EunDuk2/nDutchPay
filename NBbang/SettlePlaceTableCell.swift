@@ -18,25 +18,89 @@ class SettlePlaceTableCell: UITableViewCell {
         
         menuTable.delegate = self
         menuTable.dataSource = self
-        
-        //menuTable.frame.size.height = CGFloat(44 * (party?.place[index!].menu.count)!)
-       
     }
     
+    func calMenuUserMoney(menu: Menu, i: Int) -> String{
+        let money = menu.totalPrice / menu.enjoyer.count
+        return fc(amount: money)
+    }
 }
 
 extension SettlePlaceTableCell: UITableViewDelegate, UITableViewDataSource {
+    
+   func numberOfSections(in tableView: UITableView) -> Int {
+       return 2
+   }
+       
+   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+       
+       let sections:[String] = ["기본 메뉴", "추가된 메뉴"]
+       
+       return sections[section]
+   }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        menuTable.frame.size.height = CGFloat(44 * (party?.place[index!].menu.count)!)
-        return (party?.place[index!].menu.count)!
+        if(section == 0) {
+            return 1
+        } else {
+            return (party?.place[index!].menu.count)!
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettleMenuTableCell") as! SettleMenuTableCell
         
-        cell.lblMenuInfo.text = party?.place[index!].menu[indexPath.row].name
-        
+        if(indexPath.section == 0) {
+            var row1: String = ""
+            var row2: String = ""
+            
+            row1 += "기타"
+            row1 += "(" + String((party?.place[index!].defaultMenu!.enjoyer.count)!) + "), "
+            row1 += String((party?.place[index!].defaultMenu?.totalPrice)!) + "(원)"
+            cell.lblMenuInfo.text = row1
+            
+            for i in 0..<(party?.place[index!].defaultMenu!.enjoyer.count)! {
+                row2 += (party?.place[index!].defaultMenu!.enjoyer[i].name)!
+                row2 += "("
+                row2 += calMenuUserMoney(menu: (party?.place[index!].defaultMenu)!, i: i)
+                row2 += "원)"
+            }
+            cell.lblUsers.text = row2
+        } else {
+            var row1: String = ""
+            var row2: String = ""
+            
+            row1 += (party?.place[index!].menu[indexPath.row].name)!
+            row1 += "(" + String((party?.place[index!].menu[indexPath.row].enjoyer.count)!) + "), "
+            row1 += String((party?.place[index!].menu[indexPath.row].totalPrice)!) + "(원)"
+            cell.lblMenuInfo.text = row1
+            
+            for i in 0..<(party?.place[index!].menu[indexPath.row].enjoyer.count)! {
+                row2 += (party?.place[index!].menu[indexPath.row].enjoyer[i].name)!
+                row2 += "("
+                row2 += calMenuUserMoney(menu: (party?.place[index!].menu[indexPath.row])!, i: i)
+                row2 += "원)"
+            }
+            cell.lblUsers.text = row2
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 
+extension SettlePlaceTableCell {
+    func fc(amount: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale(identifier: "ko_KR")
+        
+        if let formattedAmount = numberFormatter.string(from: NSNumber(value: amount)) {
+            return formattedAmount
+        } else {
+            return ""
+        }
+    }
+}

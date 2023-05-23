@@ -57,43 +57,31 @@ class SettleViewController: UIViewController {
     }
     
     func printPartyInfoLable() {
-        var lbl: String = "파티명: "
-        lblPartyInfo.text! += (party?.name)! + "/" + String((party?.user.count)!) + "명\n총 사용 금액: "
+        lblPartyInfo.text! += "파티명: " + (party?.name)! + "/" + String((party?.user.count)!) + "명\n총 사용 금액: "
         lblPartyInfo.text! += String((party?.totalPrice)!)
     }
     
-    func resetPlaceMoney(place: Place) {
-        try! realm.write {
-            for i in 0..<place.enjoyer.count {
-                place.enjoyer[i].placeMoney = 0
-            }
-        }
-    }
-    
     func calPlaceUserMoney(place: Place, i:Int) -> String{
-        //resetPlaceMoney(place: place)
         var userMoney:Int = 0
         
         try! realm.write {
             userMoney = 0
             
             if(place.defaultMenu?.totalPrice != 0 ) {
-                var defaultMoney = place.defaultMenu!.totalPrice / (place.defaultMenu?.enjoyer.count)!
+                let defaultMoney = place.defaultMenu!.totalPrice / (place.defaultMenu?.enjoyer.count)!
                 userMoney += defaultMoney
                 
                 for i in 0..<place.enjoyer.count {
                     place.enjoyer[i].placeMoney = userMoney
-                    print(place.enjoyer[i].name! + String(userMoney))
                 }
             }
             
             
             for i in 0..<place.menu.count {
-                var tempMoney = place.menu[i].totalPrice / place.menu[i].enjoyer.count
+                let tempMoney = place.menu[i].totalPrice / place.menu[i].enjoyer.count
                 userMoney += tempMoney
                 for j in 0..<place.menu[i].enjoyer.count {
                     place.menu[i].enjoyer[j].placeMoney = userMoney
-                    print(place.menu[i].enjoyer[j].name! + String(userMoney))
                 }
             }
         }
@@ -183,17 +171,23 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 테이블 뷰의 셀 높이를 설정하는 메서드
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            if indexPath.section == 1 {
-                if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
-                    let menuCount = party?.place[indexPath.row].menu.count ?? 0
-                    let menuHeight = CGFloat(44 * menuCount)
-                    return 70 + menuHeight
+        if indexPath.section == 1 {
+            if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
+                var menuCount = party?.place[indexPath.row].menu.count ?? 0
+                if(party?.place[indexPath.row].menu.count == 0) {
+                    menuCount = 1
                 }
-                return 70
+                var menuHeight = CGFloat(120 * (menuCount+1))
+                if(menuHeight >= 350) {
+                    menuHeight = 350
+                }
+                print(menuHeight)
+                return 70 + menuHeight
             }
-            return 44
+            return 70
         }
+        return 44
+    }
     
 }
 

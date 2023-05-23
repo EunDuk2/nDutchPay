@@ -447,7 +447,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettleUserTableCell" id="n5V-TC-1U4" customClass="SettleUserTableCell" customModule="NBbang" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettleUserTableCell" id="n5V-TC-1U4" customClass="SettleUserTableCell" customModule="NBbang" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n5V-TC-1U4" id="csw-pe-MRE">
@@ -475,7 +475,7 @@
                                             <outlet property="lblPrice" destination="ilM-br-t7l" id="GMX-aR-nol"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettlePlaceTableCell" rowHeight="238" id="3Jj-kx-PcF" customClass="SettlePlaceTableCell" customModule="NBbang" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettlePlaceTableCell" rowHeight="238" id="3Jj-kx-PcF" customClass="SettlePlaceTableCell" customModule="NBbang" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="93.666667938232422" width="361" height="238"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Jj-kx-PcF" id="t8X-Ub-1xH">
@@ -524,29 +524,72 @@
                                                     </constraints>
                                                 </scrollView>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-6b-4Ms">
-                                                    <rect key="frame" x="20" y="83" width="341" height="155"/>
+                                                    <rect key="frame" x="20" y="72" width="321" height="309"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettleMenuTableCell" id="sQf-OU-nFN" customClass="SettleMenuTableCell" customModule="NBbang" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="50" width="341" height="43.666667938232422"/>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettleMenuTableCell" rowHeight="79" id="sQf-OU-nFN" customClass="SettleMenuTableCell" customModule="NBbang" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="50" width="321" height="79"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sQf-OU-nFN" id="adA-QL-m1O">
-                                                                <rect key="frame" x="0.0" y="0.0" width="341" height="43.666667938232422"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="321" height="79"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEp-dw-wF0">
-                                                                        <rect key="frame" x="20" y="11" width="321" height="21"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메뉴 명, (사용 금액)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEp-dw-wF0">
+                                                                        <rect key="frame" x="9" y="11" width="312" height="21"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="312" id="IBu-gZ-JCt"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96u-DS-t6G">
+                                                                        <rect key="frame" x="9" y="40" width="312" height="35"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0g-I4-IGl">
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-kY-qwz">
+                                                                                        <color key="backgroundColor" red="0.76190851010000005" green="0.93148966440000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="bottom" secondItem="CVR-kY-qwz" secondAttribute="bottom" id="91R-D3-Sey"/>
+                                                                                    <constraint firstItem="CVR-kY-qwz" firstAttribute="top" secondItem="o0g-I4-IGl" secondAttribute="top" id="Tu7-49-ZhJ"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="CVR-kY-qwz" secondAttribute="trailing" id="VvC-vu-F6B"/>
+                                                                                    <constraint firstItem="CVR-kY-qwz" firstAttribute="leading" secondItem="o0g-I4-IGl" secondAttribute="leading" id="h7f-Ue-rMv"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="o0g-I4-IGl" firstAttribute="top" secondItem="96u-DS-t6G" secondAttribute="top" id="Dip-rY-xXg"/>
+                                                                            <constraint firstItem="o0g-I4-IGl" firstAttribute="top" secondItem="96u-DS-t6G" secondAttribute="top" id="Pgq-bG-xKw"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="o0g-I4-IGl" secondAttribute="trailing" id="aFi-Kq-wNP"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="o0g-I4-IGl" secondAttribute="bottom" id="mZp-DC-Gid"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="o0g-I4-IGl" secondAttribute="bottom" id="oNH-KO-4kW"/>
+                                                                            <constraint firstItem="o0g-I4-IGl" firstAttribute="leading" secondItem="96u-DS-t6G" secondAttribute="leading" id="uB5-mW-3GE"/>
+                                                                            <constraint firstItem="o0g-I4-IGl" firstAttribute="leading" secondItem="96u-DS-t6G" secondAttribute="leading" id="vcz-bh-Fxt"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="o0g-I4-IGl" secondAttribute="trailing" id="w2g-ld-udT"/>
+                                                                            <constraint firstAttribute="height" constant="35" id="wJa-KA-oFo"/>
+                                                                        </constraints>
+                                                                    </scrollView>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="96u-DS-t6G" secondAttribute="bottom" constant="-7" id="09B-3w-CKH"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="96u-DS-t6G" secondAttribute="trailing" id="5FT-3H-QJs"/>
+                                                                    <constraint firstItem="96u-DS-t6G" firstAttribute="leading" secondItem="adA-QL-m1O" secondAttribute="leading" constant="9" id="8oA-0X-8JJ"/>
+                                                                    <constraint firstItem="96u-DS-t6G" firstAttribute="top" secondItem="oEp-dw-wF0" secondAttribute="bottom" constant="8" symbolic="YES" id="BdA-Vu-5Cc"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="oEp-dw-wF0" secondAttribute="trailing" id="BuW-Hd-XdD"/>
+                                                                </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" red="0.76190851009736282" green="0.93148966436039493" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <connections>
                                                                 <outlet property="lblMenuInfo" destination="oEp-dw-wF0" id="Fzi-so-jY0"/>
+                                                                <outlet property="lblUsers" destination="CVR-kY-qwz" id="u7C-yS-gMx"/>
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>
