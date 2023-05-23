@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6130BF8E2A1BA307008D7B29 /* SettleMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130BF8D2A1BA307008D7B29 /* SettleMenuTableView.swift */; };
 		6196657F29FCD7860056A591 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196657E29FCD7860056A591 /* AddPartyViewController.swift */; };
 		6198CC6329FD2FFD0031E923 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */; };
 		619A49F329FD0B03007B445E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619A49F229FD0B03007B445E /* UserViewController.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		2644F08F4E867D38D02433FD /* Pods_NBbang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBbang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC36FECF5F692EC806DE5F7 /* Pods-NBbang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBbang.debug.xcconfig"; path = "Target Support Files/Pods-NBbang/Pods-NBbang.debug.xcconfig"; sourceTree = "<group>"; };
+		6130BF8D2A1BA307008D7B29 /* SettleMenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleMenuTableView.swift; sourceTree = "<group>"; };
 		6196657E29FCD7860056A591 /* AddPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyViewController.swift; sourceTree = "<group>"; };
 		6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		619A49F229FD0B03007B445E /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				61BD96EF29D31E5B00125849 /* ViewController.swift */,
 				6196657E29FCD7860056A591 /* AddPartyViewController.swift */,
 				61BD96F129D31E5B00125849 /* Main.storyboard */,
+				6130BF8D2A1BA307008D7B29 /* SettleMenuTableView.swift */,
 				61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */,
 				61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */,
 				619E48152A037B2400371795 /* MenuTableCell.swift */,
@@ -323,6 +326,7 @@
 				61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */,
 				619E48142A03751C00371795 /* InPlaceViewController.swift in Sources */,
 				61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */,
+				6130BF8E2A1BA307008D7B29 /* SettleMenuTableView.swift in Sources */,
 				61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */,
 				61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */,
 				6196657F29FCD7860056A591 /* AddPartyViewController.swift in Sources */,

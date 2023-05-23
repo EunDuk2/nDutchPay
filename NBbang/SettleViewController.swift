@@ -5,12 +5,15 @@ class SettleViewController: UIViewController {
     let realm = try! Realm()
     var party: Party?
     var place: Place?
+    var selectedIndexPath: IndexPath? // 선택한 셀의 인덱스를 저장하는 변수
     
     @IBOutlet var lblPartyInfo: UILabel!
+    @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         printPartyInfoLable()
         plusUserMoney()
+        
     }
     
     func initMoney() {
@@ -96,8 +99,8 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         if(indexPath.section == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SettleUserTableCell") as! SettleUserTableCell
             
-            var row1 = party?.user[indexPath.row].name
-            var row2 = party?.user[indexPath.row].money
+            let row1 = party?.user[indexPath.row].name
+            let row2 = party?.user[indexPath.row].money
             
             cell.lblName.text = row1
             cell.lblPrice.text = fc(amount: row2!) + " (원)"
@@ -107,8 +110,8 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
             
-            var row1 = (party?.place[indexPath.row].name)! + "(" + String((party?.place[indexPath.row].enjoyer.count)!) +  "), "
-            var row2 = String((party?.place[indexPath.row].totalPrice)!) + "(원)"
+            let row1 = (party?.place[indexPath.row].name)! + "(" + String((party?.place[indexPath.row].enjoyer.count)!) +  "), "
+            let row2 = String((party?.place[indexPath.row].totalPrice)!) + "(원)"
             var row3:String = ""
             
             for i in 0..<(party?.place[indexPath.row].enjoyer.count)! {
@@ -118,6 +121,9 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
                 row3 += "원)"
             }
             
+            cell.index = indexPath.row
+            cell.place = self.place
+            cell.party = self.party
             cell.lblName.text = row1 + row2
             cell.lblUsers.text = row3
             
@@ -125,13 +131,37 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if(indexPath.section == 1) {
-            return 70
-        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            if selectedIndexPath == indexPath {
+                selectedIndexPath = nil // 선택한 셀이 이미 있는 경우 해제
+            } else {
+                selectedIndexPath = indexPath // 선택한 셀의 인덱스 저장
+            }
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+            
+    }
+        
+        // 테이블 뷰의 셀 높이를 설정하는 메서드
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            if indexPath.section == 1 {
+                if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
+                    let menuCount = party?.place[indexPath.row].menu.count ?? 0
+                    let menuHeight = CGFloat(44 * menuCount)
+                    return 70 + menuHeight
+                }
+                return 70
+            }
             return 44
         }
-    }
+    
 }
 
 extension SettleViewController {
