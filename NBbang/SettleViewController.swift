@@ -62,10 +62,43 @@ class SettleViewController: UIViewController {
         lblPartyInfo.text! += String((party?.totalPrice)!)
     }
     
-    func calPlaceUserMoney(place: Place) -> String {
-        var money =  place.totalPrice / place.enjoyer.count
+    func resetPlaceMoney(place: Place) {
+        try! realm.write {
+            for i in 0..<place.enjoyer.count {
+                place.enjoyer[i].placeMoney = 0
+            }
+        }
+    }
+    
+    func calPlaceUserMoney(place: Place, i:Int) -> String{
+        //resetPlaceMoney(place: place)
+        var userMoney:Int = 0
         
-        return String(money)
+        try! realm.write {
+            userMoney = 0
+            
+            if(place.defaultMenu?.totalPrice != 0 ) {
+                var defaultMoney = place.defaultMenu!.totalPrice / (place.defaultMenu?.enjoyer.count)!
+                userMoney += defaultMoney
+                
+                for i in 0..<place.enjoyer.count {
+                    place.enjoyer[i].placeMoney = userMoney
+                    print(place.enjoyer[i].name! + String(userMoney))
+                }
+            }
+            
+            
+            for i in 0..<place.menu.count {
+                var tempMoney = place.menu[i].totalPrice / place.menu[i].enjoyer.count
+                userMoney += tempMoney
+                for j in 0..<place.menu[i].enjoyer.count {
+                    place.menu[i].enjoyer[j].placeMoney = userMoney
+                    print(place.menu[i].enjoyer[j].name! + String(userMoney))
+                }
+            }
+        }
+        
+        return fc(amount: place.enjoyer[i].placeMoney)
     }
     
     @IBAction func onDone(_ sender: Any) {
@@ -117,7 +150,7 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
             for i in 0..<(party?.place[indexPath.row].enjoyer.count)! {
                 row3 += (party?.place[indexPath.row].enjoyer[i].name)!
                 row3 += "("
-                row3 += calPlaceUserMoney(place: (party?.place[indexPath.row])!)
+                row3 += calPlaceUserMoney(place: (party?.place[indexPath.row])!, i: i)
                 row3 += "원)"
             }
             

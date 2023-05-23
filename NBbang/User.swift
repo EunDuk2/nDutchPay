@@ -9,6 +9,7 @@ class User: Object {
     @objc dynamic var account: String?
     @objc dynamic var member: Int = 0
     @objc dynamic var bookmark: Bool = false
+    @objc dynamic var placeMoney: Int = 0
     
     let parties = LinkingObjects(fromType: Party.self, property: "user")
     let places = LinkingObjects(fromType: Place.self, property: "enjoyer")
