@@ -156,7 +156,7 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         
         if(indexPath.section == 1) {
             tableView.deselectRow(at: indexPath, animated: true)
-            
+            print(indexPath)
             if selectedIndexPath == indexPath {
                 selectedIndexPath = nil // 선택한 셀이 이미 있는 경우 해제
             } else {
@@ -173,21 +173,16 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
             if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
-                var menuCount = party?.place[indexPath.row].menu.count ?? 0
-                if(party?.place[indexPath.row].menu.count == 0) {
-                    menuCount = 1
-                }
-                var menuHeight = CGFloat(120 * (menuCount+1))
-                if(menuHeight >= 350) {
-                    menuHeight = 350
-                }
-                print(menuHeight)
-                return 70 + menuHeight
+                let menuCount = party?.place[indexPath.row].menu.count ?? 0
+                let menuHeight = CGFloat(120 * (menuCount+1))
+                let totalHeight = 70 + menuHeight
+                return min(totalHeight, 350)
             }
             return 70
         }
         return 44
     }
+
     
 }
 

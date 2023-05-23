@@ -43,6 +43,7 @@ extension SettlePlaceTableCell: UITableViewDelegate, UITableViewDataSource {
         if(section == 0) {
             return 1
         } else {
+            
             return (party?.place[index!].menu.count)!
         }
     }
