@@ -4,18 +4,38 @@ import RealmSwift
 class UserViewController: UIViewController {
     
     let realm = try! Realm()
+    let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if let tableView = table {
                 tableView.reloadData()
             }
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "파티 목록"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
     }
     
     func user() -> Results<User> {
@@ -35,26 +55,6 @@ class UserViewController: UIViewController {
 
 extension UserViewController: UITableViewDataSource, UITableViewDelegate {
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-//
-//    // Returns the title of the section.
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//
-//        let sections:[String] = ["즐겨찾기", "test"]
-//
-//        return sections[section]
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if section == 0 {
-//            return countBookmarkedUsers()
-//        } else if section == 1 {
-//            return user().count - countBookmarkedUsers()
-//        }
-//        return 0
-//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return user().count
     }

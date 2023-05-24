@@ -8,6 +8,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>KNPSKkomi.ttf</string>
 		<string>서울남산 장체M.ttf</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>

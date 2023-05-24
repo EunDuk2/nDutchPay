@@ -84,7 +84,7 @@ class AddPartyViewController: UIViewController {
                 addUser(userIndex: i)
             }
         }
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     
     @IBAction func onAllCheck(_ sender: Any) {

@@ -20,10 +20,10 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(initBool == true) {
-            self.navBar?.topItem?.title = "본인 등록"
-            btnCancel?.isHidden = true
-        }
+//        if(initBool == true) {
+//            self.navBar?.topItem?.title = "본인 등록"
+//            btnCancel?.isHidden = true
+//        }
         
         btnSubmit.isEnabled = false
         
