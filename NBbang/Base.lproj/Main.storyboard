@@ -7,8 +7,13 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="서울남산 장체M.ttf">
+            <string>SeoulNamsanCM</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--파티 목록-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,12 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SL6-jw-0Ti">
-                                <rect key="frame" x="16" y="164" width="361" height="515"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SL6-jw-0Ti">
+                                <rect key="frame" x="16" y="103" width="361" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.2627450980392157" green="0.53725490196078429" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyTableCell" rowHeight="80" id="z6s-Ta-oyq" customClass="PartyTableCell" customModule="NBbang" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="spatial" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyTableCell" rowHeight="80" id="z6s-Ta-oyq" customClass="PartyTableCell" customModule="NBbang" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z6s-Ta-oyq" id="CcO-j0-fbm">
@@ -31,14 +36,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="파티방 이름 출력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdX-zi-QCI">
                                                     <rect key="frame" x="20" y="11" width="321" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(초대 멤버 리스트)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ja-sz-CQ0">
-                                                    <rect key="frame" x="20" y="44" width="341" height="21"/>
+                                                    <rect key="frame" x="20" y="44" width="321" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -55,26 +60,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="X1r-Er-iBL"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzQ-JK-Dnh">
-                                <rect key="frame" x="170" y="687" width="54" height="35"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YON-tk-FLF">
+                                <rect key="frame" x="134" y="710" width="125" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="삭제"/>
-                                <connections>
-                                    <action selector="onDeleteDB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BBy-aY-NVk"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="plain" image="icon_plus.png" title=""/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SL6-jw-0Ti" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="06L-hg-CkU"/>
+                            <constraint firstItem="SL6-jw-0Ti" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tfl-oa-FnQ"/>
+                            <constraint firstItem="SL6-jw-0Ti" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pEN-P5-YOh"/>
+                            <constraint firstItem="SL6-jw-0Ti" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zAA-CF-8hP"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="파티 목록" id="dfj-3f-Tka">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xgB-JY-Pmd">
-                            <connections>
-                                <action selector="addParty:" destination="BYZ-38-t0r" id="xP3-Sf-OEl"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="dfj-3f-Tka"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="table" destination="SL6-jw-0Ti" id="MGe-aV-WWj"/>
                     </connections>
@@ -1392,15 +1395,16 @@
             </objects>
             <point key="canvasLocation" x="2624" y="1135"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--My Tab Bar Ctrl-->
         <scene sceneID="h1j-3a-alt">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FzE-M9-Tah" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FzE-M9-Tah" customClass="MyTabBarCtrl" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcJ-9o-xdO">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcJ-9o-xdO" customClass="MyTabBar" customModule="NBbang" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="1gn-4Z-W1H" kind="relationship" relationship="viewControllers" id="D24-Va-dM4"/>
@@ -1415,13 +1419,18 @@
         <scene sceneID="HN1-7t-Pu6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1gn-4Z-W1H" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="N4a-mI-WMK"/>
+                    <tabBarItem key="tabBarItem" image="icon_home.png" selectedImage="icon_home.png" id="N4a-mI-WMK">
+                        <inset key="imageInsets" minX="-20" minY="12" maxX="20" maxY="-12"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="66y-nE-5jY">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bhc-0J-UKJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FD2-WH-naq"/>
                     </connections>
@@ -1434,7 +1443,9 @@
         <scene sceneID="MFm-I2-NYi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="coB-Hk-OJG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="G6R-6e-aS2"/>
+                    <tabBarItem key="tabBarItem" image="icon_users.png" selectedImage="icon_users.png" id="G6R-6e-aS2">
+                        <inset key="imageInsets" minX="13" minY="10" maxX="-13" maxY="-10"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BPL-JL-xA7">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1451,6 +1462,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_home.png" width="48" height="48"/>
+        <image name="icon_plus.png" width="256" height="256"/>
+        <image name="icon_users.png" width="32" height="32"/>
         <image name="icons8-메뉴-64.png" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
