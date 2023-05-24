@@ -19,11 +19,12 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationSetting()
         
-//        if(initBool == true) {
-//            self.navBar?.topItem?.title = "본인 등록"
-//            btnCancel?.isHidden = true
-//        }
+        if(initBool == true) {
+            self.navBar?.topItem?.title = "본인 등록"
+            btnCancel?.isHidden = true
+        }
         
         btnSubmit.isEnabled = false
         
@@ -37,7 +38,42 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(phoneDidChange(_:)),
                                                     name: UITextField.textDidChangeNotification,
                                                     object: phone)
+    }
+    
+    @objc override func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "친구 등록"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let addButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(addButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        addButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        
+        btnSubmit = addButton
+        navigationItem.rightBarButtonItem = addButton
+    }
+    @objc func addButtonTapped() {
+        let idText: String = "U" + String(user().count)
+        
+        addUserNsaveDB(id: idText, name: name.text!, phone: phone.text!, account: account.text!)
+        
+        self.dismiss(animated: true)
     }
     
     func isSubmit() {
@@ -53,14 +89,6 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
             let regex = "^01([0|1|6|7|8|9]?)-?([0-9]{4})-?([0-9]{4})$"
 
             return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: candidate)
-    }
-    
-    @IBAction func onSubmit(_ sender: Any) {
-        let idText: String = "U" + String(user().count)
-        
-        addUserNsaveDB(id: idText, name: name.text!, phone: phone.text!, account: account.text!)
-        
-        self.dismiss(animated: true)
     }
     
     @IBAction func onCancel(_ sender: Any) {

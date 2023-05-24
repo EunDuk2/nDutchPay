@@ -33,6 +33,7 @@
 		61B9D7632A1E3C3000DAEE6C /* icon_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B9D7622A1E3C3000DAEE6C /* icon_plus.png */; };
 		61B9D76B2A1E4AE200DAEE6C /* icon_users.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B9D76A2A1E4AE200DAEE6C /* icon_users.png */; };
 		61B9D76D2A1E507200DAEE6C /* KNPSKkomi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61B9D76C2A1E507200DAEE6C /* KNPSKkomi.ttf */; };
+		61B9D76F2A1E56DF00DAEE6C /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 61B9D76E2A1E56DF00DAEE6C /* icon_cancel.png */; };
 		61BD96EC29D31E5B00125849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96EB29D31E5B00125849 /* AppDelegate.swift */; };
 		61BD96EE29D31E5B00125849 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96ED29D31E5B00125849 /* SceneDelegate.swift */; };
 		61BD96F029D31E5B00125849 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD96EF29D31E5B00125849 /* ViewController.swift */; };
@@ -47,7 +48,6 @@
 		61C738D62A162E82002D56AD /* EditPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C738D52A162E82002D56AD /* EditPlaceViewController.swift */; };
 		61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CC2A027C9B00E9A657 /* Place.swift */; };
 		61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */; };
-		61D647FE2A13A89D0065B707 /* icons8-메뉴-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */; };
 		61FC48472A03909200D36559 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FC48462A03909200D36559 /* AddPlaceViewController.swift */; };
 		61FC484B2A03967900D36559 /* AddPlaceUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FC484A2A03967900D36559 /* AddPlaceUserTableCell.swift */; };
 		6B5E2F7D5CF5BC4176244338 /* Pods_NBbang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2644F08F4E867D38D02433FD /* Pods_NBbang.framework */; };
@@ -82,6 +82,7 @@
 		61B9D7622A1E3C3000DAEE6C /* icon_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_plus.png; path = ../../../../../Downloads/icon_plus/icon_plus.png; sourceTree = "<group>"; };
 		61B9D76A2A1E4AE200DAEE6C /* icon_users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_users.png; path = ../../../../../Downloads/icon_users.png; sourceTree = "<group>"; };
 		61B9D76C2A1E507200DAEE6C /* KNPSKkomi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KNPSKkomi.ttf; sourceTree = "<group>"; };
+		61B9D76E2A1E56DF00DAEE6C /* icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cancel.png; sourceTree = "<group>"; };
 		61BD96E829D31E5B00125849 /* NBbang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBbang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BD96EB29D31E5B00125849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61BD96ED29D31E5B00125849 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		61C738D52A162E82002D56AD /* EditPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaceViewController.swift; sourceTree = "<group>"; };
 		61CE09CC2A027C9B00E9A657 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
-		61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-메뉴-64.png"; sourceTree = "<group>"; };
 		61FC48462A03909200D36559 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPlaceViewController.swift; path = ../AddPlaceViewController.swift; sourceTree = "<group>"; };
 		61FC484A2A03967900D36559 /* AddPlaceUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceUserTableCell.swift; sourceTree = "<group>"; };
 		D7BB13FFFAE633BE038FB84E /* Pods-NBbang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBbang.release.xcconfig"; path = "Target Support Files/Pods-NBbang/Pods-NBbang.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,11 +201,11 @@
 		61D647FC2A13A8160065B707 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				61B9D76E2A1E56DF00DAEE6C /* icon_cancel.png */,
 				61B9D76A2A1E4AE200DAEE6C /* icon_users.png */,
 				61B9D7622A1E3C3000DAEE6C /* icon_plus.png */,
 				61B9D7282A1E19C600DAEE6C /* icon_home.png */,
 				61B9D7262A1E120C00DAEE6C /* icon_menu.png */,
-				61D647FD2A13A89D0065B707 /* icons8-메뉴-64.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -279,10 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				61BD96F829D31E5D00125849 /* LaunchScreen.storyboard in Resources */,
+				61B9D76F2A1E56DF00DAEE6C /* icon_cancel.png in Resources */,
 				61B9D7252A1DF4F700DAEE6C /* 서울남산 장체M.ttf in Resources */,
 				61B9D76D2A1E507200DAEE6C /* KNPSKkomi.ttf in Resources */,
 				61B9D7292A1E19C600DAEE6C /* icon_home.png in Resources */,
-				61D647FE2A13A89D0065B707 /* icons8-메뉴-64.png in Resources */,
 				61B9D7632A1E3C3000DAEE6C /* icon_plus.png in Resources */,
 				61B9D7272A1E120C00DAEE6C /* icon_menu.png in Resources */,
 				61BD96F529D31E5D00125849 /* Assets.xcassets in Resources */,

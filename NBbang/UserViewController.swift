@@ -31,7 +31,7 @@ class UserViewController: UIViewController {
             titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
         } else {
             let titleLabel = UILabel()
-            titleLabel.text = "파티 목록"
+            titleLabel.text = "친구 목록"
             titleLabel.textColor = .white
             titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
             navigationItem.titleView = titleLabel
