@@ -4,6 +4,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var btnAdd: UIButton!
     
     let color = UIColor(hex: "#4364C9")
     let realm = try! Realm()
@@ -113,10 +114,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addParty(_ sender: Any) {
-        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
             return
         }
-        self.navigationController?.pushViewController(na, animated: true)
+        
+        du.modalPresentationStyle = .fullScreen
+        
+        self.present(du, animated: true)
     }
     
     @IBAction func onDeleteDB(_ sender: Any) {
