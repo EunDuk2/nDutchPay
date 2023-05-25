@@ -48,10 +48,12 @@ class ViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
             return
         }
-        self.present(na, animated: true)
+        du.modalPresentationStyle = .fullScreen
+        
+        self.present(du, animated: true)
     }
 
     func firstLaunch() {
@@ -117,10 +119,11 @@ class ViewController: UIViewController {
         guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
             return
         }
+
+        let navigationController = UINavigationController(rootViewController: du)
         
-        du.modalPresentationStyle = .fullScreen
-        
-        self.present(du, animated: true)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func onDeleteDB(_ sender: Any) {

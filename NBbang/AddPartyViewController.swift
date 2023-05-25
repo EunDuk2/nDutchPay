@@ -9,11 +9,56 @@ class AddPartyViewController: UIViewController {
     
     let realm = try! Realm()
     var allCheck: Bool = false
+    let color = UIColor(hex: "#4364C9")
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationSetting()
         resetUserMemberDB()
         self.hideKeyboardWhenTappedAround()
         partyName.delegate = self
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "파티 생성"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let addButton = UIBarButtonItem(title: "파티 생성", style: .plain, target: self, action: #selector(addButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        addButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        
+        navigationItem.rightBarButtonItem = addButton
+    }
+    @objc func addButtonTapped() {
+        if(partyName.text == "") {
+            addPartyNsaveDB(name: "이름 없는 파티방"+String(partyNameCount()))
+        } else {
+            addPartyNsaveDB(name: partyName.text!)
+        }
+        for i in 0..<user().count {
+            if(user()[i].member == 1) {
+                addUser(userIndex: i)
+            }
+        }
+        self.dismiss(animated: true)
     }
     
     func party() -> Results<Party> {
@@ -101,7 +146,9 @@ class AddPartyViewController: UIViewController {
         }
         table.reloadData()
     }
-    
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
