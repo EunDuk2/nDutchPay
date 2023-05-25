@@ -13,6 +13,7 @@ class AddPartyViewController: UIViewController {
     override func viewDidLoad() {
         resetUserMemberDB()
         self.hideKeyboardWhenTappedAround()
+        partyName.delegate = self
     }
     
     func party() -> Results<Party> {
@@ -145,6 +146,13 @@ extension AddPartyViewController: TableViewCellDelegate {
         }
     }
     
+}
+
+extension AddPartyViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 extension UIViewController {
