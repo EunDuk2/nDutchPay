@@ -135,35 +135,47 @@ class AddPartyViewController: UIViewController {
         }
     }
     
+    func checkAllButtonBool() {
+        var tempBool: Bool = true
+        
+        for i in 0..<user().count {
+            if(user()[i].member == 0) {
+                tempBool = false
+            }
+        }
+        setBtnCheck(bool: tempBool)
+    }
+    
+    func setBtnCheck(bool: Bool) {
+        let image: UIImage?
+        let title: String?
+        let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
+        let textColor = color
+        
+        if(bool == true) {
+            image = UIImage(named: "icon_check.png")
+            title = "전체 해제"
+            
+        } else {
+            image = UIImage(named: "icon_notcheck.png")
+            title = "전체 선택"
+        }
+
+        btnCheck.setImage(image, for: .normal)
+        btnCheck.setTitle(title, for: .normal)
+        btnCheck.titleLabel?.font = font
+        btnCheck.setTitleColor(textColor, for: .normal)
+    }
+    
     @IBAction func onAllCheck(_ sender: Any) {
         if(allCheck == false) {
             allCheck = true
-            
-            let image = UIImage(named: "icon_check.png")
-            let title = "전체 해제"
-            let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
-            let textColor = color
-
-            btnCheck.setImage(image, for: .normal)
-            btnCheck.setTitle(title, for: .normal)
-            btnCheck.titleLabel?.font = font
-            btnCheck.setTitleColor(textColor, for: .normal)
-            
             setUserMemberDB()
+            setBtnCheck(bool: allCheck)
         } else {
             allCheck = false
-            
-            let image = UIImage(named: "icon_notcheck.png")
-            let title = "전체 선택"
-            let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
-            let textColor = color
-
-            btnCheck.setImage(image, for: .normal)
-            btnCheck.setTitle(title, for: .normal)
-            btnCheck.titleLabel?.font = font
-            btnCheck.setTitleColor(textColor, for: .normal)
-            
             resetUserMemberDB()
+            setBtnCheck(bool: allCheck)
         }
         table.reloadData()
     }
@@ -202,15 +214,16 @@ extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AddPartyViewController: TableViewCellDelegate {
     
-    
     func didTapButton(cellIndex: Int?, button: UIButton?) {
         
         if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
             button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
+            checkAllButtonBool()
         } else {
             button?.setImage(UIImage(named: "icon_check.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 1)
+            checkAllButtonBool()
         }
     }
     
