@@ -6,6 +6,7 @@ class AddPartyViewController: UIViewController {
     @IBOutlet var partyName: UITextField!
     @IBOutlet var btnCheck: UIButton!
     @IBOutlet var table: UITableView!
+    @IBOutlet var textField: UITextField!
     
     let realm = try! Realm()
     var allCheck: Bool = false
@@ -15,6 +16,7 @@ class AddPartyViewController: UIViewController {
         super.viewDidLoad()
         
         navigationSetting()
+        textFieldSetting()
         resetUserMemberDB()
         self.hideKeyboardWhenTappedAround()
         partyName.delegate = self
@@ -37,7 +39,7 @@ class AddPartyViewController: UIViewController {
             navigationItem.titleView = titleLabel
         }
         
-        let addButton = UIBarButtonItem(title: "파티 생성", style: .plain, target: self, action: #selector(addButtonTapped))
+        let addButton = UIBarButtonItem(title: "만들기", style: .plain, target: self, action: #selector(addButtonTapped))
         
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
@@ -59,6 +61,19 @@ class AddPartyViewController: UIViewController {
             }
         }
         self.dismiss(animated: true)
+    }
+    
+    func textFieldSetting() {
+        textField.borderStyle = .none
+        
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: textField.frame.height - 1, width: textField.frame.width, height: 1)
+        let hexColor = "#4364C9"
+        if let color = UIColor(hex: hexColor) {
+            bottomLine.backgroundColor = color.cgColor
+        }
+        textField.layer.addSublayer(bottomLine)
+
     }
     
     func party() -> Results<Party> {
@@ -118,20 +133,6 @@ class AddPartyViewController: UIViewController {
             print("Realm 오류: \(error)")
             return 0
         }
-    }
-    
-    @IBAction func onAddParty(_ sender: Any) {
-        if(partyName.text == "") {
-            addPartyNsaveDB(name: "이름 없는 파티방"+String(partyNameCount()))
-        } else {
-            addPartyNsaveDB(name: partyName.text!)
-        }
-        for i in 0..<user().count {
-            if(user()[i].member == 1) {
-                addUser(userIndex: i)
-            }
-        }
-        self.dismiss(animated: true)
     }
     
     @IBAction func onAllCheck(_ sender: Any) {
