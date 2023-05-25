@@ -33,12 +33,12 @@ class ViewController: UIViewController {
         
         if let titleView = navigationItem.titleView as? UILabel {
             titleView.textColor = .white
-            titleView.font = UIFont(name: "KNPSKkomi-Regular", size: 21)
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
         } else {
             let titleLabel = UILabel()
             titleLabel.text = "파티 목록"
             titleLabel.textColor = .white
-            titleLabel.font = UIFont(name: "KNPSKkomi-Regular", size: 21)
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
             navigationItem.titleView = titleLabel
         }
         let addButtonImage = UIImage(named: "icon_menu.png")?.withRenderingMode(.alwaysOriginal)

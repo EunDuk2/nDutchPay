@@ -12,6 +12,7 @@ class AddPartyViewController: UIViewController {
     
     override func viewDidLoad() {
         resetUserMemberDB()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func party() -> Results<Party> {
@@ -144,4 +145,16 @@ extension AddPartyViewController: TableViewCellDelegate {
         }
     }
     
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
