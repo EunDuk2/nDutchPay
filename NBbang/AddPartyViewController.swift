@@ -138,11 +138,31 @@ class AddPartyViewController: UIViewController {
     @IBAction func onAllCheck(_ sender: Any) {
         if(allCheck == false) {
             allCheck = true
-            btnCheck.setTitle("✅ 전체 해제", for: .normal)
+            
+            let image = UIImage(named: "icon_check.png")
+            let title = "전체 해제"
+            let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            let textColor = color
+
+            btnCheck.setImage(image, for: .normal)
+            btnCheck.setTitle(title, for: .normal)
+            btnCheck.titleLabel?.font = font
+            btnCheck.setTitleColor(textColor, for: .normal)
+            
             setUserMemberDB()
         } else {
             allCheck = false
-            btnCheck.setTitle("🟩 전체 선택", for: .normal)
+            
+            let image = UIImage(named: "icon_notcheck.png")
+            let title = "전체 선택"
+            let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
+            let textColor = color
+
+            btnCheck.setImage(image, for: .normal)
+            btnCheck.setTitle(title, for: .normal)
+            btnCheck.titleLabel?.font = font
+            btnCheck.setTitleColor(textColor, for: .normal)
+            
             resetUserMemberDB()
         }
         table.reloadData()
@@ -166,9 +186,9 @@ extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblName?.text = row
         
         if(allCheck == false) {
-            cell.btnCheck.setTitle("🟩", for: .normal)
+            cell.btnCheck.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
         } else {
-            cell.btnCheck.setTitle("✅", for: .normal)
+            cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
         }
         
         
@@ -185,11 +205,11 @@ extension AddPartyViewController: TableViewCellDelegate {
     
     func didTapButton(cellIndex: Int?, button: UIButton?) {
         
-        if(button?.title(for: .normal) != "🟩") {
-            button?.setTitle("🟩", for: .normal)
+        if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
+            button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
         } else {
-            button?.setTitle("✅", for: .normal)
+            button?.setImage(UIImage(named: "icon_check.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 1)
         }
     }

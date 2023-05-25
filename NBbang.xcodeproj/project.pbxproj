@@ -22,6 +22,8 @@
 		61A621EC29FD521F006B9DC9 /* InviteUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */; };
 		61AA23312A08D3180020AFC9 /* SettleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA23302A08D3180020AFC9 /* SettleViewController.swift */; };
 		61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB20E329D3C93200817839 /* PartyTableCell.swift */; };
+		61ADBD262A1F459900885921 /* icon_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD242A1F459900885921 /* icon_check.png */; };
+		61ADBD272A1F459900885921 /* icon_notcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD252A1F459900885921 /* icon_notcheck.png */; };
 		61B135CF2A1B218700EA671B /* SettleUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */; };
 		61B18ED82A069D1D0092CAAD /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */; };
 		61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */; };
@@ -71,6 +73,8 @@
 		61A621EB29FD521F006B9DC9 /* InviteUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserTableCell.swift; sourceTree = "<group>"; };
 		61AA23302A08D3180020AFC9 /* SettleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleViewController.swift; sourceTree = "<group>"; };
 		61AB20E329D3C93200817839 /* PartyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableCell.swift; sourceTree = "<group>"; };
+		61ADBD242A1F459900885921 /* icon_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check.png; sourceTree = "<group>"; };
+		61ADBD252A1F459900885921 /* icon_notcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_notcheck.png; sourceTree = "<group>"; };
 		61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleUserTableCell.swift; sourceTree = "<group>"; };
 		61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
 		61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuTableCell.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 		61D647FC2A13A8160065B707 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				61ADBD242A1F459900885921 /* icon_check.png */,
+				61ADBD252A1F459900885921 /* icon_notcheck.png */,
 				61B9D76E2A1E56DF00DAEE6C /* icon_cancel.png */,
 				61B9D76A2A1E4AE200DAEE6C /* icon_users.png */,
 				61B9D7622A1E3C3000DAEE6C /* icon_plus.png */,
@@ -287,7 +293,9 @@
 				61B9D7272A1E120C00DAEE6C /* icon_menu.png in Resources */,
 				61BD96F529D31E5D00125849 /* Assets.xcassets in Resources */,
 				61BD96F329D31E5B00125849 /* Main.storyboard in Resources */,
+				61ADBD262A1F459900885921 /* icon_check.png in Resources */,
 				61B9D76B2A1E4AE200DAEE6C /* icon_users.png in Resources */,
+				61ADBD272A1F459900885921 /* icon_notcheck.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
