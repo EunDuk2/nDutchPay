@@ -196,16 +196,4 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension SettleViewController {
-    func fc(amount: Int) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.locale = Locale(identifier: "ko_KR")
-        
-        if let formattedAmount = numberFormatter.string(from: NSNumber(value: amount)) {
-            return formattedAmount
-        } else {
-            return ""
-        }
-    }
-}
+

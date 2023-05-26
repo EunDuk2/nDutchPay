@@ -7,15 +7,14 @@ class InPartyViewController: UIViewController {
     let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var viewLabel: UIView!
+    @IBOutlet var lblPrice: UILabel!
+    @IBOutlet var lblUsers: UILabel!
     
     override func viewDidLoad() {
+        viewSetting()
         navigationSetting()
-        
-        if let i = index {
-            navigationItem.title = party()[i].name
-            navigationItem.title! += " ("+String(party()[i].user.count)+")"
-        }
-        
+        printInitLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +23,11 @@ class InPartyViewController: UIViewController {
             navigationItem.title = party()[i].name
             navigationItem.title! += " ("+String(party()[i].user.count)+")"
         }
+    }
+    
+    func viewSetting() {
+        viewLabel.layer.cornerRadius = 10
+        viewLabel.clipsToBounds = true
     }
     
     @objc func navigationSetting() {
@@ -56,6 +60,24 @@ class InPartyViewController: UIViewController {
     
     @objc func settleButtonTapped() {
         
+    }
+    
+    func printInitLabel() {
+        lblPrice.text = fc(amount: party()[index!].totalPrice) + "(원)"
+        
+        var users: String = ""
+        users += "("
+        for i in 0..<party()[index!].user.count {
+            if(i != party()[index!].user.count - 1) {
+                users += party()[index!].user[i].name! + ","
+            } else {
+                users += party()[index!].user[i].name!
+            }
+            
+        }
+        users += ")"
+        
+        lblUsers.text = users
     }
     
     func party() -> Results<Party> {
@@ -101,35 +123,22 @@ class InPartyViewController: UIViewController {
         du.modalPresentationStyle = .fullScreen
         self.present(du, animated: true)
         
-//        let alert = UIAlertController(title: "장소 추가", message: "ex) 술집, 노래방, 편의점", preferredStyle: .alert)
-//        alert.addTextField()
-//        let ok = UIAlertAction(title: "추가", style: .default) { (ok) in
-//
-//            self.addPlace(name: alert.textFields?[0].text)
-//            self.table.reloadData()
-//        }
-//
-//        let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
-//
-//        }
-//
-//        alert.addAction(cancel)
-//        alert.addAction(ok)
-//
-//        self.present(alert, animated: true, completion: nil)
-        
     }
     
 }
 
 extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return party()[index!].place.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var row = party()[index!].place[indexPath.row].name
+        var row = party()[index!].place[indexPath.section].name
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableCell") as! PlaceTableCell
         
@@ -138,20 +147,45 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70 // 고정된 높이 값을 반환합니다.
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPlaceViewController") as? InPlaceViewController else {
                     return
                 }
         //na.index = indexPath.row
-        na.place = party()[index!].place[indexPath.row]
+        na.place = party()[index!].place[indexPath.section]
         na.party = party()[index!]
 
         self.navigationController?.pushViewController(na, animated: true)
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 0.1
+        }
+        return 100
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        // 섹션 푸터의 높이를 조정하는 로직을 구현
+        return 10
+    }
+    
+}
+extension UIViewController {
+    // formatCurrency()
+    func fc(amount: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale(identifier: "ko_KR")
+        
+        if let formattedAmount = numberFormatter.string(from: NSNumber(value: amount)) {
+            return formattedAmount
+        } else {
+            return ""
+        }
+    }
 }
