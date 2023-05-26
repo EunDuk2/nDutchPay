@@ -167,7 +167,7 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
         if(section == 0) {
             return 0.1
         }
-        return 100
+        return -1
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         // 섹션 푸터의 높이를 조정하는 로직을 구현
