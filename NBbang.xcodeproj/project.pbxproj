@@ -24,6 +24,9 @@
 		61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB20E329D3C93200817839 /* PartyTableCell.swift */; };
 		61ADBD262A1F459900885921 /* icon_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD242A1F459900885921 /* icon_check.png */; };
 		61ADBD272A1F459900885921 /* icon_notcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD252A1F459900885921 /* icon_notcheck.png */; };
+		61ADBD292A1FCC8A00885921 /* icon_contact1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD282A1FCC8A00885921 /* icon_contact1.png */; };
+		61ADBD2B2A1FCCF800885921 /* icon_cantac2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */; };
+		61ADBD2D2A206DA500885921 /* icon_settle.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD2C2A206DA500885921 /* icon_settle.png */; };
 		61B135CF2A1B218700EA671B /* SettleUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */; };
 		61B18ED82A069D1D0092CAAD /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */; };
 		61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */; };
@@ -75,6 +78,9 @@
 		61AB20E329D3C93200817839 /* PartyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableCell.swift; sourceTree = "<group>"; };
 		61ADBD242A1F459900885921 /* icon_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_check.png; sourceTree = "<group>"; };
 		61ADBD252A1F459900885921 /* icon_notcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_notcheck.png; sourceTree = "<group>"; };
+		61ADBD282A1FCC8A00885921 /* icon_contact1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_contact1.png; sourceTree = "<group>"; };
+		61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cantac2.png; sourceTree = "<group>"; };
+		61ADBD2C2A206DA500885921 /* icon_settle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settle.png; sourceTree = "<group>"; };
 		61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleUserTableCell.swift; sourceTree = "<group>"; };
 		61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
 		61B2D5AE2A07C34700523FDC /* AddMenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuTableCell.swift; sourceTree = "<group>"; };
@@ -205,6 +211,9 @@
 		61D647FC2A13A8160065B707 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				61ADBD2C2A206DA500885921 /* icon_settle.png */,
+				61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */,
+				61ADBD282A1FCC8A00885921 /* icon_contact1.png */,
 				61ADBD242A1F459900885921 /* icon_check.png */,
 				61ADBD252A1F459900885921 /* icon_notcheck.png */,
 				61B9D76E2A1E56DF00DAEE6C /* icon_cancel.png */,
@@ -291,8 +300,11 @@
 				61B9D7292A1E19C600DAEE6C /* icon_home.png in Resources */,
 				61B9D7632A1E3C3000DAEE6C /* icon_plus.png in Resources */,
 				61B9D7272A1E120C00DAEE6C /* icon_menu.png in Resources */,
+				61ADBD2D2A206DA500885921 /* icon_settle.png in Resources */,
+				61ADBD2B2A1FCCF800885921 /* icon_cantac2.png in Resources */,
 				61BD96F529D31E5D00125849 /* Assets.xcassets in Resources */,
 				61BD96F329D31E5B00125849 /* Main.storyboard in Resources */,
+				61ADBD292A1FCC8A00885921 /* icon_contact1.png in Resources */,
 				61ADBD262A1F459900885921 /* icon_check.png in Resources */,
 				61B9D76B2A1E4AE200DAEE6C /* icon_users.png in Resources */,
 				61ADBD272A1F459900885921 /* icon_notcheck.png in Resources */,

@@ -134,18 +134,23 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return cnt()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = party()[indexPath.row].name
+        let row = party()[indexPath.section].name
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PartyTableCell") as! PartyTableCell
         
         cell.partyName?.text = row
-        cell.userList?.text = userList(index: indexPath.row)
+        cell.userList?.text = userList(index: indexPath.section)
+        
+        
         
         return cell
     }
@@ -168,13 +173,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPartyViewController") as? InPartyViewController else {
             return
         }
-        na.index = indexPath.row
+        na.index = indexPath.section
         self.navigationController?.pushViewController(na, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70 // 고정된 높이 값을 반환합니다.
+        return 70
     }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 0.1
+        }
+        return -1
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        // 섹션 푸터의 높이를 조정하는 로직을 구현
+        return 10
+    }
+    
 }
 
 extension UIColor {
@@ -204,4 +221,3 @@ extension UIColor {
         return nil
     }
 }
-

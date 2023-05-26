@@ -4,10 +4,13 @@ import RealmSwift
 class InPartyViewController: UIViewController {
     let realm = try! Realm()
     var index:Int?
+    let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
+        navigationSetting()
+        
         if let i = index {
             navigationItem.title = party()[i].name
             navigationItem.title! += " ("+String(party()[i].user.count)+")"
@@ -21,6 +24,38 @@ class InPartyViewController: UIViewController {
             navigationItem.title = party()[i].name
             navigationItem.title! += " ("+String(party()[i].user.count)+")"
         }
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = party()[index!].name
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        let settleButton = UIButton(type: .custom)
+        settleButton.setImage(UIImage(named: "icon_settle.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        settleButton.setTitle("정산", for: .normal)
+        settleButton.titleLabel?.font = UIFont(name: "SeoulNamsanCM", size: 18)
+        settleButton.sizeToFit() // 버튼 크기 조정
+        settleButton.addTarget(self, action: #selector(settleButtonTapped), for: .touchUpInside)
+
+        let settleBarButtonItem = UIBarButtonItem(customView: settleButton)
+        navigationItem.rightBarButtonItem = settleBarButtonItem
+
+    }
+    
+    @objc func settleButtonTapped() {
+        
     }
     
     func party() -> Results<Party> {
