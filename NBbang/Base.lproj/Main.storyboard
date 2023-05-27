@@ -228,7 +228,7 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ctz-NA-XgG" firstAttribute="leading" secondItem="dmx-Lf-L1G" secondAttribute="leading" id="k6s-Xb-Wj2"/>
+                                            <constraint firstItem="ctz-NA-XgG" firstAttribute="leading" secondItem="dmx-Lf-L1G" secondAttribute="leading" id="lSY-hB-Wfw"/>
                                             <constraint firstItem="ctz-NA-XgG" firstAttribute="top" secondItem="dmx-Lf-L1G" secondAttribute="top" id="pHE-BQ-6Ud"/>
                                             <constraint firstAttribute="trailing" secondItem="ctz-NA-XgG" secondAttribute="trailing" id="pkr-CY-7oZ"/>
                                             <constraint firstAttribute="bottom" secondItem="ctz-NA-XgG" secondAttribute="bottom" id="s0T-qe-fi1"/>
@@ -544,7 +544,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIv-6O-emJ">
-                                <rect key="frame" x="21" y="103" width="351" height="73"/>
+                                <rect key="frame" x="21" y="103" width="351" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -719,11 +719,21 @@
                                     <outlet property="delegate" destination="F5G-3v-uVH" id="xrw-Xc-o5z"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnl-bj-s9U">
+                                <rect key="frame" x="159" y="148" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="onShare:" destination="F5G-3v-uVH" eventType="touchUpInside" id="nFp-ak-eBG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Va3-GY-r4Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnShare" destination="Lnl-bj-s9U" id="FPs-dm-a1E"/>
                         <outlet property="lblPartyInfo" destination="gIv-6O-emJ" id="ImT-2L-HWB"/>
                         <outlet property="table" destination="E6f-Wf-02t" id="nQf-1h-26G"/>
                     </connections>

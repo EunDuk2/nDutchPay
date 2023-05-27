@@ -9,6 +9,7 @@ class SettleViewController: UIViewController {
     
     @IBOutlet var lblPartyInfo: UILabel!
     @IBOutlet var table: UITableView!
+    @IBOutlet var btnShare: UIButton!
     
     override func viewDidLoad() {
         printPartyInfoLable()
@@ -92,6 +93,18 @@ class SettleViewController: UIViewController {
     @IBAction func onDone(_ sender: Any) {
         self.dismiss(animated: true)
     }
+    @IBAction func onShare(_ sender: Any) {
+        var shareItems = [String]()
+//        if let text = "self.textLabel.text" {
+//            shareItems.append(text)
+//        }
+        shareItems.append("test")
+
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 }
 
 extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
