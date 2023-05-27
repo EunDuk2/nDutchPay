@@ -16,11 +16,16 @@ class AddPartyViewController: UIViewController {
         super.viewDidLoad()
         
         navigationSetting()
-        textFieldSetting()
         resetUserMemberDB()
         self.hideKeyboardWhenTappedAround()
         partyName.delegate = self
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
+    }
+
     
     @objc func navigationSetting() {
         let navigationBarAppearance = UINavigationBarAppearance()
@@ -66,15 +71,17 @@ class AddPartyViewController: UIViewController {
     func textFieldSetting() {
         textField.borderStyle = .none
         
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: textField.frame.height - 1, width: textField.frame.width, height: 1)
+        // 기존의 bottomLine을 제거
+        textField.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        
+        let bottomLine = UIView(frame: CGRect(x: 0, y: textField.frame.size.height - 1, width: textField.frame.size.width, height: 1))
         let hexColor = "#4364C9"
         if let color = UIColor(hex: hexColor) {
-            bottomLine.backgroundColor = color.cgColor
+            bottomLine.backgroundColor = color
         }
-        textField.layer.addSublayer(bottomLine)
-
+        textField.addSubview(bottomLine)
     }
+
     
     func party() -> Results<Party> {
         return realm.objects(Party.self)

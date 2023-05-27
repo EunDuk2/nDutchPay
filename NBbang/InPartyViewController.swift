@@ -59,7 +59,13 @@ class InPartyViewController: UIViewController {
     }
     
     @objc func settleButtonTapped() {
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
+                    return
+                }
+        du.party = party()[index!]
         
+        du.modalPresentationStyle = .fullScreen
+        self.present(du, animated: true)
     }
     
     func printInitLabel() {
@@ -112,16 +118,16 @@ class InPartyViewController: UIViewController {
     }
     
     @IBAction func onAddPlace(_ sender: Any) {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPlaceViewController") as? AddPlaceViewController else {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddPlaceViewController") as? AddPlaceViewController else {
                     return
                 }
+
+        na.party = party()[index!]
         
-        //du.index = indexPath.row
-        //du.date = checkKey()
-        du.party = party()[index!]
+        let navigationController = UINavigationController(rootViewController: na)
         
-        du.modalPresentationStyle = .fullScreen
-        self.present(du, animated: true)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
         
     }
     

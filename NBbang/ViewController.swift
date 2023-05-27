@@ -116,11 +116,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addParty(_ sender: Any) {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
             return
         }
 
-        let navigationController = UINavigationController(rootViewController: du)
+        let navigationController = UINavigationController(rootViewController: na)
         
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)

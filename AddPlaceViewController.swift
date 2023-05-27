@@ -4,16 +4,21 @@ import RealmSwift
 class AddPlaceViewController: UIViewController {
     let realm = try! Realm()
     var party: Party?
+    var allCheck: Bool = false
     
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtName: UITextField!
-    
     @IBOutlet var btnSubmit: UIBarButtonItem!
+    @IBOutlet var btnCheck: UIButton!
+    @IBOutlet var table: UITableView!
+    
+    let color = UIColor(hex: "#4364C9")
     
     override func viewDidLoad() {
+        navigationSetting()
+        
         resetUserMemberDB()
         btnSubmit.isEnabled = false
-        
         txtPrice.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(priceDidChange(_:)),
@@ -21,37 +26,46 @@ class AddPlaceViewController: UIViewController {
                                                     object: txtPrice)
     }
     
-    func updateUserDB(userIndex: Int?, value: Int) {
-        try! realm.write {
-            party?.user[userIndex!].member = value
-        }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
     }
     
-    func addPlaceUser(user:User?) {
-        // 방금 추가한 장소 index
-        var index: Int = (party?.place.count)!-1
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         
-        try! realm.write {
-            party?.place[index].addEnjoyer(user: user!)
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "장소 추가"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
         }
+        
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        cancelButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        submitButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        btnSubmit = submitButton
+        
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = submitButton
     }
-    
-    func resetUserMemberDB() {
-        for i in 0..<(party?.user.count)! {
-            try! realm.write {
-                party?.user[i].member = 1
-            }
-        }
+    @objc func cancelButtonTapped() {
+        self.dismiss(animated: true)
     }
-    
-    func addDefaultMenu(index: Int, totalPrice: Int?) {
-        let tempList: List<User>? = party?.place[index].enjoyer
-        try! realm.write {
-            party?.place[index].setDefaultMenu(defaultMenu: Menu(name: "기타 메뉴", price: totalPrice!, count: 1, enjoyer: tempList))
-        }
-    }
-    
-    @IBAction func onSubmit(_ sender: Any) {
+    @objc func submitButtonTapped() {
         try! realm.write {
             if(txtName.text == "") {
                 party?.addPlace(name: "이름 없는 장소"+String((party?.place.count)!+1), totalPrice: Int(txtPrice.text ?? "") ?? 0)
@@ -73,10 +87,113 @@ class AddPlaceViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    
-    @IBAction func onCancel(_ sender: Any) {
-        self.dismiss(animated: true)
+    func textFieldSetting() {
+        txtName.borderStyle = .none
+        txtPrice.borderStyle = .none
+        
+        // 기존의 bottomLine을 제거
+        txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtPrice.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        
+        let bottomLineName = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
+        let bottomLinePrice = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
+        
+        let hexColor = "#4364C9"
+        if let color = UIColor(hex: hexColor) {
+            bottomLineName.backgroundColor = color
+            bottomLinePrice.backgroundColor = color
+        }
+        
+        txtName.addSubview(bottomLineName)
+        txtPrice.addSubview(bottomLinePrice)
     }
+    
+    func updateUserDB(userIndex: Int?, value: Int) {
+        try! realm.write {
+            party?.user[userIndex!].member = value
+        }
+    }
+    
+    func addPlaceUser(user:User?) {
+        // 방금 추가한 장소 index
+        var index: Int = (party?.place.count)!-1
+        
+        try! realm.write {
+            party?.place[index].addEnjoyer(user: user!)
+        }
+    }
+    
+    func resetUserMemberDB() {
+        for i in 0..<(party?.user.count)! {
+            try! realm.write {
+                party?.user[i].member = 0
+            }
+        }
+    }
+    
+    func addDefaultMenu(index: Int, totalPrice: Int?) {
+        let tempList: List<User>? = party?.place[index].enjoyer
+        try! realm.write {
+            party?.place[index].setDefaultMenu(defaultMenu: Menu(name: "기타 메뉴", price: totalPrice!, count: 1, enjoyer: tempList))
+        }
+    }
+    
+    func setUserMemberDB() {
+        for i in 0..<(party?.user.count)! {
+            try! realm.write {
+                party?.user[i].member = 1
+            }
+        }
+    }
+    
+    func checkAllButtonBool() {
+        var tempBool: Bool = true
+        
+        for i in 0..<(party?.user.count)! {
+            if(party?.user[i].member == 0) {
+                tempBool = false
+            }
+        }
+        setBtnCheck(bool: tempBool)
+    }
+    
+    func setBtnCheck(bool: Bool) {
+        let image: UIImage?
+        let title: String?
+        let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
+        let textColor = color
+        
+        if(bool == true) {
+            image = UIImage(named: "icon_check.png")
+            title = "전체 해제"
+            
+        } else {
+            image = UIImage(named: "icon_notcheck.png")
+            title = "전체 선택"
+        }
+
+        btnCheck.setImage(image, for: .normal)
+        btnCheck.setTitle(title, for: .normal)
+        btnCheck.titleLabel?.font = font
+        btnCheck.setTitleColor(textColor, for: .normal)
+    }
+    
+    @IBAction func onAllCheck(_ sender: Any) {
+        if(allCheck == false) {
+            allCheck = true
+            setUserMemberDB()
+            setBtnCheck(bool: allCheck)
+        } else {
+            allCheck = false
+            resetUserMemberDB()
+            setBtnCheck(bool: allCheck)
+        }
+        table.reloadData()
+    }
+    
+    
+    
+    
     
 }
 
@@ -100,7 +217,12 @@ extension AddPlaceViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.index = indexPath.row
         cell.lblName?.text = row
-        cell.btnCheck?.setTitle("✅", for: .normal)
+        
+        if(allCheck == false) {
+            cell.btnCheck.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
+        } else {
+            cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
+        }
         
         cell.delegate = self
         
@@ -112,12 +234,14 @@ extension AddPlaceViewController: AddPlaceUserTableCellDelegate {
     
     func didTapButton(cellIndex: Int?, button: UIButton?) {
         
-        if(button?.title(for: .normal) != "🟩") {
-            button?.setTitle("🟩", for: .normal)
+        if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
+            button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
+            checkAllButtonBool()
         } else {
-            button?.setTitle("✅", for: .normal)
+            button?.setImage(UIImage(named: "icon_check.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 1)
+            checkAllButtonBool()
         }
         
     }
