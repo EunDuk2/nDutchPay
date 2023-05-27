@@ -45,6 +45,9 @@ class ViewController: UIViewController {
         let addButton = UIBarButtonItem(title: "", image: addButtonImage, target: self, action: #selector(addButtonTapped))
 
         navigationItem.rightBarButtonItem = addButton
+        
+        let backBarButtonItem = UIBarButtonItem(title: "파티목록", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     @objc func addButtonTapped() {

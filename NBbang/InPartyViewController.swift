@@ -58,8 +58,9 @@ class InPartyViewController: UIViewController {
         settleButton.setTitleTextAttributes(titleAttributes, for: .normal)
 
         navigationItem.rightBarButtonItems = [settingButton, settleButton]
-
-
+        
+        let backBarButtonItem = UIBarButtonItem(title: "장소 목록", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     @objc func settleButtonTapped() {
@@ -83,8 +84,8 @@ class InPartyViewController: UIViewController {
     func printInitLabel() {
         lblPrice.text = fc(amount: party()[index!].totalPrice) + "(원)"
         
-        var users: String = ""
-        users += "("
+        var users: String = String(party()[index!].user.count)
+        users += "명("
         for i in 0..<party()[index!].user.count {
             if(i != party()[index!].user.count - 1) {
                 users += party()[index!].user[i].name! + ","
@@ -171,12 +172,10 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPlaceViewController") as? InPlaceViewController else {
                     return
                 }
-        //na.index = indexPath.row
         na.place = party()[index!].place[indexPath.section]
         na.party = party()[index!]
 
         self.navigationController?.pushViewController(na, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
