@@ -19,25 +19,10 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
     var phoneBool: Bool = false
     var initBool: Bool = false
     
-    func constraintSetting() {
-        view.removeConstraint(nameLeading)
-        view.removeConstraint(nameTrailling)
-
-        // 새로운 multiplier 값을 가진 제약 조건을 생성합니다
-        let newLeadingConstraint = NSLayoutConstraint(item: name, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 16)
-        let newTrailingConstraint = NSLayoutConstraint(item: name, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: -16)
-
-        // 새로운 제약 조건을 추가합니다
-        view.addConstraint(newLeadingConstraint)
-        view.addConstraint(newTrailingConstraint)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        constraintSetting()
-        
         navigationSetting()
-        textFieldSetting()
+        
         self.hideKeyboardWhenTappedAround()
         
         if(initBool == true) {
@@ -66,6 +51,10 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(phoneDidChange(_:)),
                                                     name: UITextField.textDidChangeNotification,
                                                     object: phone)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
     }
     
     @objc override func navigationSetting() {
@@ -123,18 +112,19 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         name.borderStyle = .none
         phone.borderStyle = .none
         
-        let bottomLine1 = CALayer()
-        let bottomLine2 = CALayer()
-        bottomLine1.frame = CGRect(x: 0, y: name.frame.height - 1, width: phone.frame.width, height: 1)
-        bottomLine2.frame = CGRect(x: 0, y: name.frame.height - 1, width: phone.frame.width, height: 1)
+        // 기존의 bottomLine을 제거
+        name.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        phone.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
         
+        let bottomLine1 = UIView(frame: CGRect(x: 0, y: name.frame.size.height - 1, width: name.frame.size.width, height: 1))
+        let bottomLine2 = UIView(frame: CGRect(x: 0, y: phone.frame.size.height - 1, width: phone.frame.size.width, height: 1))
         let hexColor = "#4364C9"
         if let color = UIColor(hex: hexColor) {
-            bottomLine1.backgroundColor = color.cgColor
-            bottomLine2.backgroundColor = color.cgColor
+            bottomLine1.backgroundColor = color
+            bottomLine2.backgroundColor = color
         }
-        name.layer.addSublayer(bottomLine1)
-        phone.layer.addSublayer(bottomLine2)
+        name.addSubview(bottomLine1)
+        phone.addSubview(bottomLine2)
     }
     
     func isSubmit() {
@@ -226,7 +216,7 @@ extension AddUserViewController: UITextFieldDelegate {
                 isSubmit()
             } else {
                 lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
-                lblPhoneWarning.textColor = .red
+                lblPhoneWarning.textColor = UIColor(hex: "#C24446")
                 phoneBool = false
                 isSubmit()
             }

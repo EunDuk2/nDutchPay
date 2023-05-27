@@ -8,15 +8,16 @@ class EditUserViewController: UIViewController {
     @IBOutlet var lblNameWarning: UILabel!
     @IBOutlet var lblPhoneWarning: UILabel!
     @IBOutlet var btnSubmit: UIBarButtonItem!
-    @IBOutlet var btnBookmark: UIButton!
     
     var maxLength:Int = 8
     var index: Int?
     var nameBool: Bool = true
     var phoneBool: Bool = true
     let realm = try! Realm()
+    let color = UIColor(hex: "#4364C9")
     
     override func viewDidLoad() {
+        navigationSetting()
         txtName.delegate = self
         txtPhone.delegate = self
         
@@ -29,6 +30,63 @@ class EditUserViewController: UIViewController {
                                                     object: txtPhone)
         
         txtInit()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "친구 편집"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
+        
+        btnSubmit = submitButton
+
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        submitButton.setTitleTextAttributes(titleAttributes, for: .normal)
+
+        navigationItem.rightBarButtonItem = submitButton
+    }
+    @objc func submitButtonTapped() {
+        updateUserDB(name: txtName.text!, phone: txtPhone.text!)
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    func textFieldSetting() {
+        txtName.borderStyle = .none
+        txtPhone.borderStyle = .none
+        
+        // 기존의 bottomLine을 제거
+        txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtPhone.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        
+        let bottomLine1 = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
+        let bottomLine2 = UIView(frame: CGRect(x: 0, y: txtPhone.frame.size.height - 1, width: txtPhone.frame.size.width, height: 1))
+        let hexColor = "#4364C9"
+        if let color = UIColor(hex: hexColor) {
+            bottomLine1.backgroundColor = color
+            bottomLine2.backgroundColor = color
+        }
+        txtName.addSubview(bottomLine1)
+        txtPhone.addSubview(bottomLine2)
     }
     
     func user() -> Results<User> {
@@ -89,24 +147,8 @@ class EditUserViewController: UIViewController {
         delCheck()
     }
 
-    @IBAction func onSubmit(_ sender: Any) {
-        
-        updateUserDB(name: txtName.text!, phone: txtPhone.text!)
-        
+    @IBAction func onCancel(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-    }
-    @IBAction func onBookmark(_ sender: Any) {
-        if(btnBookmark.title(for: .normal) == "☆") {
-            btnBookmark.setTitle("★", for: .normal)
-            try! realm.write {
-                user()[index!].bookmark = true
-            }
-        } else {
-            btnBookmark.setTitle("☆", for: .normal)
-            try! realm.write {
-                user()[index!].bookmark = false
-            }
-        }
     }
     
 }
@@ -121,13 +163,13 @@ extension EditUserViewController: UITextFieldDelegate {
         } else {
             if text.count < 1 {
                 lblNameWarning.text = "1글자 이상 8글자 이하로 입력해주세요"
-                lblNameWarning.textColor = .red
+                lblNameWarning.textColor = UIColor(hex: "#C24446")
                 nameBool = false
                 isSubmit()
             }
             else {
                 lblNameWarning.text = "사용 가능한 닉네임입니다."
-                lblNameWarning.textColor = .green
+                lblNameWarning.textColor = UIColor(hex: "#54C275")
                 nameBool = true
                 isSubmit()
             }
@@ -141,7 +183,7 @@ extension EditUserViewController: UITextFieldDelegate {
         }
         if text.count <= 10 {
             lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
-            lblPhoneWarning.textColor = .red
+            lblPhoneWarning.textColor = UIColor(hex: "#C24446")
             phoneBool = false
             isSubmit()
         }
@@ -149,11 +191,11 @@ extension EditUserViewController: UITextFieldDelegate {
             if(isPhone(candidate: textField.text!) == true) {
                 phoneBool = true
                 lblPhoneWarning.text = "형식에 맞는 전화 번호입니다"
-                lblPhoneWarning.textColor = .green
+                lblPhoneWarning.textColor = UIColor(hex: "#54C275")
                 isSubmit()
             } else {
                 lblPhoneWarning.text = "전화번호를 알맞게 입력해주세요"
-                lblPhoneWarning.textColor = .red
+                lblPhoneWarning.textColor = UIColor(hex: "#C24446")
                 phoneBool = false
                 isSubmit()
             }
