@@ -91,7 +91,6 @@ class AddPlaceViewController: UIViewController {
         txtName.borderStyle = .none
         txtPrice.borderStyle = .none
         
-        // 기존의 bottomLine을 제거
         txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
         txtPrice.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
         
@@ -191,10 +190,9 @@ class AddPlaceViewController: UIViewController {
         table.reloadData()
     }
     
-    
-    
-    
-    
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension AddPlaceViewController: UITableViewDelegate, UITableViewDataSource {

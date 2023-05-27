@@ -755,41 +755,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10,000 (필수 입력)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYX-pO-H69">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름 없는 장소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fh2-2h-63c">
+                                <rect key="frame" x="16" y="127" width="361" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="ogl-T7-0Hq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10,000 (필수 입력)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PYX-pO-H69">
                                 <rect key="frame" x="16" y="220" width="361" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="L5P-ca-snf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oxq-6l-JZY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oxq-6l-JZY">
                                 <rect key="frame" x="16" y="328" width="361" height="421"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddPlaceUserTableCell" id="BRB-g8-9S7" customClass="AddPlaceUserTableCell" customModule="NBbang" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddPlaceUserTableCell" rowHeight="48" id="BRB-g8-9S7" customClass="AddPlaceUserTableCell" customModule="NBbang" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BRB-g8-9S7" id="v1i-Ss-HPy">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="파티원 이름 출력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8i-ny-fVr">
-                                                    <rect key="frame" x="20" y="11" width="292" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="파티원 이름 출력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8i-ny-fVr">
+                                                    <rect key="frame" x="20" y="14" width="285" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlj-b0-Ccf">
-                                                    <rect key="frame" x="313" y="-3" width="48" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="icon_notcheck.png"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlj-b0-Ccf">
+                                                    <rect key="frame" x="313" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="BzR-Hj-hYo"/>
+                                                        <constraint firstAttribute="width" constant="48" id="iEQ-fK-Fj5"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="icon_notcheck.png"/>
                                                     <connections>
                                                         <action selector="onCheck:" destination="BRB-g8-9S7" eventType="touchUpInside" id="pvY-4e-Wfy"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="xlj-b0-Ccf" secondAttribute="bottom" id="8ly-26-489"/>
+                                                <constraint firstItem="c8i-ny-fVr" firstAttribute="top" secondItem="v1i-Ss-HPy" secondAttribute="top" constant="14" id="E3S-uC-FvW"/>
+                                                <constraint firstAttribute="trailing" secondItem="xlj-b0-Ccf" secondAttribute="trailing" id="GAg-FF-v4f"/>
+                                                <constraint firstItem="c8i-ny-fVr" firstAttribute="leading" secondItem="v1i-Ss-HPy" secondAttribute="leading" constant="20" symbolic="YES" id="mew-VZ-UiK"/>
+                                                <constraint firstItem="xlj-b0-Ccf" firstAttribute="top" secondItem="v1i-Ss-HPy" secondAttribute="top" id="tcY-T5-pQT"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnCheck" destination="xlj-b0-Ccf" id="MS0-Rf-uw2"/>
@@ -802,9 +820,12 @@
                                     <outlet property="delegate" destination="fgx-M4-l5Q" id="ZPX-H7-8B8"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK3-hz-8MG">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK3-hz-8MG">
                                 <rect key="frame" x="16" y="280" width="104" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Hot-x2-A5e"/>
+                                    <constraint firstAttribute="width" constant="104" id="wwZ-Mn-Ft4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="전체 선택" image="icon_notcheck.png">
@@ -814,29 +835,63 @@
                                     <action selector="onAllCheck:" destination="fgx-M4-l5Q" eventType="touchUpInside" id="Zbc-7a-1B6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="장소 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Un-XO-GXO">
-                                <rect key="frame" x="16" y="75" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Un-XO-GXO">
+                                <rect key="frame" x="16" y="89" width="88" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4Hd-5y-trb"/>
+                                    <constraint firstAttribute="width" constant="88" id="aNg-CQ-XcB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
                                 <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사용된 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcF-kG-PWf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용된 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcF-kG-PWf">
                                 <rect key="frame" x="16" y="182" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="h1X-zj-WL7"/>
+                                    <constraint firstAttribute="height" constant="30" id="iSD-Z6-vDS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
                                 <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름 없는 장소" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fh2-2h-63c">
-                                <rect key="frame" x="16" y="113" width="361" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-rN-zfE">
+                                <rect key="frame" x="151.66666666666666" y="717" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="RPv-dQ-OSU"/>
+                                    <constraint firstAttribute="height" constant="90" id="wAS-Zj-P0W"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="" image="icon_cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="fgx-M4-l5Q" eventType="touchUpInside" id="4Ph-hf-yET"/>
+                                    <action selector="onCancel:" destination="dvW-CU-638" eventType="touchUpInside" id="vT1-tb-wGP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I0y-1c-ce7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FcF-kG-PWf" firstAttribute="top" secondItem="fh2-2h-63c" secondAttribute="bottom" constant="21" id="1tw-Ek-ucc"/>
+                            <constraint firstItem="fh2-2h-63c" firstAttribute="top" secondItem="3Un-XO-GXO" secondAttribute="bottom" constant="8" symbolic="YES" id="4iL-nY-tfX"/>
+                            <constraint firstItem="I0y-1c-ce7" firstAttribute="bottom" secondItem="Oxq-6l-JZY" secondAttribute="bottom" constant="69" id="8CK-v3-R8V"/>
+                            <constraint firstItem="3Un-XO-GXO" firstAttribute="leading" secondItem="I0y-1c-ce7" secondAttribute="leading" constant="16" id="EBq-O7-dTY"/>
+                            <constraint firstItem="I0y-1c-ce7" firstAttribute="trailing" secondItem="fh2-2h-63c" secondAttribute="trailing" constant="16" id="FQT-nz-kAA"/>
+                            <constraint firstItem="PYX-pO-H69" firstAttribute="leading" secondItem="I0y-1c-ce7" secondAttribute="leading" constant="16" id="H9b-Kz-F33"/>
+                            <constraint firstItem="Oxq-6l-JZY" firstAttribute="centerX" secondItem="Uim-Cx-mqF" secondAttribute="centerX" id="IdS-Mm-Ifg"/>
+                            <constraint firstItem="GK3-hz-8MG" firstAttribute="leading" secondItem="PYX-pO-H69" secondAttribute="leading" id="KDv-ak-lhQ"/>
+                            <constraint firstAttribute="bottom" secondItem="N0e-rN-zfE" secondAttribute="bottom" constant="45" id="LTa-43-BFQ"/>
+                            <constraint firstItem="Oxq-6l-JZY" firstAttribute="leading" secondItem="I0y-1c-ce7" secondAttribute="leading" constant="16" id="MjV-dE-J3m"/>
+                            <constraint firstItem="I0y-1c-ce7" firstAttribute="trailing" secondItem="PYX-pO-H69" secondAttribute="trailing" constant="16" id="RpE-gx-tor"/>
+                            <constraint firstItem="GK3-hz-8MG" firstAttribute="top" secondItem="PYX-pO-H69" secondAttribute="bottom" constant="26" id="S0G-SN-jWC"/>
+                            <constraint firstItem="I0y-1c-ce7" firstAttribute="trailing" secondItem="Oxq-6l-JZY" secondAttribute="trailing" constant="16" id="VX4-ou-qH6"/>
+                            <constraint firstItem="3Un-XO-GXO" firstAttribute="top" secondItem="I0y-1c-ce7" secondAttribute="top" constant="30" id="eY9-Mz-33a"/>
+                            <constraint firstItem="fh2-2h-63c" firstAttribute="leading" secondItem="I0y-1c-ce7" secondAttribute="leading" constant="16" id="gkd-g8-dMN"/>
+                            <constraint firstItem="N0e-rN-zfE" firstAttribute="centerX" secondItem="Uim-Cx-mqF" secondAttribute="centerX" id="hzf-Gd-tMa"/>
+                            <constraint firstItem="PYX-pO-H69" firstAttribute="top" secondItem="FcF-kG-PWf" secondAttribute="bottom" constant="8" symbolic="YES" id="j4o-tn-s2E"/>
+                            <constraint firstItem="FcF-kG-PWf" firstAttribute="leading" secondItem="I0y-1c-ce7" secondAttribute="leading" constant="16" id="lMV-Uf-K5X"/>
+                            <constraint firstItem="Oxq-6l-JZY" firstAttribute="top" secondItem="GK3-hz-8MG" secondAttribute="bottom" id="znu-AX-QOn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="btnCheck" destination="GK3-hz-8MG" id="hKg-9n-f5C"/>
