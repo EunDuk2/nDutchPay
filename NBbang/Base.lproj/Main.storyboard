@@ -121,14 +121,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="장소명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbT-Ay-rfp">
-                                                    <rect key="frame" x="20" y="12" width="321" height="21"/>
+                                                    <rect key="frame" x="20" y="12" width="169" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이 장소에서 사용한 금액, 사용자 표시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-kC-FRo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="장소 파티원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-kC-FRo">
                                                     <rect key="frame" x="20" y="41" width="321" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가격" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-uF-NPg">
+                                                    <rect key="frame" x="216" y="10" width="125" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -145,7 +152,8 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="lblPlaceName" destination="kbT-Ay-rfp" id="ulS-R1-uaa"/>
-                                            <outlet property="lblPrice" destination="f4O-kC-FRo" id="s9t-qv-LFU"/>
+                                            <outlet property="lblPrice" destination="hz2-uF-NPg" id="VKI-OC-BY8"/>
+                                            <outlet property="lblUsers" destination="f4O-kC-FRo" id="PLK-iT-FaK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -536,7 +544,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BcH-Hh-jNV">
-                                <rect key="frame" x="-6" y="59" width="393" height="44"/>
+                                <rect key="frame" x="-7" y="59" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="정산 내역" id="ety-vE-Rns">
@@ -1005,7 +1013,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-ce-mMV">
-                                <rect key="frame" x="-4" y="59" width="390" height="44"/>
+                                <rect key="frame" x="-4" y="59" width="389" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="메뉴 추가" id="zCO-J5-ksW">

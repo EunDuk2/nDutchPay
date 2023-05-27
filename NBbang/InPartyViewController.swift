@@ -46,15 +46,19 @@ class InPartyViewController: UIViewController {
             titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
             navigationItem.titleView = titleLabel
         }
-        let settleButton = UIButton(type: .custom)
-        settleButton.setImage(UIImage(named: "icon_settle.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        settleButton.setTitle("정산", for: .normal)
-        settleButton.titleLabel?.font = UIFont(name: "SeoulNamsanCM", size: 18)
-        settleButton.sizeToFit() // 버튼 크기 조정
-        settleButton.addTarget(self, action: #selector(settleButtonTapped), for: .touchUpInside)
+        
+        let settingButtonImage = UIImage(named: "icon_setting3.png")?.withRenderingMode(.alwaysOriginal)
+        let settingButton = UIBarButtonItem(title: "", image: settingButtonImage, target: self, action: #selector(settingButtonTapped))
 
-        let settleBarButtonItem = UIBarButtonItem(customView: settleButton)
-        navigationItem.rightBarButtonItem = settleBarButtonItem
+        let settleButton = UIBarButtonItem(title: "정산", style: .plain, target: self, action: #selector(settleButtonTapped))
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        settleButton.setTitleTextAttributes(titleAttributes, for: .normal)
+
+        navigationItem.rightBarButtonItems = [settingButton, settleButton]
+
 
     }
     
@@ -66,6 +70,14 @@ class InPartyViewController: UIViewController {
         
         du.modalPresentationStyle = .fullScreen
         self.present(du, animated: true)
+    }
+    @objc func settingButtonTapped() {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InviteUserViewController") as? InviteUserViewController else {
+                    return
+                }
+        na.index = index
+        
+        self.navigationController?.pushViewController(na, animated: true)
     }
     
     func printInitLabel() {
@@ -107,16 +119,6 @@ class InPartyViewController: UIViewController {
         }
     }
     
-    @IBAction func onInviteUser(_ sender: Any) {
-        
-        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InviteUserViewController") as? InviteUserViewController else {
-                    return
-                }
-        na.index = index
-        
-        self.navigationController?.pushViewController(na, animated: true)
-    }
-    
     @IBAction func onAddPlace(_ sender: Any) {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddPlaceViewController") as? AddPlaceViewController else {
                     return
@@ -144,11 +146,23 @@ extension InPartyViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var row = party()[index!].place[indexPath.section].name
+        var row1 = party()[index!].place[indexPath.section].name
+        var row2 = fc(amount: party()[index!].place[indexPath.section].totalPrice) + "(원)"
+        var row3 = "("
+        for i in 0..<party()[index!].place[indexPath.section].enjoyer.count {
+            if(i != party()[index!].place[indexPath.section].enjoyer.count-1) {
+                row3 += party()[index!].place[indexPath.section].enjoyer[i].name! + ","
+            } else {
+                row3 += party()[index!].place[indexPath.section].enjoyer[i].name!
+            }
+        }
+        row3 += ")"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableCell") as! PlaceTableCell
         
-        cell.lblPlaceName?.text = row
+        cell.lblPlaceName?.text = row1
+        cell.lblPrice?.text = row2
+        cell.lblUsers?.text = row3
         
         return cell
     }

@@ -14,10 +14,10 @@
             filePath = "NBbang/InPartyViewController.swift"
             startingColumnNumber = "46"
             endingColumnNumber = "46"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "tableView(_:heightForHeaderInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "InPartyViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

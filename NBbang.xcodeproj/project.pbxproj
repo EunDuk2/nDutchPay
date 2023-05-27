@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6105E0E72A2262CD005B6036 /* icon_setting1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6105E0E62A2262CD005B6036 /* icon_setting1.png */; };
+		6105E0E92A22653A005B6036 /* icon_setting2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6105E0E82A22653A005B6036 /* icon_setting2.png */; };
+		6105E0EB2A22658B005B6036 /* icon_setting3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6105E0EA2A22658B005B6036 /* icon_setting3.png */; };
 		6130BF8E2A1BA307008D7B29 /* SettleMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130BF8D2A1BA307008D7B29 /* SettleMenuTableView.swift */; };
 		6196657F29FCD7860056A591 /* AddPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6196657E29FCD7860056A591 /* AddPartyViewController.swift */; };
 		6198CC6329FD2FFD0031E923 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */; };
@@ -63,6 +66,9 @@
 /* Begin PBXFileReference section */
 		2644F08F4E867D38D02433FD /* Pods_NBbang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBbang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC36FECF5F692EC806DE5F7 /* Pods-NBbang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBbang.debug.xcconfig"; path = "Target Support Files/Pods-NBbang/Pods-NBbang.debug.xcconfig"; sourceTree = "<group>"; };
+		6105E0E62A2262CD005B6036 /* icon_setting1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting1.png; sourceTree = "<group>"; };
+		6105E0E82A22653A005B6036 /* icon_setting2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting2.png; sourceTree = "<group>"; };
+		6105E0EA2A22658B005B6036 /* icon_setting3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting3.png; sourceTree = "<group>"; };
 		6130BF8D2A1BA307008D7B29 /* SettleMenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleMenuTableView.swift; sourceTree = "<group>"; };
 		6196657E29FCD7860056A591 /* AddPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPartyViewController.swift; sourceTree = "<group>"; };
 		6198CC6229FD2FFD0031E923 /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +221,10 @@
 		61D647FC2A13A8160065B707 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6105E0EA2A22658B005B6036 /* icon_setting3.png */,
 				61ADBD302A209BA000885921 /* icon_partymember.png */,
+				6105E0E82A22653A005B6036 /* icon_setting2.png */,
+				6105E0E62A2262CD005B6036 /* icon_setting1.png */,
 				61ADBD2E2A209A5500885921 /* icon_money1.png */,
 				61ADBD2C2A206DA500885921 /* icon_settle.png */,
 				61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */,
@@ -306,10 +315,13 @@
 				61B9D76D2A1E507200DAEE6C /* KNPSKkomi.ttf in Resources */,
 				61ADBD312A209BA000885921 /* icon_partymember.png in Resources */,
 				61B9D7292A1E19C600DAEE6C /* icon_home.png in Resources */,
+				6105E0E72A2262CD005B6036 /* icon_setting1.png in Resources */,
 				61B9D7632A1E3C3000DAEE6C /* icon_plus.png in Resources */,
+				6105E0E92A22653A005B6036 /* icon_setting2.png in Resources */,
 				61B9D7272A1E120C00DAEE6C /* icon_menu.png in Resources */,
 				61ADBD2D2A206DA500885921 /* icon_settle.png in Resources */,
 				61ADBD2B2A1FCCF800885921 /* icon_cantac2.png in Resources */,
+				6105E0EB2A22658B005B6036 /* icon_setting3.png in Resources */,
 				61BD96F529D31E5D00125849 /* Assets.xcassets in Resources */,
 				61BD96F329D31E5B00125849 /* Main.storyboard in Resources */,
 				61ADBD292A1FCC8A00885921 /* icon_contact1.png in Resources */,

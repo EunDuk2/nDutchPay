@@ -47,7 +47,7 @@ class EditUserViewController: UIViewController {
             titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
         } else {
             let titleLabel = UILabel()
-            titleLabel.text = "친구 편집"
+            titleLabel.text = "편집"
             titleLabel.textColor = .white
             titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
             navigationItem.titleView = titleLabel
@@ -112,7 +112,7 @@ class EditUserViewController: UIViewController {
             
             self.navigationController?.popViewController(animated: true)
         }
-        let cancel = UIAlertAction(title: "취소", style: .destructive)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addAction(cancel)
         alert.addAction(clear)
