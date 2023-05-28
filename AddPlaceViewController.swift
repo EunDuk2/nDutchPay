@@ -68,7 +68,7 @@ class AddPlaceViewController: UIViewController {
     @objc func submitButtonTapped() {
         try! realm.write {
             if(txtName.text == "") {
-                party?.addPlace(name: "이름 없는 장소"+String((party?.place.count)!+1), totalPrice: Int(txtPrice.text ?? "") ?? 0)
+                party?.addPlace(name: "이름 없는 장소" + String(placeNameCount()), totalPrice: Int(txtPrice.text ?? "") ?? 0)
             } else {
                 party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0)
             }
@@ -110,6 +110,21 @@ class AddPlaceViewController: UIViewController {
     func updateUserDB(userIndex: Int?, value: Int) {
         try! realm.write {
             party?.user[userIndex!].member = value
+        }
+    }
+    
+    func placeNameCount() -> Int {
+        do {
+            if let places = party?.place {
+                let placesWithName = places.filter("name CONTAINS %@", "이름 없는 장소")
+                let count = placesWithName.count
+                return count + 1
+            } else {
+                return 0
+            }
+        } catch {
+            print("Realm 오류: \(error)")
+            return 0
         }
     }
     

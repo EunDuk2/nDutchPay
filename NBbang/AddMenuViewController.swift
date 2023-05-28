@@ -42,6 +42,21 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         
     }
     
+    func menuNameCount() -> Int {
+        do {
+            if let menues = place?.menu {
+                let menuesWithName = menues.filter("name CONTAINS %@", "이름 없는 메뉴")
+                let count = menuesWithName.count
+                return count + 1
+            } else {
+                return 0
+            }
+        } catch {
+            print("Realm 오류: \(error)")
+            return 0
+        }
+    }
+    
     // MARK: 메뉴 추가할 때 장소의 총 금액 넘으면 선택지 주고 메뉴 추가
     func preventTotalPriceExceedance(newPrice: Int) {
         
@@ -87,7 +102,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         
         try! realm.write {
             if(txtName.text == "") {
-                place?.addMenu(name: "이름 없는 메뉴"+String((place?.menu.count)!+1), price: textPrice, count: textCount)
+                place?.addMenu(name: "이름 없는 메뉴" + String(menuNameCount()), price: textPrice, count: textCount)
             } else {
                 place?.addMenu(name: txtName.text, price: textPrice, count: textCount)
             }
