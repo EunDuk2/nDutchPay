@@ -5,6 +5,7 @@ class AddPlaceViewController: UIViewController {
     let realm = try! Realm()
     var party: Party?
     var allCheck: Bool = false
+    let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtName: UITextField!
@@ -12,13 +13,13 @@ class AddPlaceViewController: UIViewController {
     @IBOutlet var btnCheck: UIButton!
     @IBOutlet var table: UITableView!
     
-    let color = UIColor(hex: "#4364C9")
-    
     override func viewDidLoad() {
+        self.hideKeyboardWhenTappedAround()
         navigationSetting()
         
         resetUserMemberDB()
         btnSubmit.isEnabled = false
+        txtName.delegate = self
         txtPrice.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(priceDidChange(_:)),
@@ -263,15 +264,19 @@ extension AddPlaceViewController: AddPlaceUserTableCellDelegate {
 
 extension AddPlaceViewController: UITextFieldDelegate {
     @objc private func priceDidChange(_ notification: Notification) {
-            if let textField = notification.object as? UITextField {
-                if let text = textField.text {
-                    //checkName(text: text, textField: textField)
-                    if(text == "" || Int(text) == 0) {
-                        btnSubmit.isEnabled = false
-                    } else {
-                        btnSubmit.isEnabled = true
-                    }
+        if let textField = notification.object as? UITextField {
+            if let text = textField.text {
+                //checkName(text: text, textField: textField)
+                if(text == "" || Int(text) == 0) {
+                    btnSubmit.isEnabled = false
+                } else {
+                    btnSubmit.isEnabled = true
                 }
             }
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

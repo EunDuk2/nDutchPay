@@ -99,14 +99,16 @@ class InPlaceViewController: UIViewController {
     
     
     @IBAction func onAddMenu(_ sender: Any) {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddMenuViewController") as? AddMenuViewController else {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddMenuViewController") as? AddMenuViewController else {
                     return
                 }
-        du.place = self.place
-        du.party = self.party
+        na.place = self.place
+        na.party = self.party
         
-        du.modalPresentationStyle = .fullScreen
-        self.present(du, animated: true)
+        let navigationController = UINavigationController(rootViewController: na)
+        
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     
 }

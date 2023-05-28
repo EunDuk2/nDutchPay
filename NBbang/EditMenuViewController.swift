@@ -382,17 +382,17 @@ extension EditMenuViewController: UITextFieldDelegate {
             }
         }
     @objc private func countDidChange(_ notification: Notification) {
-            if let textField = notification.object as? UITextField {
-                if let text = textField.text {
-                    //checkName(text: text, textField: textField)
-                    if(text == "" || Int(text) == 0) {
-                        btnSubmit.isEnabled = false
-                    } else {
-                        btnSubmit.isEnabled = true
-                    }
+        if let textField = notification.object as? UITextField {
+            if let text = textField.text {
+                //checkName(text: text, textField: textField)
+                if(text == "" || Int(text) == 0) {
+                    btnSubmit.isEnabled = false
+                } else {
+                    btnSubmit.isEnabled = true
                 }
             }
         }
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

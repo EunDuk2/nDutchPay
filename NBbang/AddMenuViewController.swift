@@ -6,17 +6,24 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     var place: Place?
     var party: Party?
     var intdex: Int?
+    var allCheck: Bool = false
+    let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtCount: UITextField!
     @IBOutlet var btnSubmit: UIBarButtonItem!
+    @IBOutlet var btnCheck: UIButton!
+    @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
-        resetUserMemberDB()
+        navigationSetting()
+        self.hideKeyboardWhenTappedAround()
         
+        resetUserMemberDB()
         btnSubmit.isEnabled = false
         
+        txtName.delegate = self
         txtPrice.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(priceDidChange(_:)),
@@ -26,11 +33,82 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     override func viewWillAppear(_ animated: Bool) {
         resetUserMemberDB()
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "메뉴 추가"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        cancelButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        submitButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        btnSubmit = submitButton
+        
+        navigationItem.leftBarButtonItem = cancelButton
+        navigationItem.rightBarButtonItem = submitButton
+    }
+    @objc func cancelButtonTapped() {
+        self.dismiss(animated: true)
+    }
+    @objc func submitButtonTapped() {
+        let textPrice: Int = Int(txtPrice.text!)!
+        let textCount: Int = Int(txtCount.text!)!
+        
+        let totalPrice: Int = textPrice * textCount
+        
+        preventTotalPriceExceedance(newPrice: totalPrice)
+    }
+    func textFieldSetting() {
+        txtName.borderStyle = .none
+        txtPrice.borderStyle = .none
+        txtCount.borderStyle = .none
+        
+        txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtPrice.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtCount.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        
+        let bottomLineName = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
+        let bottomLinePrice = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
+        let bottomLineCount = UIView(frame: CGRect(x: 0, y: txtCount.frame.size.height - 1, width: txtCount.frame.size.width, height: 1))
+        
+        let hexColor = "#4364C9"
+        if let color = UIColor(hex: hexColor) {
+            bottomLineName.backgroundColor = color
+            bottomLinePrice.backgroundColor = color
+            bottomLineCount.backgroundColor = color
+        }
+        
+        txtName.addSubview(bottomLineName)
+        txtPrice.addSubview(bottomLinePrice)
+        txtCount.addSubview(bottomLineCount)
+    }
     
     func resetUserMemberDB() {
         for i in 0..<(place?.enjoyer.count)! {
             try! realm.write {
-                place?.enjoyer[i].member = 1
+                place?.enjoyer[i].member = 0
             }
         }
     }
@@ -120,24 +198,71 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         self.dismiss(animated: true)
     }
     
-    @IBAction func onSubmit(_ sender: Any) {
-        let textPrice: Int = Int(txtPrice.text!)!
-        let textCount: Int = Int(txtCount.text!)!
-        
-        let totalPrice: Int = textPrice * textCount
-        //addMenu()
-        preventTotalPriceExceedance(newPrice: totalPrice)
-    }
-    @IBAction func onCancel(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
-    
     func updateUserDB(userIndex: Int?, value: Int) {
         try! realm.write {
             //user()[userIndex!].member = value
             place?.enjoyer[userIndex!].member = value
         }
+    }
+    
+    
+    // 전체 선택
+    func setUserMemberDB() {
+        for i in 0..<(place?.enjoyer.count)! {
+            try! realm.write {
+                place?.enjoyer[i].member = 1
+            }
+        }
+    }
+    func checkAllButtonBool() {
+        var tempBool: Bool = true
+        
+        for i in 0..<(place?.enjoyer.count)! {
+            if(place?.enjoyer[i].member == 0) {
+                tempBool = false
+            }
+        }
+        setBtnCheck(bool: tempBool)
+    }
+    func setBtnCheck(bool: Bool) {
+        let image: UIImage?
+        let title: String?
+        let font = UIFont(name: "SeoulNamsanCM", size: 14) ?? UIFont.systemFont(ofSize: 14)
+        let textColor = color
+        
+        if(bool == true) {
+            image = UIImage(named: "icon_check.png")
+            title = "전체 해제"
+            
+        } else {
+            image = UIImage(named: "icon_notcheck.png")
+            title = "전체 선택"
+        }
+
+        btnCheck.setImage(image, for: .normal)
+        btnCheck.setTitle(title, for: .normal)
+        btnCheck.titleLabel?.font = font
+        btnCheck.setTitleColor(textColor, for: .normal)
+    }
+    @IBAction func onAllCheck(_ sender: Any) {
+        if(allCheck == false) {
+            allCheck = true
+            setUserMemberDB()
+            setBtnCheck(bool: allCheck)
+        } else {
+            allCheck = false
+            resetUserMemberDB()
+            setBtnCheck(bool: allCheck)
+        }
+        table.reloadData()
+    }
+    @IBAction func onSubmit(_ sender: Any) {
+        let textPrice: Int = Int(txtPrice.text!)!
+        let textCount: Int = Int(txtCount.text!)!
+        
+        let totalPrice: Int = textPrice * textCount
+        
+        preventTotalPriceExceedance(newPrice: totalPrice)
     }
     
 }
@@ -154,7 +279,12 @@ extension AddMenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.index = indexPath.row
         cell.lblName?.text = row
-        cell.btnCheck?.setTitle("✅", for: .normal)
+        
+        if(allCheck == false) {
+            cell.btnCheck.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
+        } else {
+            cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
+        }
         
         cell.delegate = self
         
@@ -167,28 +297,35 @@ extension AddMenuViewController: TableViewCellDelegate {
     
     func didTapButton(cellIndex: Int?, button: UIButton?) {
         
-        if(button?.title(for: .normal) != "🟩") {
-            button?.setTitle("🟩", for: .normal)
+        if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
+            button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
+            checkAllButtonBool()
         } else {
-            button?.setTitle("✅", for: .normal)
+            button?.setImage(UIImage(named: "icon_check.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 1)
+            checkAllButtonBool()
         }
+        
     }
     
 }
 
 extension AddMenuViewController: UITextFieldDelegate {
     @objc private func priceDidChange(_ notification: Notification) {
-            if let textField = notification.object as? UITextField {
-                if let text = textField.text {
-                    //checkName(text: text, textField: textField)
-                    if(text == "" || Int(text) == 0) {
-                        btnSubmit.isEnabled = false
-                    } else {
-                        btnSubmit.isEnabled = true
-                    }
+        if let textField = notification.object as? UITextField {
+            if let text = textField.text {
+                //checkName(text: text, textField: textField)
+                if(text == "" || Int(text) == 0) {
+                    btnSubmit.isEnabled = false
+                } else {
+                    btnSubmit.isEnabled = true
                 }
             }
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
