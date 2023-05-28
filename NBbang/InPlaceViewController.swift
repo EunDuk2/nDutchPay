@@ -5,13 +5,17 @@ class InPlaceViewController: UIViewController {
     var party: Party?
     var place: Place?
     var index:Int?
+    let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var lblTotalPrice: UILabel!
     @IBOutlet var lblPlaceEnjoyer: UILabel!
     @IBOutlet var table: UITableView!
+    @IBOutlet var viewLabel: UIView!
     
     override func viewDidLoad() {
-        navigationItem.title = place?.name
+        navigationSetting()
+        viewSetting()
+        
         updateLabel()
     }
     
@@ -20,10 +24,67 @@ class InPlaceViewController: UIViewController {
         table.reloadData()
     }
     
-    func updateLabel() {
-        lblTotalPrice.text = fc(amount: place!.totalPrice)
+    func viewSetting() {
+        viewLabel.layer.cornerRadius = 10
+        viewLabel.clipsToBounds = true
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         
-        var temp: String = ""
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = place?.name
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let settingButtonImage = UIImage(named: "icon_setting3.png")?.withRenderingMode(.alwaysOriginal)
+        let settingButton = UIBarButtonItem(title: "", image: settingButtonImage, target: self, action: #selector(settingButtonTapped))
+
+        let settleButton = UIBarButtonItem(title: "정산", style: .plain, target: self, action: #selector(settleButtonTapped))
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        settleButton.setTitleTextAttributes(titleAttributes, for: .normal)
+
+        navigationItem.rightBarButtonItems = [settingButton, settleButton]
+        
+        let backBarButtonItem = UIBarButtonItem(title: "메뉴 목록", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
+    }
+    @objc func settleButtonTapped() {
+        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
+                    return
+                }
+        du.party = self.party
+        
+        du.modalPresentationStyle = .fullScreen
+        self.present(du, animated: true)
+    }
+    @objc func settingButtonTapped() {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as? EditPlaceViewController else {
+            return
+        }
+        
+        na.party = self.party
+        na.place = self.place
+        
+        self.navigationController?.pushViewController(na, animated: true)
+    }
+    
+    func updateLabel() {
+        lblTotalPrice.text = fc(amount: place!.totalPrice) + "(원)"
+        
+        var temp: String = String((place?.enjoyer.count)!) + "명("
         for i in 0..<(place?.enjoyer.count)! {
             if(i != (place?.enjoyer.count)!-1) {
                 temp += (place?.enjoyer[i].name)! + ","
@@ -32,7 +93,7 @@ class InPlaceViewController: UIViewController {
             }
             
         }
-        lblPlaceEnjoyer.text = temp
+        lblPlaceEnjoyer.text = temp + ")"
     }
     
     
@@ -48,54 +109,28 @@ class InPlaceViewController: UIViewController {
         self.present(du, animated: true)
     }
     
-    @IBAction func onSettle(_ sender: Any) {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
-                    return
-                }
-        du.party = self.party
-        
-        du.modalPresentationStyle = .fullScreen
-        self.present(du, animated: true)
-    }
-    
-    @IBAction func onEdit(_ sender: Any) {
-        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as? EditPlaceViewController else {
-            return
-        }
-        
-        na.party = self.party
-        na.place = self.place
-        
-        self.navigationController?.pushViewController(na, animated: true)
-    }
-    
 }
 
 extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // Returns the number of sections.
        func numberOfSections(in tableView: UITableView) -> Int {
-           return 2
+           return (place?.menu.count)!+1
        }
        
-   // Returns the title of the section.
    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
        
        let sections:[String] = ["추가되지 않은 메뉴", "추가된 메뉴"]
        
-       return sections[section]
+       if(section == 0) {
+           return sections[0]
+       } else if(section == 1) {
+           return sections[1]
+       }
+       return ""
    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            if((place?.menu.count)! > 0) {
-                return (place?.menu.count)!
-            }
-         
-        }
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,7 +141,7 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 var calEnjoyer: String? = "("
                 for i in 0..<(place?.defaultMenu!.enjoyer.count)! {
-                    if(i != (place?.defaultMenu!.enjoyer.count)!) {
+                    if(i != (place?.defaultMenu!.enjoyer.count)!-1) {
                         calEnjoyer! += (place?.defaultMenu!.enjoyer[i].name)! + ", "
                     } else {
                         calEnjoyer! += (place?.defaultMenu!.enjoyer[i].name)!
@@ -114,26 +149,25 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 calEnjoyer! += ")"
                 cell.lblEnjoyer.text = calEnjoyer
-                cell.lblTotalPrice.text = String((place?.defaultMenu?.totalPrice)!)
-        }
-        else if indexPath.section == 1 {
-                let row1 = place?.menu[indexPath.row].name
-                var row2: String = "("
-                let row3 = place?.menu[indexPath.row].totalPrice
-                
-                for i in 0..<(place?.menu[indexPath.row].enjoyer.count)! {
-                    if(i != (place?.menu[indexPath.row].enjoyer.count)!-1) {
-                        row2 += (place?.menu[indexPath.row].enjoyer[i].name)! + ", "
-                    } else {
-                        row2 += (place?.menu[indexPath.row].enjoyer[i].name)!
-                    }
-                    
+            cell.lblTotalPrice.text = fc(amount: (place?.defaultMenu!.totalPrice)!) + "(원)"
+        } else {
+            let row1 = place?.menu[indexPath.section-1].name
+            var row2: String = "("
+            let row3 = place?.menu[indexPath.section-1].totalPrice
+            
+            for i in 0..<(place?.menu[indexPath.section-1].enjoyer.count)! {
+                if(i != (place?.menu[indexPath.section-1].enjoyer.count)!-1) {
+                    row2 += (place?.menu[indexPath.section-1].enjoyer[i].name)! + ", "
+                } else {
+                    row2 += (place?.menu[indexPath.section-1].enjoyer[i].name)!
                 }
-                row2 += ")"
                 
-                cell.lblName.text = row1
-                cell.lblEnjoyer.text = row2
-                cell.lblTotalPrice.text = String(row3!) + "(원)"
+            }
+            row2 += ")"
+            
+            cell.lblName.text = row1
+            cell.lblEnjoyer.text = row2
+            cell.lblTotalPrice.text = fc(amount: row3!) + "(원)"
         }
         
         return cell
@@ -152,17 +186,28 @@ extension InPlaceViewController: UITableViewDelegate, UITableViewDataSource {
             na.section = 0
             
         }
-        else if indexPath.section == 1 {
+        else {
             
             na.section = 1
-            na.index = indexPath.row
+            na.index = indexPath.section - 1
             
         }
         self.navigationController?.pushViewController(na, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100 // 고정된 높이 값을 반환합니다.
+        return 70
     }
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 25
+        }
+        return -1
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 0
+        }
+        return 10
+    }
 }
