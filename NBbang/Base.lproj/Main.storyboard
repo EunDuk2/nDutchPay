@@ -921,7 +921,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jaI-VQ-T4m">
-                                <rect key="frame" x="16" y="246" width="361" height="503"/>
+                                <rect key="frame" x="16" y="211" width="361" height="538"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InviteUserTableCell" rowHeight="48" id="vTe-PA-0e0" customClass="InviteUserTableCell" customModule="NBbang" customModuleProvider="target">
@@ -973,29 +973,14 @@
                                     <outlet property="delegate" destination="xXf-vw-G92" id="bBU-rS-zFH"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-WR-GBe">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-WR-GBe">
                                 <rect key="frame" x="16" y="145" width="361" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="ML0-xy-ghO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAN-U7-xk9">
-                                <rect key="frame" x="16" y="203" width="361" height="35"/>
-                                <color key="backgroundColor" red="0.76078431369999999" green="0.2666666667" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="gV1-PI-vYr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="18"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="파티 삭제"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onDelete:" destination="xXf-vw-G92" eventType="touchUpInside" id="3M8-2w-XJr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파티 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Zu-6x2">
                                 <rect key="frame" x="16" y="89" width="104" height="36"/>
                                 <constraints>
@@ -1013,9 +998,9 @@
                                     <constraint firstAttribute="width" constant="90" id="xs2-Kf-lz8"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="" image="icon_cancel"/>
+                                <state key="normal" title="" image="icon_redcancel1.png"/>
                                 <connections>
-                                    <action selector="onCancel:" destination="dvW-CU-638" eventType="touchUpInside" id="P6Z-5G-JKp"/>
+                                    <action selector="onDelete:" destination="xXf-vw-G92" eventType="touchUpInside" id="MRq-0o-7kc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1023,17 +1008,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="L7N-h7-uQH" firstAttribute="trailing" secondItem="jaI-VQ-T4m" secondAttribute="trailing" constant="16" id="2hb-TW-FUP"/>
-                            <constraint firstItem="L7N-h7-uQH" firstAttribute="trailing" secondItem="tAN-U7-xk9" secondAttribute="trailing" constant="16" id="8xq-XG-fGN"/>
-                            <constraint firstItem="tAN-U7-xk9" firstAttribute="top" secondItem="DYf-WR-GBe" secondAttribute="bottom" constant="22" id="ICY-FU-Faf"/>
                             <constraint firstItem="pIz-Zu-6x2" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="INB-Sm-dhg"/>
                             <constraint firstItem="L7N-h7-uQH" firstAttribute="bottom" secondItem="jaI-VQ-T4m" secondAttribute="bottom" constant="69" id="KLD-Jb-ZBg"/>
+                            <constraint firstItem="jaI-VQ-T4m" firstAttribute="top" secondItem="DYf-WR-GBe" secondAttribute="bottom" constant="30" id="MGT-Oc-yjh"/>
                             <constraint firstAttribute="bottom" secondItem="Udu-p9-eNf" secondAttribute="bottom" constant="45" id="Tm9-n6-m6k"/>
                             <constraint firstItem="jaI-VQ-T4m" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="Wqq-BN-vlt"/>
-                            <constraint firstItem="jaI-VQ-T4m" firstAttribute="top" secondItem="tAN-U7-xk9" secondAttribute="bottom" constant="8" symbolic="YES" id="a7I-FY-9Nk"/>
                             <constraint firstItem="jaI-VQ-T4m" firstAttribute="centerX" secondItem="M6b-zD-ITG" secondAttribute="centerX" id="al5-ng-FBj"/>
                             <constraint firstItem="L7N-h7-uQH" firstAttribute="trailing" secondItem="DYf-WR-GBe" secondAttribute="trailing" constant="16" id="bl3-3x-G7y"/>
                             <constraint firstItem="pIz-Zu-6x2" firstAttribute="top" secondItem="L7N-h7-uQH" secondAttribute="top" constant="30" id="cEb-BM-gkb"/>
-                            <constraint firstItem="tAN-U7-xk9" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="cIL-cH-iuW"/>
                             <constraint firstItem="DYf-WR-GBe" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="iHi-Rp-FYv"/>
                             <constraint firstItem="Udu-p9-eNf" firstAttribute="centerX" secondItem="M6b-zD-ITG" secondAttribute="centerX" id="iN6-ap-hCf"/>
                             <constraint firstItem="DYf-WR-GBe" firstAttribute="top" secondItem="pIz-Zu-6x2" secondAttribute="bottom" constant="20" id="sat-cz-Zdc"/>
@@ -1822,6 +1804,7 @@
         <image name="icon_notcheck.png" width="48" height="48"/>
         <image name="icon_partymember.png" width="32" height="32"/>
         <image name="icon_plus.png" width="256" height="256"/>
+        <image name="icon_redcancel1.png" width="256" height="256"/>
         <image name="icon_users.png" width="32" height="32"/>
         <image name="icons8-메뉴-64.png" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
