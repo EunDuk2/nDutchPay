@@ -912,7 +912,7 @@
             </objects>
             <point key="canvasLocation" x="2623.6641221374043" y="-839.43661971830988"/>
         </scene>
-        <!--파티 관리-->
+        <!--Invite User View Controller-->
         <scene sceneID="oaq-vb-4Cn">
             <objects>
                 <viewController storyboardIdentifier="InviteUserViewController" id="xXf-vw-G92" customClass="InviteUserViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
@@ -920,35 +920,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jaI-VQ-T4m">
-                                <rect key="frame" x="16" y="240" width="361" height="543"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jaI-VQ-T4m">
+                                <rect key="frame" x="16" y="246" width="361" height="503"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InviteUserTableCell" id="vTe-PA-0e0" customClass="InviteUserTableCell" customModule="NBbang" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InviteUserTableCell" rowHeight="48" id="vTe-PA-0e0" customClass="InviteUserTableCell" customModule="NBbang" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vTe-PA-0e0" id="moV-HB-yuN">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="친구 이름 출력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKT-Mc-3jP">
-                                                    <rect key="frame" x="20" y="11" width="286" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구 이름 출력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKT-Mc-3jP">
+                                                    <rect key="frame" x="20" y="14" width="286" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="T6M-wp-2iw"/>
+                                                        <constraint firstAttribute="width" constant="286" id="jnX-CM-YAY"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-St-o0U">
-                                                    <rect key="frame" x="314" y="4" width="47" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-St-o0U">
+                                                    <rect key="frame" x="313" y="0.0" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="MXt-kI-IMi"/>
+                                                        <constraint firstAttribute="width" constant="48" id="lfo-eB-Bew"/>
+                                                    </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="🟩"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="icon_notcheck.png"/>
                                                     <connections>
                                                         <action selector="onCheck:" destination="vTe-PA-0e0" eventType="touchUpInside" id="TWV-st-JhP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="aR9-St-o0U" secondAttribute="bottom" id="F2o-vt-HjL"/>
+                                                <constraint firstItem="aR9-St-o0U" firstAttribute="top" secondItem="moV-HB-yuN" secondAttribute="top" id="QQk-w4-4KN"/>
+                                                <constraint firstAttribute="trailing" secondItem="aR9-St-o0U" secondAttribute="trailing" id="Vh1-Bu-Id5"/>
+                                                <constraint firstItem="VKT-Mc-3jP" firstAttribute="top" secondItem="moV-HB-yuN" secondAttribute="topMargin" constant="3" id="qHm-Ma-sWg"/>
+                                                <constraint firstItem="VKT-Mc-3jP" firstAttribute="leading" secondItem="moV-HB-yuN" secondAttribute="leadingMargin" id="v1R-0h-ku0"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnCheck" destination="aR9-St-o0U" id="UHa-ZQ-equ"/>
@@ -961,48 +973,80 @@
                                     <outlet property="delegate" destination="xXf-vw-G92" id="bBU-rS-zFH"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-WR-GBe">
-                                <rect key="frame" x="44" y="155" width="304" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-WR-GBe">
+                                <rect key="frame" x="16" y="145" width="361" height="36"/>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAN-U7-xk9">
-                                <rect key="frame" x="152" y="197" width="88" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="파티 삭제">
-                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
-                                </buttonConfiguration>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAN-U7-xk9">
+                                <rect key="frame" x="16" y="203" width="361" height="35"/>
+                                <color key="backgroundColor" red="0.76078431369999999" green="0.2666666667" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="gV1-PI-vYr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="파티 삭제"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onDelete:" destination="xXf-vw-G92" eventType="touchUpInside" id="3M8-2w-XJr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="파티명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Zu-6x2">
-                                <rect key="frame" x="16" y="90" width="84" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파티 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Zu-6x2">
+                                <rect key="frame" x="16" y="89" width="104" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="4lo-jU-E9O"/>
+                                    <constraint firstAttribute="width" constant="104" id="xXs-rv-WT9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="30"/>
                                 <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udu-p9-eNf">
+                                <rect key="frame" x="151.66666666666666" y="717" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="atH-TU-3gQ"/>
+                                    <constraint firstAttribute="width" constant="90" id="xs2-Kf-lz8"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="" image="icon_cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="dvW-CU-638" eventType="touchUpInside" id="P6Z-5G-JKp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="L7N-h7-uQH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="L7N-h7-uQH" firstAttribute="trailing" secondItem="jaI-VQ-T4m" secondAttribute="trailing" constant="16" id="2hb-TW-FUP"/>
+                            <constraint firstItem="L7N-h7-uQH" firstAttribute="trailing" secondItem="tAN-U7-xk9" secondAttribute="trailing" constant="16" id="8xq-XG-fGN"/>
+                            <constraint firstItem="tAN-U7-xk9" firstAttribute="top" secondItem="DYf-WR-GBe" secondAttribute="bottom" constant="22" id="ICY-FU-Faf"/>
+                            <constraint firstItem="pIz-Zu-6x2" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="INB-Sm-dhg"/>
+                            <constraint firstItem="L7N-h7-uQH" firstAttribute="bottom" secondItem="jaI-VQ-T4m" secondAttribute="bottom" constant="69" id="KLD-Jb-ZBg"/>
+                            <constraint firstAttribute="bottom" secondItem="Udu-p9-eNf" secondAttribute="bottom" constant="45" id="Tm9-n6-m6k"/>
+                            <constraint firstItem="jaI-VQ-T4m" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="Wqq-BN-vlt"/>
+                            <constraint firstItem="jaI-VQ-T4m" firstAttribute="top" secondItem="tAN-U7-xk9" secondAttribute="bottom" constant="8" symbolic="YES" id="a7I-FY-9Nk"/>
+                            <constraint firstItem="jaI-VQ-T4m" firstAttribute="centerX" secondItem="M6b-zD-ITG" secondAttribute="centerX" id="al5-ng-FBj"/>
+                            <constraint firstItem="L7N-h7-uQH" firstAttribute="trailing" secondItem="DYf-WR-GBe" secondAttribute="trailing" constant="16" id="bl3-3x-G7y"/>
+                            <constraint firstItem="pIz-Zu-6x2" firstAttribute="top" secondItem="L7N-h7-uQH" secondAttribute="top" constant="30" id="cEb-BM-gkb"/>
+                            <constraint firstItem="tAN-U7-xk9" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="cIL-cH-iuW"/>
+                            <constraint firstItem="DYf-WR-GBe" firstAttribute="leading" secondItem="L7N-h7-uQH" secondAttribute="leading" constant="16" id="iHi-Rp-FYv"/>
+                            <constraint firstItem="Udu-p9-eNf" firstAttribute="centerX" secondItem="M6b-zD-ITG" secondAttribute="centerX" id="iN6-ap-hCf"/>
+                            <constraint firstItem="DYf-WR-GBe" firstAttribute="top" secondItem="pIz-Zu-6x2" secondAttribute="bottom" constant="20" id="sat-cz-Zdc"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="파티 관리" id="woD-hY-4SG">
-                        <barButtonItem key="rightBarButtonItem" title="완료" id="FnW-c0-nQt">
-                            <connections>
-                                <action selector="onSubmit:" destination="xXf-vw-G92" id="Ykn-cn-CyG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
+                        <outlet property="table" destination="jaI-VQ-T4m" id="pBn-vk-ENA"/>
                         <outlet property="txtName" destination="DYf-WR-GBe" id="2G2-Vo-xmk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIe-N5-Wa3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="-1498"/>
+            <point key="canvasLocation" x="1919.8473282442746" y="-1498.5915492957747"/>
         </scene>
         <!--Add Menu View Controller-->
         <scene sceneID="Ict-nw-cr4">

@@ -210,8 +210,6 @@ extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
         }
         
-        
-        
         cell.delegate = self
         
         return cell
@@ -222,7 +220,6 @@ extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {
 extension AddPartyViewController: TableViewCellDelegate {
     
     func didTapButton(cellIndex: Int?, button: UIButton?) {
-        
         if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
             button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
