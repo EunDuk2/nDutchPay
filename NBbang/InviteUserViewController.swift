@@ -228,6 +228,7 @@ extension InviteUserViewController: UITableViewDelegate, UITableViewDataSource {
         
         if(checkExistingUser(indexPathRow: indexPath.row) == true) {
             cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
+            updateUserDB(userIndex: indexPath.row, value: 1)
         } else {
             cell.btnCheck.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
         }

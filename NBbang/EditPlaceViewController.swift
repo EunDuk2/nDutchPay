@@ -12,8 +12,11 @@ class EditPlaceViewController: UIViewController {
     var party: Party?
     var place: Place?
     var price: Int?
+    let color = UIColor(hex: "#4364C9")
     
     override func viewDidLoad() {
+        navigationSetting()
+        
         resetUserMemberDB()
         printPlaceName()
         printPrice()
@@ -27,6 +30,61 @@ class EditPlaceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         resetUserMemberDB()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "장소 관리"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        submitButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        btnSubmit = submitButton
+        
+        navigationItem.rightBarButtonItem = submitButton
+    }
+    @objc func submitButtonTapped() {
+        EditBeforeAlert()
+        changePlaceName()
+    }
+    func textFieldSetting() {
+        txtName.borderStyle = .none
+        txtPrice.borderStyle = .none
+        
+        txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtPrice.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        
+        let bottomLine1 = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
+        let bottomLine2 = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
+        let hexColor = "#4364C9"
+        if let color = UIColor(hex: hexColor) {
+            bottomLine1.backgroundColor = color
+            bottomLine2.backgroundColor = color
+        }
+        txtName.addSubview(bottomLine1)
+        txtPrice.addSubview(bottomLine2)
     }
     
     func resetUserMemberDB() {
@@ -170,10 +228,6 @@ class EditPlaceViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    @IBAction func onSubmit(_ sender: Any) {
-        EditBeforeAlert()
-        changePlaceName()
-    }
     @IBAction func onDelete(_ sender: Any) {
         let alert = UIAlertController(title: "장소 삭제", message: "장소를 삭제하면 해당 장소의 모든 정보가 삭제됩니다.", preferredStyle: .alert)
         let clear = UIAlertAction(title: "삭제", style: .destructive) { [self] (_) in
@@ -216,13 +270,10 @@ extension EditPlaceViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblName?.text = row
         
         if(checkExistingUser(indexPathRow: indexPath.row) == true) {
-            cell.btnCheck?.setTitle("✅", for: .normal)
-            
-            try! realm.write {
-                party?.user[indexPath.row].member = 1
-            }
+            cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
+            updateUserDB(userIndex: indexPath.row, value: 1)
         } else {
-            cell.btnCheck?.setTitle("🟩", for: .normal)
+            cell.btnCheck.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
         }
         
         cell.delegate = self
@@ -236,11 +287,11 @@ extension EditPlaceViewController: UITableViewDelegate, UITableViewDataSource {
 extension EditPlaceViewController: TableViewCellDelegate {
     
     func didTapButton(cellIndex: Int?, button: UIButton?) {
-        if(button?.title(for: .normal) != "🟩") {
-            button?.setTitle("🟩", for: .normal)
+        if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
+            button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
         } else {
-            button?.setTitle("✅", for: .normal)
+            button?.setImage(UIImage(named: "icon_check.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 1)
         }
     }

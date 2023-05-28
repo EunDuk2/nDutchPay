@@ -14,8 +14,8 @@
             filePath = "NBbang/InPartyViewController.swift"
             startingColumnNumber = "46"
             endingColumnNumber = "46"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
