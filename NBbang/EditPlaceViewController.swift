@@ -17,6 +17,7 @@ class EditPlaceViewController: UIViewController {
     override func viewDidLoad() {
         navigationSetting()
         
+        self.hideKeyboardWhenTappedAround()
         resetUserMemberDB()
         printPlaceName()
         printPrice()
@@ -311,47 +312,11 @@ extension EditPlaceViewController: UITextFieldDelegate {
                 }
             }
         }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
-
-//extension EditPlaceViewController: UITextFieldDelegate {
-//    @objc private func priceDidChange(_ notification: Notification) {
-//        if let textField = notification.object as? UITextField,
-//           let text = textField.text {
-//            // 입력된 값에서 숫자 이외의 문자 제거
-//            let cleanedText = text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-//            
-//            // 숫자 포맷팅을 위한 Formatter 생성
-//            let numberFormatter = NumberFormatter()
-//            numberFormatter.numberStyle = .decimal
-//            numberFormatter.locale = Locale(identifier: "ko_KR")
-//            
-//            // 포맷팅된 결과 문자열
-//            var formattedAmount = ""
-//            
-//            // 각각의 자릿수마다 3자리마다 포맷팅
-//            for (index, char) in cleanedText.reversed().enumerated() {
-//                if index != 0 && index % 3 == 0 {
-//                    formattedAmount = "," + formattedAmount
-//                }
-//                formattedAmount = String(char) + formattedAmount
-//            }
-//            
-//            // 포맷팅된 결과를 텍스트 필드에 적용
-//            textField.text = formattedAmount
-//            
-//            // 정수로 변환된 값을 사용할 수 있도록 변수에 저장
-//            if let integerValue = Int(cleanedText) {
-//                // 정수로 변환된 값을 사용하여 작업 수행
-//                // 예: integerValue를 다른 변수에 할당하거나 연산에 활용
-//                print("정수 값:", integerValue)
-//                price = integerValue
-//            }
-//            
-//            // 버튼 활성/비활성 설정
-//            btnSubmit.isEnabled = !cleanedText.isEmpty && Int(cleanedText) != 0
-//        }
-//    }
-//}
 
 
 

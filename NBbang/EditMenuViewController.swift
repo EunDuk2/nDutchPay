@@ -14,8 +14,12 @@ class EditMenuViewController: UIViewController {
     var party: Party?
     var place: Place?
     var bool: Bool?
+    let color = UIColor(hex: "#4364C9")
     
     override func viewDidLoad() {
+        navigationSetting()
+        
+        self.hideKeyboardWhenTappedAround()
         resetUserMemberDB()
         printMenuName()
         printMenuPriceNCount()
@@ -28,6 +32,65 @@ class EditMenuViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(countDidChange(_:)),
                                                     name: UITextField.textDidChangeNotification,
                                                     object: txtCount)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        textFieldSetting()
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "메뉴 관리"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        submitButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        btnSubmit = submitButton
+        
+        navigationItem.rightBarButtonItem = submitButton
+    }
+    @objc func submitButtonTapped() {
+        EditBeforeAlert()
+    }
+    func textFieldSetting() {
+        txtName.borderStyle = .none
+        txtPrice.borderStyle = .none
+        txtCount.borderStyle = .none
+        
+        txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtPrice.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        txtCount.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
+        
+        let bottomLine1 = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
+        let bottomLine2 = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
+        let bottomLine3 = UIView(frame: CGRect(x: 0, y: txtCount.frame.size.height - 1, width: txtCount.frame.size.width, height: 1))
+        let hexColor = "#4364C9"
+        if let color = UIColor(hex: hexColor) {
+            bottomLine1.backgroundColor = color
+            bottomLine2.backgroundColor = color
+            bottomLine3.backgroundColor = color
+        }
+        txtName.addSubview(bottomLine1)
+        txtPrice.addSubview(bottomLine2)
+        txtCount.addSubview(bottomLine3)
     }
     
     func resetUserMemberDB() {
@@ -259,9 +322,6 @@ class EditMenuViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
-    @IBAction func onSubmit(_ sender: Any) {
-        EditBeforeAlert()
-    }
     
 }
 
@@ -279,13 +339,10 @@ extension EditMenuViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lblName?.text = row
         
         if(checkExistingUser(section: self.section, indexPathRow: indexPath.row) == true) {
-            cell.btnCheck?.setTitle("✅", for: .normal)
-            
-            try! realm.write {
-                place?.enjoyer[indexPath.row].member = 1
-            }
+            cell.btnCheck.setImage(UIImage(named: "icon_check.png"), for: .normal)
+            updateUserDB(userIndex: indexPath.row, value: 1)
         } else {
-            cell.btnCheck?.setTitle("🟩", for: .normal)
+            cell.btnCheck.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
         }
         
         cell.delegate = self
@@ -300,11 +357,11 @@ extension EditMenuViewController: UITableViewDelegate, UITableViewDataSource {
 extension EditMenuViewController: TableViewCellDelegate {
     
     func didTapButton(cellIndex: Int?, button: UIButton?) {
-        if(button?.title(for: .normal) != "🟩") {
-            button?.setTitle("🟩", for: .normal)
+        if let image = button?.image(for: .normal), image != UIImage(named: "icon_notcheck.png") {
+            button?.setImage(UIImage(named: "icon_notcheck.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 0)
         } else {
-            button?.setTitle("✅", for: .normal)
+            button?.setImage(UIImage(named: "icon_check.png"), for: .normal)
             updateUserDB(userIndex: cellIndex, value: 1)
         }
     }
@@ -336,4 +393,8 @@ extension EditMenuViewController: UITextFieldDelegate {
                 }
             }
         }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
