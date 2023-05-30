@@ -805,21 +805,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사용자" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQx-zg-Czp">
-                                                    <rect key="frame" x="20" y="11" width="147" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQx-zg-Czp">
+                                                    <rect key="frame" x="20" y="12" width="147" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="2be-Sl-lId"/>
+                                                        <constraint firstAttribute="width" constant="147" id="xKE-FM-z0e"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사용 금액" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-br-t7l">
-                                                    <rect key="frame" x="172" y="11" width="169" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용 금액" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-br-t7l">
+                                                    <rect key="frame" x="172" y="12" width="169" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="169" id="eGv-1e-dGy"/>
+                                                        <constraint firstAttribute="height" constant="21" id="k6e-n5-qAz"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ilM-br-t7l" firstAttribute="top" secondItem="csw-pe-MRE" secondAttribute="top" constant="12" id="O3X-JY-tH1"/>
+                                                <constraint firstItem="TQx-zg-Czp" firstAttribute="top" secondItem="csw-pe-MRE" secondAttribute="top" constant="12" id="QGq-dl-14s"/>
+                                                <constraint firstItem="TQx-zg-Czp" firstAttribute="leading" secondItem="csw-pe-MRE" secondAttribute="leading" constant="20" symbolic="YES" id="QuH-1A-VHZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="ilM-br-t7l" secondAttribute="trailing" constant="20" symbolic="YES" id="WvN-zA-GZj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblName" destination="TQx-zg-Czp" id="Mp1-vM-Bj2"/>
@@ -834,9 +846,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소 명, (사용 금액)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLo-9o-HAP">
-                                                    <rect key="frame" x="20" y="11" width="341" height="20"/>
+                                                    <rect key="frame" x="20" y="10" width="341" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="341" id="Q83-hw-LhF"/>
+                                                        <constraint firstAttribute="height" constant="21" id="iEf-aq-4ca"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -872,11 +885,8 @@
                                                     </constraints>
                                                 </scrollView>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-6b-4Ms">
-                                                    <rect key="frame" x="20" y="82" width="321" height="250"/>
+                                                    <rect key="frame" x="20" y="74" width="321" height="153"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="250" id="oys-mC-vfF"/>
-                                                    </constraints>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettleMenuTableCell" rowHeight="79" id="sQf-OU-nFN" customClass="SettleMenuTableCell" customModule="NBbang" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="50" width="321" height="79"/>
@@ -886,8 +896,9 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메뉴 명, (사용 금액)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEp-dw-wF0">
-                                                                        <rect key="frame" x="9" y="12" width="312" height="20"/>
+                                                                        <rect key="frame" x="9" y="15" width="312" height="21"/>
                                                                         <constraints>
+                                                                            <constraint firstAttribute="height" constant="21" id="9un-sR-Kr9"/>
                                                                             <constraint firstAttribute="width" constant="312" id="IBu-gZ-JCt"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
@@ -895,13 +906,13 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96u-DS-t6G">
-                                                                        <rect key="frame" x="9" y="40" width="312" height="35"/>
+                                                                        <rect key="frame" x="9" y="44" width="312" height="31"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0g-I4-IGl">
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-kY-qwz">
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                        <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="15"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
@@ -934,6 +945,7 @@
                                                                     <constraint firstItem="96u-DS-t6G" firstAttribute="leading" secondItem="adA-QL-m1O" secondAttribute="leading" constant="9" id="8oA-0X-8JJ"/>
                                                                     <constraint firstItem="96u-DS-t6G" firstAttribute="top" secondItem="oEp-dw-wF0" secondAttribute="bottom" constant="8" symbolic="YES" id="BdA-Vu-5Cc"/>
                                                                     <constraint firstAttribute="trailing" secondItem="oEp-dw-wF0" secondAttribute="trailing" id="BuW-Hd-XdD"/>
+                                                                    <constraint firstItem="oEp-dw-wF0" firstAttribute="top" secondItem="adA-QL-m1O" secondAttribute="top" constant="15" id="Fgz-Sh-X8N"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -953,15 +965,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="W2H-mc-08a" secondAttribute="trailing" id="6fe-8U-SGb"/>
+                                                <constraint firstItem="KrS-6b-4Ms" firstAttribute="bottom" secondItem="t8X-Ub-1xH" secondAttribute="bottomMargin" id="8tw-L4-HMs"/>
+                                                <constraint firstItem="vLo-9o-HAP" firstAttribute="leading" secondItem="t8X-Ub-1xH" secondAttribute="leading" constant="20" symbolic="YES" id="EII-mw-pvz"/>
                                                 <constraint firstItem="vLo-9o-HAP" firstAttribute="trailing" secondItem="W2H-mc-08a" secondAttribute="trailing" id="KoZ-ug-sIl"/>
-                                                <constraint firstItem="KrS-6b-4Ms" firstAttribute="top" secondItem="W2H-mc-08a" secondAttribute="bottom" constant="8" symbolic="YES" id="RSU-4C-FAW"/>
+                                                <constraint firstItem="vLo-9o-HAP" firstAttribute="top" secondItem="t8X-Ub-1xH" secondAttribute="top" constant="10" id="NqJ-8P-pOe"/>
+                                                <constraint firstItem="KrS-6b-4Ms" firstAttribute="top" secondItem="W2H-mc-08a" secondAttribute="bottom" id="Rrz-oN-G2F"/>
                                                 <constraint firstAttribute="trailing" secondItem="KrS-6b-4Ms" secondAttribute="trailing" constant="20" symbolic="YES" id="UNb-5d-1EH"/>
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="leading" secondItem="t8X-Ub-1xH" secondAttribute="leading" constant="20" symbolic="YES" id="aKJ-O0-UGB"/>
                                                 <constraint firstItem="W2H-mc-08a" firstAttribute="leading" secondItem="vLo-9o-HAP" secondAttribute="leading" id="b7r-wb-UhN"/>
                                                 <constraint firstItem="W2H-mc-08a" firstAttribute="top" secondItem="vLo-9o-HAP" secondAttribute="bottom" constant="8" symbolic="YES" id="d4m-u9-GTy"/>
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="centerX" secondItem="t8X-Ub-1xH" secondAttribute="centerX" id="ggZ-i5-9gt"/>
-                                                <constraint firstAttribute="bottom" secondItem="KrS-6b-4Ms" secondAttribute="bottom" constant="-94" id="jF2-UD-Dwb"/>
-                                                <constraint firstItem="vLo-9o-HAP" firstAttribute="top" secondItem="t8X-Ub-1xH" secondAttribute="topMargin" id="vKU-fM-oFy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98039215686274506" green="1" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

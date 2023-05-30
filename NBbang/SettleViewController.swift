@@ -233,10 +233,10 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 selectedIndexPath = indexPath // 선택한 셀의 인덱스 저장
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
-                    let currentOffset = tableView.contentOffset
-                    let newOffset = CGPoint(x: currentOffset.x, y: currentOffset.y + 100)
-                    tableView.setContentOffset(newOffset, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [self] in
+                let currentOffset = tableView.contentOffset
+                    let newOffset = CGPoint(x: currentOffset.x, y: currentOffset.y + CGFloat((party?.place[indexPath.section-1].menu.count)!)*CGFloat((indexPath.section))*30)
+                tableView.setContentOffset(newOffset, animated: true)
                 }
             }
             
@@ -248,16 +248,17 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 테이블 뷰의 셀 높이를 설정하는 메서드
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if indexPath.section != 0 {
             if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
-                let menuCount = party?.place[indexPath.row].menu.count ?? 0
-                let menuHeight = CGFloat(130 * (menuCount+1))
+                let menuCount = party?.place[indexPath.section-1].menu.count ?? 0
+                let menuHeight = CGFloat(150 * (menuCount+1))
                 let totalHeight = 70 + menuHeight
                 return min(totalHeight, 400)
             }
             return 70
         }
-        return 44
+        return 70
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(section == 0) {
