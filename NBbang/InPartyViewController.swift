@@ -61,13 +61,15 @@ class InPartyViewController: UIViewController {
     }
     
     @objc func settleButtonTapped() {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
                     return
                 }
-        du.party = party()[index!]
+        na.party = party()[index!]
         
-        du.modalPresentationStyle = .fullScreen
-        self.present(du, animated: true)
+        let navigationController = UINavigationController(rootViewController: na)
+        
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     @objc func settingButtonTapped() {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InviteUserViewController") as? InviteUserViewController else {

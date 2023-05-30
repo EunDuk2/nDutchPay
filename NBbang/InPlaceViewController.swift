@@ -62,13 +62,15 @@ class InPlaceViewController: UIViewController {
         navigationItem.backBarButtonItem = backBarButtonItem
     }
     @objc func settleButtonTapped() {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "SettleViewController") as? SettleViewController else {
                     return
                 }
-        du.party = self.party
+        na.party = self.party
         
-        du.modalPresentationStyle = .fullScreen
-        self.present(du, animated: true)
+        let navigationController = UINavigationController(rootViewController: na)
+        
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
     @objc func settingButtonTapped() {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "EditPlaceViewController") as? EditPlaceViewController else {

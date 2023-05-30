@@ -6,15 +6,60 @@ class SettleViewController: UIViewController {
     var party: Party?
     var place: Place?
     var selectedIndexPath: IndexPath?
+    let color = UIColor(hex: "#4364C9")
     
     @IBOutlet var lblPartyInfo: UILabel!
     @IBOutlet var table: UITableView!
-    @IBOutlet var btnShare: UIButton!
     
     override func viewDidLoad() {
+        navigationSetting()
+        
         printPartyInfoLable()
         plusUserMoney()
         
+    }
+    
+    @objc func navigationSetting() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = color
+        navigationController!.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        
+        if let titleView = navigationItem.titleView as? UILabel {
+            titleView.textColor = .white
+            titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
+        } else {
+            let titleLabel = UILabel()
+            titleLabel.text = "정산 내역"
+            titleLabel.textColor = .white
+            titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
+            navigationItem.titleView = titleLabel
+        }
+        
+        let shareButtonImage = UIImage(named: "icon_share1.png")?.withRenderingMode(.alwaysOriginal)
+        let shareButton = UIBarButtonItem(title: "", image: shareButtonImage, target: self, action: #selector(shareButtonTapped))
+        let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
+        
+        let titleAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SeoulNamsanCM", size: 18)!
+        ]
+        submitButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        
+        navigationItem.leftBarButtonItem = shareButton
+        navigationItem.rightBarButtonItem = submitButton
+    }
+    @objc func shareButtonTapped() {
+        var shareItems = [String]()
+        
+        shareItems.append("test")
+
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    @objc func submitButtonTapped() {
+        self.dismiss(animated: true)
     }
     
     func initMoney() {
@@ -90,33 +135,23 @@ class SettleViewController: UIViewController {
         return fc(amount: place.enjoyer[i].placeMoney)
     }
     
-    @IBAction func onDone(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    @IBAction func onShare(_ sender: Any) {
-        var shareItems = [String]()
-//        if let text = "self.textLabel.text" {
-//            shareItems.append(text)
-//        }
-        shareItems.append("test")
-
-        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
-    }
-    
 }
 
 extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return (party?.place.count)!+1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         let sections:[String] = ["파티원 정산", "장소 및 메뉴 세부사항"]
         
-        return sections[section]
+        if(section == 0) {
+            return sections[0]
+        } else if(section == 1) {
+            return sections[1]
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,7 +159,7 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         if(section == 0 ) {
             return (party?.user.count)!
         } else {
-            return (party?.place.count)!
+            return 1
         }
     }
     
@@ -144,18 +179,18 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
             
-            let row1 = (party?.place[indexPath.row].name)! + "(" + String((party?.place[indexPath.row].enjoyer.count)!) +  "), "
-            let row2 = String((party?.place[indexPath.row].totalPrice)!) + "(원)"
+            let row1 = (party?.place[indexPath.section-1].name)! + "(" + String((party?.place[indexPath.section-1].enjoyer.count)!) +  "), "
+            let row2 = String((party?.place[indexPath.section-1].totalPrice)!) + "(원)"
             var row3:String = ""
             
-            for i in 0..<(party?.place[indexPath.row].enjoyer.count)! {
-                row3 += (party?.place[indexPath.row].enjoyer[i].name)!
+            for i in 0..<(party?.place[indexPath.section-1].enjoyer.count)! {
+                row3 += (party?.place[indexPath.section-1].enjoyer[i].name)!
                 row3 += "("
-                row3 += calPlaceUserMoney(place: (party?.place[indexPath.row])!, i: i)
+                row3 += calPlaceUserMoney(place: (party?.place[indexPath.section-1])!, i: i)
                 row3 += "원)"
             }
             
-            cell.index = indexPath.row
+            cell.index = indexPath.section-1
             cell.place = self.place
             cell.party = self.party
             cell.lblName.text = row1 + row2
@@ -167,11 +202,8 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if(indexPath.section == 1) {
+        if(indexPath.section != 0) {
             tableView.deselectRow(at: indexPath, animated: true)
-            
-            
-            
             if selectedIndexPath == indexPath {
                 selectedIndexPath = nil // 선택한 셀이 이미 있는 경우 해제
                 
@@ -183,7 +215,6 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
                     let newOffset = CGPoint(x: currentOffset.x, y: currentOffset.y + 100)
                     tableView.setContentOffset(newOffset, animated: true)
                 }
-
             }
             
             tableView.beginUpdates()
@@ -194,7 +225,7 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 테이블 뷰의 셀 높이를 설정하는 메서드
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 {
+        if indexPath.section != 0 {
             if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
                 let menuCount = party?.place[indexPath.row].menu.count ?? 0
                 let menuHeight = CGFloat(130 * (menuCount+1))
@@ -205,7 +236,18 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 44
     }
-
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 25
+        }
+        return -1
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 0
+        }
+        return 10
+    }
     
 }
 
