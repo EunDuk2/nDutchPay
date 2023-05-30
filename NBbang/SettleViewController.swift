@@ -8,13 +8,17 @@ class SettleViewController: UIViewController {
     var selectedIndexPath: IndexPath?
     let color = UIColor(hex: "#4364C9")
     
-    @IBOutlet var lblPartyInfo: UILabel!
+    @IBOutlet var lblName: UILabel!
+    @IBOutlet var lblPrice: UILabel!
+    @IBOutlet var lblUser: UILabel!
+    @IBOutlet var viewLabel: UIView!
     @IBOutlet var table: UITableView!
     
     override func viewDidLoad() {
         navigationSetting()
+        viewSetting()
         
-        printPartyInfoLable()
+        printInitLabel()
         plusUserMoney()
         
     }
@@ -62,6 +66,11 @@ class SettleViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    func viewSetting() {
+        viewLabel.layer.cornerRadius = 10
+        viewLabel.clipsToBounds = true
+    }
+    
     func initMoney() {
         for i in 0..<(party?.user.count)! {
             try! realm.write {
@@ -102,9 +111,23 @@ class SettleViewController: UIViewController {
         }
     }
     
-    func printPartyInfoLable() {
-        lblPartyInfo.text! += "파티명: " + (party?.name)! + "/" + String((party?.user.count)!) + "명\n총 사용 금액: "
-        lblPartyInfo.text! += String((party?.totalPrice)!)
+    func printInitLabel() {
+        lblName.text = party?.name
+        lblPrice.text = fc(amount: party!.totalPrice) + "(원)"
+        
+        var users: String = String((party?.user.count)!)
+        users += "명("
+        for i in 0..<(party?.user.count)! {
+            if(i != (party?.user.count)! - 1) {
+                users += (party?.user[i].name!)! + ","
+            } else {
+                users += (party?.user[i].name!)!
+            }
+            
+        }
+        users += ")"
+        
+        lblUser.text = users
     }
     
     func calPlaceUserMoney(place: Place, i:Int) -> String{
