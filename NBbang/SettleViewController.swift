@@ -13,6 +13,7 @@ class SettleViewController: UIViewController {
     @IBOutlet var lblUser: UILabel!
     @IBOutlet var viewLabel: UIView!
     @IBOutlet var table: UITableView!
+    @IBOutlet var btnAccount: UIButton!
     
     override func viewDidLoad() {
         navigationSetting()
@@ -158,121 +159,170 @@ class SettleViewController: UIViewController {
         return fc(amount: place.enjoyer[i].placeMoney)
     }
     
+    func addAccount(account: String) {
+        try! realm.write {
+            party?.addAccount(account: account)
+        }
+    }
+    
+    @IBAction func onAccount(_ sender: Any) {
+        let alert = UIAlertController(title: "계좌 추가", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
+        alert.addTextField { (bank) in
+                 bank.placeholder = "은행이름"
+        }
+        alert.addTextField { (account) in
+                 account.placeholder = "계좌번호"
+        }
+        alert.addTextField { (user) in
+                 user.placeholder = "예금주"
+        }
+
+                let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+                    var accouontText = (alert.textFields?[0].text)! + " "
+                    accouontText += (alert.textFields?[1].text)! + " (" + (alert.textFields?[2].text)! + ")"
+                    
+                    self.addAccount(account: accouontText)
+                    self.table.reloadData()
+                }
+
+                let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+
+                }
+
+                alert.addAction(cancel)
+                alert.addAction(ok)
+
+                self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (party?.place.count)!+1
+        return (party?.place.count)!+2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        let sections:[String] = ["파티원 정산", "장소 및 메뉴 세부사항"]
+        let sections:[String] = ["파티원 정산", "장소 및 메뉴 세부사항", "계좌 정보"]
         
         if(section == 0) {
             return sections[0]
         } else if(section == 1) {
             return sections[1]
+        } else if(section == (party?.place.count)!+1) {
+            return sections[2]
         }
-        return ""
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return ""
+        }
         
-        if(section == 0 ) {
-            return (party?.user.count)!
-        } else {
-            return 1
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if(indexPath.section == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SettleUserTableCell") as! SettleUserTableCell
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
-            let row1 = party?.user[indexPath.row].name
-            let row2 = party?.user[indexPath.row].money
-            
-            cell.lblName.text = row1
-            cell.lblPrice.text = fc(amount: row2!) + " (원)"
-            
-            return cell
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
-            
-            let row1 = (party?.place[indexPath.section-1].name)! + "(" + String((party?.place[indexPath.section-1].enjoyer.count)!) +  "), "
-            let row2 = String((party?.place[indexPath.section-1].totalPrice)!) + "(원)"
-            var row3:String = ""
-            
-            for i in 0..<(party?.place[indexPath.section-1].enjoyer.count)! {
-                row3 += (party?.place[indexPath.section-1].enjoyer[i].name)!
-                row3 += "("
-                row3 += calPlaceUserMoney(place: (party?.place[indexPath.section-1])!, i: i)
-                row3 += "원)"
+            if(section == 0 ) {
+                return (party?.user.count)!
             }
-            
-            cell.index = indexPath.section-1
-            cell.place = self.place
-            cell.party = self.party
-            cell.lblName.text = row1 + row2
-            cell.lblUsers.text = row3
-            
-            return cell
+            else if(section == (party?.place.count)!+1) {
+                return (party?.account.count)!
+            }
+            else {
+                return 1
+            }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if(indexPath.section != 0) {
-            tableView.deselectRow(at: indexPath, animated: true)
-            if selectedIndexPath == indexPath {
-                selectedIndexPath = nil // 선택한 셀이 이미 있는 경우 해제
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            if(indexPath.section == 0) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettleUserTableCell") as! SettleUserTableCell
                 
-            } else {
-                selectedIndexPath = indexPath // 선택한 셀의 인덱스 저장
+                let row1 = party?.user[indexPath.row].name
+                let row2 = party?.user[indexPath.row].money
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [self] in
-                let currentOffset = tableView.contentOffset
-                    let newOffset = CGPoint(x: currentOffset.x, y: currentOffset.y + CGFloat((party?.place[indexPath.section-1].menu.count)!)*CGFloat((indexPath.section))*30)
-                tableView.setContentOffset(newOffset, animated: true)
+                cell.lblName.text = row1
+                cell.lblPrice.text = fc(amount: row2!) + " (원)"
+                
+                return cell
+            }
+            else if(indexPath.section == (party?.place.count)!+1) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableCell") as! AccountTableCell
+                
+                cell.lblAccount.text = party?.account[indexPath.row]
+                
+                return cell
+            }
+            else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
+                
+                let row1 = (party?.place[indexPath.section-1].name)! + "(" + String((party?.place[indexPath.section-1].enjoyer.count)!) +  "), "
+                let row2 = String((party?.place[indexPath.section-1].totalPrice)!) + "(원)"
+                var row3:String = ""
+                
+                for i in 0..<(party?.place[indexPath.section-1].enjoyer.count)! {
+                    row3 += (party?.place[indexPath.section-1].enjoyer[i].name)!
+                    row3 += "("
+                    row3 += calPlaceUserMoney(place: (party?.place[indexPath.section-1])!, i: i)
+                    row3 += "원)"
                 }
+                
+                cell.index = indexPath.section-1
+                cell.place = self.place
+                cell.party = self.party
+                cell.lblName.text = row1 + row2
+                cell.lblUsers.text = row3
+                
+                return cell
+            }
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            if(indexPath.section != 0 && indexPath.section != (party?.place.count)!+1) {
+                tableView.deselectRow(at: indexPath, animated: true)
+                if selectedIndexPath == indexPath {
+                    selectedIndexPath = nil // 선택한 셀이 이미 있는 경우 해제
+                    
+                } else {
+                    selectedIndexPath = indexPath // 선택한 셀의 인덱스 저장
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) { [self] in
+                        let currentOffset = tableView.contentOffset
+                        let newOffset = CGPoint(x: currentOffset.x, y: currentOffset.y + CGFloat((party?.place[indexPath.section-1].menu.count)!)*CGFloat((indexPath.section))*30)
+                        tableView.setContentOffset(newOffset, animated: true)
+                    }
+                }
+                
+                tableView.beginUpdates()
+                tableView.endUpdates()
             }
             
-            tableView.beginUpdates()
-            tableView.endUpdates()
         }
-            
-    }
         
         // 테이블 뷰의 셀 높이를 설정하는 메서드
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.section != 0 {
-            if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
-                let menuCount = party?.place[indexPath.section-1].menu.count ?? 0
-                let menuHeight = CGFloat(150 * (menuCount+1))
-                let totalHeight = 70 + menuHeight
-                return min(totalHeight, 400)
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            
+            if (indexPath.section != 0 && indexPath.section != (party?.place.count)!+1) {
+                if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
+                    let menuCount = party?.place[indexPath.section-1].menu.count ?? 0
+                    let menuHeight = CGFloat(150 * (menuCount+1))
+                    let totalHeight = 70 + menuHeight
+                    return min(totalHeight, 400)
+                }
+                return 70
             }
-            return 70
+            return 44
         }
-        return 70
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if(section == 0) {
-            return 25
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            if(section == 0) {
+                return 25
+            }
+            return -1
         }
-        return -1
-    }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if(section == 0) {
-            return 0
+        func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+            if(section == 0) {
+                return 0
+            }
+            return 10
         }
-        return 10
+        
     }
     
-}
-
 

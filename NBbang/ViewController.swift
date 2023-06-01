@@ -51,12 +51,7 @@ class ViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddPartyViewController") as? AddPartyViewController else {
-            return
-        }
-        du.modalPresentationStyle = .fullScreen
-        
-        self.present(du, animated: true)
+        eraseDB()
     }
 
     func firstLaunch() {

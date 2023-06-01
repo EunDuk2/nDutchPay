@@ -7,6 +7,7 @@ class Party: Object {
     var user = List<User>()
     var place = List<Place>()
     @objc dynamic var totalPrice: Int = 0
+    var account = List<String>()
     
     
     convenience init(name: String? = nil) {
@@ -22,6 +23,9 @@ class Party: Object {
     }
     func addPlace(name: String?, totalPrice: Int) {
         place.append(Place(name: name, totalPrice: totalPrice))
+    }
+    func addAccount(account: String) {
+        self.account.append(account)
     }
     func plusPrice(price: Int) {
         totalPrice += price

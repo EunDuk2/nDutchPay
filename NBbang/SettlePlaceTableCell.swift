@@ -91,7 +91,7 @@ extension SettlePlaceTableCell: UITableViewDelegate, UITableViewDataSource {
         return 70
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1
+        return 20
     }
     
 }

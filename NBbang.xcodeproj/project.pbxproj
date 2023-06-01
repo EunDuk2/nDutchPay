@@ -60,6 +60,8 @@
 		61C698692A261E5C000E456A /* icon_share1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C698682A261E5C000E456A /* icon_share1.png */; };
 		61C6986B2A264991000E456A /* icon_name1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C6986A2A264991000E456A /* icon_name1.png */; };
 		61C738D62A162E82002D56AD /* EditPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C738D52A162E82002D56AD /* EditPlaceViewController.swift */; };
+		61CC9A302A284E62004AB103 /* icon_account1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61CC9A2F2A284E61004AB103 /* icon_account1.png */; };
+		61CC9A322A285C7E004AB103 /* AccountTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC9A312A285C7E004AB103 /* AccountTableCell.swift */; };
 		61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CC2A027C9B00E9A657 /* Place.swift */; };
 		61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */; };
 		61FC48472A03909200D36559 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FC48462A03909200D36559 /* AddPlaceViewController.swift */; };
@@ -125,6 +127,8 @@
 		61C698682A261E5C000E456A /* icon_share1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_share1.png; sourceTree = "<group>"; };
 		61C6986A2A264991000E456A /* icon_name1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_name1.png; sourceTree = "<group>"; };
 		61C738D52A162E82002D56AD /* EditPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaceViewController.swift; sourceTree = "<group>"; };
+		61CC9A2F2A284E61004AB103 /* icon_account1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_account1.png; sourceTree = "<group>"; };
+		61CC9A312A285C7E004AB103 /* AccountTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableCell.swift; sourceTree = "<group>"; };
 		61CE09CC2A027C9B00E9A657 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
 		61FC48462A03909200D36559 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPlaceViewController.swift; path = ../AddPlaceViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		61BD96EA29D31E5B00125849 /* NBbang */ = {
 			isa = PBXGroup;
 			children = (
+				61CC9A312A285C7E004AB103 /* AccountTableCell.swift */,
 				61B9D7232A1DF48D00DAEE6C /* fonts */,
 				61D647FC2A13A8160065B707 /* images */,
 				61FC48462A03909200D36559 /* AddPlaceViewController.swift */,
@@ -229,6 +234,7 @@
 		61D647FC2A13A8160065B707 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				61CC9A2F2A284E61004AB103 /* icon_account1.png */,
 				61C698682A261E5C000E456A /* icon_share1.png */,
 				61AA9B292A232A3200FA9462 /* icon_redcancel1.png */,
 				6105E0EA2A22658B005B6036 /* icon_setting3.png */,
@@ -343,6 +349,7 @@
 				61ADBD262A1F459900885921 /* icon_check.png in Resources */,
 				61B9D76B2A1E4AE200DAEE6C /* icon_users.png in Resources */,
 				61AA9B2C2A23BABB00FA9462 /* icon_submit1.png in Resources */,
+				61CC9A302A284E62004AB103 /* icon_account1.png in Resources */,
 				61ADBD272A1F459900885921 /* icon_notcheck.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +411,7 @@
 				61FC484B2A03967900D36559 /* AddPlaceUserTableCell.swift in Sources */,
 				61BD970429D3236F00125849 /* Menu.swift in Sources */,
 				619A8B862A1B4E5E0079E961 /* SettlePlaceTableCell.swift in Sources */,
+				61CC9A322A285C7E004AB103 /* AccountTableCell.swift in Sources */,
 				61B9D7592A1E328600DAEE6C /* MyTabBar.swift in Sources */,
 				619A49F329FD0B03007B445E /* UserViewController.swift in Sources */,
 				61BD96F029D31E5B00125849 /* ViewController.swift in Sources */,
