@@ -165,34 +165,53 @@ class SettleViewController: UIViewController {
         }
     }
     
+    func updateAccount(account: String, index: Int) {
+        try! realm.write {
+            party?.account[index] = account
+        }
+    }
+    
     @IBAction func onAccount(_ sender: Any) {
         let alert = UIAlertController(title: "계좌 추가", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
         alert.addTextField { (bank) in
-                 bank.placeholder = "은행이름"
+                 bank.placeholder = "은행이름(필수 입력)"
         }
         alert.addTextField { (account) in
-                 account.placeholder = "계좌번호"
+                 account.placeholder = "계좌번호(필수 입력)"
         }
         alert.addTextField { (user) in
                  user.placeholder = "예금주"
         }
 
-                let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
-                    var accouontText = (alert.textFields?[0].text)! + " "
-                    accouontText += (alert.textFields?[1].text)! + " (" + (alert.textFields?[2].text)! + ")"
-                    
-                    self.addAccount(account: accouontText)
-                    self.table.reloadData()
+        let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+            if(alert.textFields?[0].text != "" && alert.textFields?[1].text != "") {
+                var accouontText = (alert.textFields?[0].text)! + " "
+                accouontText += (alert.textFields?[1].text)!
+                if(alert.textFields?[2].text != "") {
+                    accouontText += " (" + (alert.textFields?[2].text)! + ")"
                 }
-
-                let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
-
-                }
-
-                alert.addAction(cancel)
+                
+                self.addAccount(account: accouontText)
+                self.table.reloadData()
+            } else {
+                let alert = UIAlertController(title: "알림", message: "은행과 계좌번호는 필수 입력입니다.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "확인", style: .default)
+                
                 alert.addAction(ok)
+                
+                self.present(alert, animated: true)
+            }
+            
+        }
 
-                self.present(alert, animated: true, completion: nil)
+        let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+
+        }
+
+        alert.addAction(cancel)
+        alert.addAction(ok)
+
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -293,36 +312,116 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.beginUpdates()
                 tableView.endUpdates()
             }
-            
-        }
-        
-        // 테이블 뷰의 셀 높이를 설정하는 메서드
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            
-            if (indexPath.section != 0 && indexPath.section != (party?.place.count)!+1) {
-                if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
-                    let menuCount = party?.place[indexPath.section-1].menu.count ?? 0
-                    let menuHeight = CGFloat(150 * (menuCount+1))
-                    let totalHeight = 70 + menuHeight
-                    return min(totalHeight, 400)
+            else if(indexPath.section == (party?.place.count)!+1) {
+                let alert = UIAlertController(title: "계좌 수정", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
+                alert.addTextField { (bank) in
+                         bank.placeholder = "은행이름(필수 입력)"
                 }
-                return 70
+                alert.addTextField { (account) in
+                         account.placeholder = "계좌번호(필수 입력)"
+                }
+                alert.addTextField { (user) in
+                         user.placeholder = "예금주"
+                }
+                
+                if let (bank, account, user) = splitText(text: (party?.account[indexPath.row])!) {
+                    alert.textFields?[0].text = bank
+                    alert.textFields?[1].text = account
+                    alert.textFields?[2].text = user
+                }
+                
+
+                let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+                    if(alert.textFields?[0].text != "" && alert.textFields?[1].text != "") {
+                        var accouontText = (alert.textFields?[0].text)! + " "
+                        accouontText += (alert.textFields?[1].text)!
+                        if(alert.textFields?[2].text != "") {
+                            accouontText += " (" + (alert.textFields?[2].text)! + ")"
+                        }
+                        
+                        self.updateAccount(account: accouontText, index: indexPath.row)
+                        self.table.reloadData()
+                    } else {
+                        let alert = UIAlertController(title: "알림", message: "은행과 계좌번호는 필수 입력입니다.", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "확인", style: .default)
+                        
+                        alert.addAction(ok)
+                        
+                        self.present(alert, animated: true)
+                    }
+                    
+                }
+
+                let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+
+                }
+
+                alert.addAction(cancel)
+                alert.addAction(ok)
+
+                self.present(alert, animated: true, completion: nil)
             }
-            return 44
+            
         }
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            if(section == 0) {
-                return 25
+    
+    func splitText(text: String) -> (String, String, String?)? {
+        let components = text.components(separatedBy: " ")
+        if components.count >= 2 {
+            let firstPart = components[0]
+            let secondPart = components[1]
+            var thirdPart: String?
+            if components.count >= 3 {
+                thirdPart = components[2].isEmpty ? nil : components[2]
             }
-            return -1
+            return (firstPart, secondPart, thirdPart)
         }
-        func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-            if(section == 0) {
-                return 0
+        return nil
+    }
+        
+    // 테이블 뷰의 셀 높이를 설정하는 메서드
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if (indexPath.section != 0 && indexPath.section != (party?.place.count)!+1) {
+            if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
+                let menuCount = party?.place[indexPath.section-1].menu.count ?? 0
+                let menuHeight = CGFloat(150 * (menuCount+1))
+                let totalHeight = 70 + menuHeight
+                return min(totalHeight, 400)
             }
-            return 10
+            return 70
+        }
+        return 44
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 25
+        }
+        return -1
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return 0
+        }
+        return 10
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if(indexPath.section == (party?.place.count)!+1) {
+            let deleteAction = UITableViewRowAction(style: .destructive, title: "삭제") { (action, indexPath) in
+                self.deleteItem(at: indexPath)
+            }
+            return [deleteAction]
+        } else {
+            return nil
         }
         
     }
+    
+    func deleteItem(at indexPath: IndexPath) {
+        try! realm.write {
+            party?.account.remove(at: indexPath.row)
+        }
+        table.reloadData()
+    }
+}
     
 
