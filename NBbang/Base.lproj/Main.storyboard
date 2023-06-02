@@ -804,19 +804,20 @@
                                     <constraint firstItem="eEe-M5-OwG" firstAttribute="leading" secondItem="Bg3-tF-02a" secondAttribute="leading" constant="8" id="25p-pZ-c0I"/>
                                     <constraint firstItem="pJ5-8r-o5m" firstAttribute="top" secondItem="CT3-SW-2gq" secondAttribute="bottom" constant="14" id="3oY-NU-0j1"/>
                                     <constraint firstItem="CT3-SW-2gq" firstAttribute="leading" secondItem="0RD-VP-7Lp" secondAttribute="trailing" constant="13" id="8Cw-j1-7rl"/>
-                                    <constraint firstItem="TKX-5h-AL0" firstAttribute="leading" secondItem="pJ5-8r-o5m" secondAttribute="trailing" constant="24" id="CZb-C7-43Z"/>
                                     <constraint firstItem="pzS-uC-QNc" firstAttribute="top" secondItem="Bg3-tF-02a" secondAttribute="top" constant="12" id="Djo-C8-Yhp"/>
-                                    <constraint firstItem="pzS-uC-QNc" firstAttribute="leading" secondItem="CT3-SW-2gq" secondAttribute="trailing" constant="25" id="Jzu-J6-F1H"/>
                                     <constraint firstItem="0zy-7h-GsM" firstAttribute="leading" secondItem="JIh-oF-1d0" secondAttribute="trailing" constant="8" symbolic="YES" id="KUq-gq-wc0"/>
                                     <constraint firstAttribute="trailing" secondItem="8nf-rT-dMV" secondAttribute="trailing" constant="8" id="LQk-tq-ztg"/>
                                     <constraint firstItem="JIh-oF-1d0" firstAttribute="leading" secondItem="Bg3-tF-02a" secondAttribute="leading" constant="8" id="Omm-Q5-uuO"/>
                                     <constraint firstItem="IMS-kX-wgg" firstAttribute="leading" secondItem="Bg3-tF-02a" secondAttribute="leading" constant="8" id="P0q-RJ-Yoi"/>
                                     <constraint firstItem="wGD-4H-oOz" firstAttribute="leading" secondItem="IMS-kX-wgg" secondAttribute="trailing" constant="8" symbolic="YES" id="PwU-Qb-IgC"/>
                                     <constraint firstAttribute="width" constant="361" id="QPr-zR-bQp"/>
+                                    <constraint firstAttribute="trailing" secondItem="TKX-5h-AL0" secondAttribute="trailing" constant="8" id="T6a-Lw-Tw3"/>
                                     <constraint firstItem="0RD-VP-7Lp" firstAttribute="leading" secondItem="Bg3-tF-02a" secondAttribute="leading" constant="8" id="afX-JG-CS9"/>
                                     <constraint firstItem="IMS-kX-wgg" firstAttribute="top" secondItem="JIh-oF-1d0" secondAttribute="bottom" constant="-2" id="csk-mR-agq"/>
+                                    <constraint firstAttribute="trailing" secondItem="JBW-rx-nDa" secondAttribute="trailing" constant="8" id="dtE-Bm-UYu"/>
                                     <constraint firstItem="JBW-rx-nDa" firstAttribute="leading" secondItem="wGD-4H-oOz" secondAttribute="trailing" constant="8" symbolic="YES" id="gCb-sy-FBY"/>
                                     <constraint firstItem="CT3-SW-2gq" firstAttribute="top" secondItem="Bg3-tF-02a" secondAttribute="top" constant="12" id="gn7-ne-Mat"/>
+                                    <constraint firstAttribute="trailing" secondItem="pzS-uC-QNc" secondAttribute="trailing" constant="8" id="hDi-9a-cz4"/>
                                     <constraint firstItem="eEe-M5-OwG" firstAttribute="top" secondItem="0RD-VP-7Lp" secondAttribute="bottom" constant="8" symbolic="YES" id="jIl-m9-k6g"/>
                                     <constraint firstItem="0zy-7h-GsM" firstAttribute="top" secondItem="pJ5-8r-o5m" secondAttribute="bottom" constant="11" id="kWE-2K-jy8"/>
                                     <constraint firstAttribute="height" constant="134" id="kp4-vM-3OF"/>
@@ -933,7 +934,7 @@
                                                     <rect key="frame" x="20" y="74" width="321" height="153"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettleMenuTableCell" rowHeight="79" id="sQf-OU-nFN" customClass="SettleMenuTableCell" customModule="NBbang" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettleMenuTableCell" rowHeight="79" id="sQf-OU-nFN" customClass="SettleMenuTableCell" customModule="NBbang" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="50" width="321" height="79"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sQf-OU-nFN" id="adA-QL-m1O">

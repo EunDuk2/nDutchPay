@@ -7,6 +7,7 @@ class SettleViewController: UIViewController {
     var place: Place?
     var selectedIndexPath: IndexPath?
     let color = UIColor(hex: "#4364C9")
+    var settleText: String = ""
     
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblPrice: UILabel!
@@ -18,6 +19,7 @@ class SettleViewController: UIViewController {
     
     override func viewDidLoad() {
         navigationSetting()
+        placeUserMoneySetting()
         viewSetting()
         
         printInitLabel()
@@ -58,7 +60,7 @@ class SettleViewController: UIViewController {
     @objc func shareButtonTapped() {
         var shareItems = [String]()
         
-        shareItems.append("test")
+        shareItems.append(writeSettleText())
 
         let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
@@ -66,6 +68,14 @@ class SettleViewController: UIViewController {
     }
     @objc func submitButtonTapped() {
         self.dismiss(animated: true)
+    }
+    
+    func placeUserMoneySetting() {
+        try! realm.write {
+            for i in 0..<(party?.user.count)! {
+                party!.user[i].placeMoney = 0
+            }
+        }
     }
     
     func viewSetting() {
@@ -133,6 +143,7 @@ class SettleViewController: UIViewController {
     }
     
     func calPlaceUserMoney(place: Place, i:Int) -> String{
+        placeUserMoneySetting()
         var userMoney:Int = 0
         
         try! realm.write {
@@ -142,22 +153,27 @@ class SettleViewController: UIViewController {
                 let defaultMoney = place.defaultMenu!.totalPrice / (place.defaultMenu?.enjoyer.count)!
                 userMoney += defaultMoney
                 
-                for i in 0..<place.enjoyer.count {
-                    place.enjoyer[i].placeMoney = userMoney
+                for i in 0..<place.defaultMenu!.enjoyer.count {
+                    place.defaultMenu!.enjoyer[i].placeMoney = userMoney
+                    
                 }
             }
-            
-            
+            userMoney = 0
             for i in 0..<place.menu.count {
                 let tempMoney = place.menu[i].totalPrice / place.menu[i].enjoyer.count
                 userMoney += tempMoney
                 for j in 0..<place.menu[i].enjoyer.count {
-                    place.menu[i].enjoyer[j].placeMoney = userMoney
+                    place.menu[i].enjoyer[j].placeMoney += userMoney
                 }
             }
         }
         
         return fc(amount: place.enjoyer[i].placeMoney)
+    }
+    
+    func calMenuUserMoney(menu: Menu, i: Int) -> String{
+        let money = menu.totalPrice / menu.enjoyer.count
+        return fc(amount: money)
     }
     
     func addAccount(account: String) {
@@ -180,6 +196,64 @@ class SettleViewController: UIViewController {
         }
         
         return String(totalPrice)
+    }
+    
+    func writeSettleText() -> String {
+        
+        settleText += "🎉 " + (party?.name)! + "\n"
+        settleText += "파티 총 사용금액: " + fc(amount: party!.totalPrice) + "(원)\n"
+        if(calRemainder() != "0") {
+            settleText += "정산 후 잔돈: " + calRemainder() + "(원)\n"
+        }
+        settleText += "\n🙆‍♂️🙆‍♀️ 파티원 정산\n"
+        for i in 0..<(party?.user.count)! {
+            settleText += (party?.user[i].name)! + "(" + fc(amount: (party?.user[i].money)!) + "원)\n"
+        }
+        for i in 0..<(party?.place.count)! {
+            settleText += "\n🏠 장소: " + (party?.place[i].name)! + "(" + fc(amount: (party?.place[i].totalPrice)!) + "원)\n"
+            var placeText: String = "["
+            for j in 0..<(party?.place[i].enjoyer.count)! {
+                placeText += (party?.place[i].enjoyer[j].name)!
+                placeText += "("
+                placeText += calPlaceUserMoney(place: (party?.place[i])!, i: j)
+                placeText += "원)"
+            }
+            placeText += "]\n"
+            settleText += placeText
+            
+            var menuText:String = "["
+            if(party?.place[i].menu.count != 0) {
+                settleText += "🍔🍰 메뉴:\n"
+                settleText += "-" + (party?.place[i].defaultMenu?.name)!
+                settleText += "(" + fc(amount: (party?.place[i].defaultMenu?.totalPrice)!) + "원)\n"
+                
+                for j in 0..<(party?.place[i].defaultMenu?.enjoyer.count)! {
+                    menuText += (party?.place[i].defaultMenu?.enjoyer[j].name)! + "("
+                    menuText += calMenuUserMoney(menu: (party?.place[i].defaultMenu)!, i: j) + "원)"
+                }
+                menuText += "]\n"
+                settleText += menuText
+            }
+            menuText = ""
+            for j in 0..<(party?.place[i].menu.count)! {
+                settleText += "-" + (party?.place[i].menu[j].name)!
+                settleText += "(" + fc(amount: (party?.place[i].menu[j].totalPrice)!) + "원)\n"
+                for k in 0..<(party?.place[i].menu[j].enjoyer.count)! {
+                    menuText += (party?.place[i].menu[j].enjoyer[k].name)! + "("
+                    menuText += calMenuUserMoney(menu: (party?.place[i].menu[j])!, i: k) + "원)"
+                }
+                menuText += "]\n"
+            }
+            settleText += menuText + "\n"
+        }
+        if(party?.account.count != 0) {
+            settleText += "💰 계좌정보:\n"
+            for i in 0..<(party?.account.count)! {
+                settleText += (party?.account[i])! + "\n"
+            }
+        }
+        
+        return settleText
     }
     
     @IBAction func onAccount(_ sender: Any) {

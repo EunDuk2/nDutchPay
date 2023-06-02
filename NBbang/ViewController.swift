@@ -55,17 +55,17 @@ class ViewController: UIViewController {
     }
 
     func firstLaunch() {
-        if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
-            
-            guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddUserViewController") as? AddUserViewController else {
-                return
-            }
-            du.initBool = true
-            
-            self.present(du, animated: true)
-            
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
+//        if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
+//            
+//            guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddUserViewController") as? AddUserViewController else {
+//                return
+//            }
+//            du.initBool = true
+//            
+//            self.present(du, animated: true)
+//            
+//            UserDefaults.standard.set(true, forKey: "launchedBefore")
+//        }
     }
     
     func party() -> Results<Party> {
