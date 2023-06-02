@@ -14,6 +14,7 @@ class SettleViewController: UIViewController {
     @IBOutlet var viewLabel: UIView!
     @IBOutlet var table: UITableView!
     @IBOutlet var btnAccount: UIButton!
+    @IBOutlet var lblRemainder: UILabel!
     
     override func viewDidLoad() {
         navigationSetting()
@@ -21,7 +22,7 @@ class SettleViewController: UIViewController {
         
         printInitLabel()
         plusUserMoney()
-        
+        lblRemainder.text = calRemainder()+"(원)"
     }
     
     @objc func navigationSetting() {
@@ -171,6 +172,16 @@ class SettleViewController: UIViewController {
         }
     }
     
+    func calRemainder() -> String {
+        var totalPrice: Int = party!.totalPrice
+        
+        for i in 0..<party!.user.count {
+            totalPrice -= (party?.user[i].money)!
+        }
+        
+        return String(totalPrice)
+    }
+    
     @IBAction func onAccount(_ sender: Any) {
         let alert = UIAlertController(title: "계좌 추가", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
         alert.addTextField { (bank) in
@@ -272,7 +283,7 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
                 
                 let row1 = (party?.place[indexPath.section-1].name)! + "(" + String((party?.place[indexPath.section-1].enjoyer.count)!) +  "), "
-                let row2 = String((party?.place[indexPath.section-1].totalPrice)!) + "(원)"
+                let row2 = fc(amount: (party?.place[indexPath.section-1].totalPrice)!) + "(원)"
                 var row3:String = ""
                 
                 for i in 0..<(party?.place[indexPath.section-1].enjoyer.count)! {
