@@ -354,6 +354,18 @@
                                     <outlet property="delegate" destination="XcV-gi-0XQ" id="9eJ-CG-CyO"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiF-BC-Paz">
+                                <rect key="frame" x="347" y="172" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4YP-HS-2oK"/>
+                                    <constraint firstAttribute="width" constant="30" id="NC8-vt-3gv"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="icon_camera.png"/>
+                                <connections>
+                                    <action selector="onCamera:" destination="XcV-gi-0XQ" eventType="touchUpInside" id="MUV-Cx-cno"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWS-rz-p29">
                                 <rect key="frame" x="151.66666666666666" y="717" width="90" height="90"/>
                                 <constraints>
@@ -472,9 +484,11 @@
                             <constraint firstItem="FWS-rz-p29" firstAttribute="centerX" secondItem="GaW-v6-hWJ" secondAttribute="centerX" id="6dl-VL-nOm"/>
                             <constraint firstAttribute="bottom" secondItem="FWS-rz-p29" secondAttribute="bottom" constant="45" id="7CL-Ov-3bN"/>
                             <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="cog-F5-v9l" secondAttribute="trailing" constant="16" id="7Lq-6E-Cll"/>
+                            <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="MiF-BC-Paz" secondAttribute="trailing" constant="16" id="7Y0-yF-xAn"/>
                             <constraint firstItem="eiP-oX-cJq" firstAttribute="bottom" secondItem="cog-F5-v9l" secondAttribute="bottom" constant="20" id="88C-TE-Hvk"/>
                             <constraint firstItem="Z0M-a7-fzG" firstAttribute="leading" secondItem="eiP-oX-cJq" secondAttribute="leading" constant="16" id="8Po-yE-tmM"/>
                             <constraint firstItem="Z0M-a7-fzG" firstAttribute="top" secondItem="eiP-oX-cJq" secondAttribute="top" constant="13" id="Hm3-j2-IMb"/>
+                            <constraint firstItem="cog-F5-v9l" firstAttribute="top" secondItem="MiF-BC-Paz" secondAttribute="bottom" constant="-38" id="R0u-6q-UFd"/>
                             <constraint firstItem="cog-F5-v9l" firstAttribute="leading" secondItem="eiP-oX-cJq" secondAttribute="leading" constant="16" id="jug-Zv-Itl"/>
                             <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="Z0M-a7-fzG" secondAttribute="trailing" constant="16" id="l3O-PK-fBG"/>
                         </constraints>
@@ -2252,6 +2266,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="icon_camera.png" width="64" height="64"/>
         <image name="icon_cancel" width="256" height="256"/>
         <image name="icon_coin1.png" width="48" height="48"/>
         <image name="icon_home.png" width="48" height="48"/>

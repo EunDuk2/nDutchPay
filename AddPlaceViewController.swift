@@ -67,25 +67,42 @@ class AddPlaceViewController: UIViewController {
         self.dismiss(animated: true)
     }
     @objc func submitButtonTapped() {
-        try! realm.write {
-            if(txtName.text == "") {
-                party?.addPlace(name: "이름 없는 장소" + String(placeNameCount()), totalPrice: Int(txtPrice.text ?? "") ?? 0)
-            } else {
-                party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+        if(checkZeroUser(user: party!.user)) {
+            try! realm.write {
+                if(txtName.text == "") {
+                    party?.addPlace(name: "이름 없는 장소" + String(placeNameCount()), totalPrice: Int(txtPrice.text ?? "") ?? 0)
+                } else {
+                    party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+                }
+                party?.plusPrice(price: Int(txtPrice.text!)!)
             }
-            party?.plusPrice(price: Int(txtPrice.text!)!)
+            
+            for i in 0..<(party?.user.count)! {
+                if(party?.user[i].member == 1) {
+                    addPlaceUser(user: party?.user[i])
+                }
+            }
+            
+            addDefaultMenu(index: (party?.place.count)!-1, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+            
+            
+            self.dismiss(animated: true)
         }
-        
-        for i in 0..<(party?.user.count)! {
-            if(party?.user[i].member == 1) {
-                addPlaceUser(user: party?.user[i])
+    }
+    
+    func checkZeroUser(user:List<User>) -> Bool {
+        for i in 0..<user.count {
+            if(user[i].member == 1) {
+                return true
             }
         }
+        let alert = UIAlertController(title: "알림", message: "최소 한명 이상의 파티원을 선택해주세요.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
         
-        addDefaultMenu(index: (party?.place.count)!-1, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+        alert.addAction(ok)
         
-        
-        self.dismiss(animated: true)
+        self.present(alert, animated: true)
+        return false
     }
     
     func textFieldSetting() {

@@ -8,6 +8,7 @@ class Place: Object {
     var menu = List<Menu>()
     @objc dynamic var defaultMenu: Menu?
     @objc dynamic var totalPrice:Int = 0
+    @objc dynamic var imageData: Data?
     
     convenience init(name: String? = nil, totalPrice: Int = 0) {
         self.init()

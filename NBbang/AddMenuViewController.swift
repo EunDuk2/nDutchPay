@@ -73,12 +73,28 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         self.dismiss(animated: true)
     }
     @objc func submitButtonTapped() {
-        let textPrice: Int = Int(txtPrice.text!)!
-        let textCount: Int = Int(txtCount.text!)!
+        if(checkZeroUser(user: place!.enjoyer)) {
+            let textPrice: Int = Int(txtPrice.text!)!
+            let textCount: Int = Int(txtCount.text!)!
+            
+            let totalPrice: Int = textPrice * textCount
+            
+            preventTotalPriceExceedance(newPrice: totalPrice)
+        }
+    }
+    func checkZeroUser(user:List<User>) -> Bool {
+        for i in 0..<user.count {
+            if(user[i].member == 1) {
+                return true
+            }
+        }
+        let alert = UIAlertController(title: "알림", message: "최소 한명 이상의 파티원을 선택해주세요.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
         
-        let totalPrice: Int = textPrice * textCount
+        alert.addAction(ok)
         
-        preventTotalPriceExceedance(newPrice: totalPrice)
+        self.present(alert, animated: true)
+        return false
     }
     func textFieldSetting() {
         txtName.borderStyle = .none
