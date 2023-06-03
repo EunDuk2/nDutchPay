@@ -55,17 +55,19 @@ class AddPartyViewController: UIViewController {
         navigationItem.rightBarButtonItem = addButton
     }
     @objc func addButtonTapped() {
-        if(partyName.text == "") {
-            addPartyNsaveDB(name: "이름 없는 파티방"+String(partyNameCount()))
-        } else {
-            addPartyNsaveDB(name: partyName.text!)
-        }
-        for i in 0..<user().count {
-            if(user()[i].member == 1) {
-                addUser(userIndex: i)
+        if(checkZeroUser(user: user())) {
+            if(partyName.text == "") {
+                addPartyNsaveDB(name: "이름 없는 파티방"+String(partyNameCount()))
+            } else {
+                addPartyNsaveDB(name: partyName.text!)
             }
+            for i in 0..<user().count {
+                if(user()[i].member == 1) {
+                    addUser(userIndex: i)
+                }
+            }
+            self.dismiss(animated: true)
         }
-        self.dismiss(animated: true)
     }
     
     func textFieldSetting() {
@@ -81,7 +83,21 @@ class AddPartyViewController: UIViewController {
         }
         textField.addSubview(bottomLine)
     }
-
+    
+    func checkZeroUser(user:Results<User>) -> Bool {
+        for i in 0..<user.count {
+            if(user[i].member == 1) {
+                return true
+            }
+        }
+        let alert = UIAlertController(title: "알림", message: "최소 한명 이상의 파티원을 선택해주세요.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(ok)
+        
+        self.present(alert, animated: true)
+        return false
+    }
     
     func party() -> Results<Party> {
         return realm.objects(Party.self)

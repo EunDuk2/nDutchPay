@@ -259,13 +259,14 @@ class SettleViewController: UIViewController {
     @IBAction func onAccount(_ sender: Any) {
         let alert = UIAlertController(title: "계좌 추가", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
         alert.addTextField { (bank) in
-                 bank.placeholder = "은행이름(필수 입력)"
+            bank.placeholder = "은행이름(필수 입력)"
         }
         alert.addTextField { (account) in
-                 account.placeholder = "계좌번호(필수 입력)"
+            account.placeholder = "계좌번호(필수 입력)"
+            account.keyboardType = .numberPad
         }
         alert.addTextField { (user) in
-                 user.placeholder = "예금주"
+            user.placeholder = "예금주"
         }
 
         let ok = UIAlertAction(title: "확인", style: .default) { (ok) in

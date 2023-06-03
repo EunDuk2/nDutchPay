@@ -52,8 +52,10 @@ class InviteUserViewController: UIViewController {
         navigationItem.rightBarButtonItem = submitButton
     }
     @objc func submitButtonTapped() {
-        delBeforeAlert()
-        changePartyName()
+        if(checkZeroUser(user: party()[index!].user)) {
+            delBeforeAlert()
+            changePartyName()
+        }
     }
     
     func textFieldSetting() {
@@ -68,6 +70,21 @@ class InviteUserViewController: UIViewController {
             bottomLine.backgroundColor = color
         }
         txtName.addSubview(bottomLine)
+    }
+    
+    func checkZeroUser(user:List<User>) -> Bool {
+        for i in 0..<user.count {
+            if(user[i].member == 1) {
+                return true
+            }
+        }
+        let alert = UIAlertController(title: "알림", message: "최소 한명 이상의 파티원을 선택해주세요.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(ok)
+        
+        self.present(alert, animated: true)
+        return false
     }
     
     func user() -> Results<User> {
