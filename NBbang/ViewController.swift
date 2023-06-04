@@ -4,6 +4,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var lblAddAlert: UILabel!
     @IBOutlet var btnAdd: UIButton!
     
     let color = UIColor(hex: "#B1B2FF")
@@ -22,6 +23,11 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let tableView = table {
             tableView.reloadData()
+        }
+        if(party().count != 0) {
+            lblAddAlert.isHidden = true
+        } else {
+            lblAddAlert.isHidden = false
         }
     }
     

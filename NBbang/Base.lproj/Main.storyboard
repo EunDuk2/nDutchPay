@@ -78,12 +78,24 @@
                                     <action selector="addParty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oAz-a7-g5a"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파티를 추가해주세요 !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-Tw-dHs">
+                                <rect key="frame" x="98.666666666666671" y="411.66666666666669" width="195.66666666666663" height="28.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28.670000000000002" id="6Ti-19-XgW"/>
+                                    <constraint firstAttribute="width" constant="195.66999999999999" id="WNf-5c-O4I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="24"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SL6-jw-0Ti" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="06L-hg-CkU"/>
+                            <constraint firstItem="H6p-Tw-dHs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3C3-KO-4S9"/>
                             <constraint firstItem="SL6-jw-0Ti" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Tfl-oa-FnQ"/>
+                            <constraint firstItem="H6p-Tw-dHs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZaV-n4-YNS"/>
                             <constraint firstAttribute="bottom" secondItem="YON-tk-FLF" secondAttribute="bottom" constant="45" id="inU-yV-z7N"/>
                             <constraint firstItem="SL6-jw-0Ti" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mgh-bf-lpH"/>
                             <constraint firstItem="SL6-jw-0Ti" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pEN-P5-YOh"/>
@@ -94,6 +106,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnAdd" destination="YON-tk-FLF" id="Xvs-0U-Szm"/>
+                        <outlet property="lblAddAlert" destination="H6p-Tw-dHs" id="9VK-UJ-2dB"/>
                         <outlet property="table" destination="SL6-jw-0Ti" id="MGe-aV-WWj"/>
                     </connections>
                 </viewController>
@@ -266,12 +279,24 @@
                                     <constraint firstItem="9sd-58-gl1" firstAttribute="leading" secondItem="suC-1D-Khx" secondAttribute="trailing" constant="8" symbolic="YES" id="sx5-nf-0rM"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소를 추가해주세요 !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quj-RH-4ND">
+                                <rect key="frame" x="92" y="411.66666666666669" width="209" height="28.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="8Tw-Dg-r18"/>
+                                    <constraint firstAttribute="height" constant="28.670000000000002" id="g2X-2w-CuM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="24"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4CU-qp-lZs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="quj-RH-4ND" firstAttribute="centerY" secondItem="J92-wK-VjW" secondAttribute="centerY" id="1GN-Xj-QRz"/>
                             <constraint firstItem="dj0-dO-OAR" firstAttribute="centerX" secondItem="J92-wK-VjW" secondAttribute="centerX" id="2hC-pg-LlC"/>
                             <constraint firstItem="dj0-dO-OAR" firstAttribute="centerX" secondItem="J92-wK-VjW" secondAttribute="centerX" id="6SE-e6-U9x"/>
+                            <constraint firstItem="quj-RH-4ND" firstAttribute="centerX" secondItem="J92-wK-VjW" secondAttribute="centerX" id="Axd-VY-JmX"/>
                             <constraint firstItem="4CU-qp-lZs" firstAttribute="trailing" secondItem="jfC-EN-Ig2" secondAttribute="trailing" constant="16" id="MA5-RT-d5F"/>
                             <constraint firstAttribute="bottom" secondItem="dj0-dO-OAR" secondAttribute="bottom" constant="45" id="OGK-ll-mUz"/>
                             <constraint firstItem="4CU-qp-lZs" firstAttribute="trailing" secondItem="rgu-Nj-abD" secondAttribute="trailing" constant="16" id="P5o-iw-LIs"/>
@@ -283,6 +308,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblAddAlert" destination="quj-RH-4ND" id="xe0-Ny-kAf"/>
                         <outlet property="lblPrice" destination="i2X-Tt-r26" id="p8e-gf-kSV"/>
                         <outlet property="lblUsers" destination="Na5-YA-3Gf" id="Sea-5J-7ad"/>
                         <outlet property="table" destination="jfC-EN-Ig2" id="Cni-Fr-U27"/>
@@ -475,6 +501,16 @@
                                     <constraint firstAttribute="trailing" secondItem="sQR-Rm-1t3" secondAttribute="trailing" constant="8" id="wdq-0z-TW0"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가 메뉴가 필요한 경우 추가해주세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbW-Qe-EwY">
+                                <rect key="frame" x="20.333333333333343" y="411.66666666666669" width="352.33333333333326" height="28.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="352.32999999999998" id="QmQ-Pp-xBD"/>
+                                    <constraint firstAttribute="height" constant="28.670000000000002" id="dYK-Wu-xxe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="24"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eiP-oX-cJq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -489,11 +525,14 @@
                             <constraint firstItem="Z0M-a7-fzG" firstAttribute="leading" secondItem="eiP-oX-cJq" secondAttribute="leading" constant="16" id="8Po-yE-tmM"/>
                             <constraint firstItem="Z0M-a7-fzG" firstAttribute="top" secondItem="eiP-oX-cJq" secondAttribute="top" constant="13" id="Hm3-j2-IMb"/>
                             <constraint firstItem="cog-F5-v9l" firstAttribute="top" secondItem="MiF-BC-Paz" secondAttribute="bottom" constant="-38" id="R0u-6q-UFd"/>
+                            <constraint firstItem="ZbW-Qe-EwY" firstAttribute="centerX" secondItem="GaW-v6-hWJ" secondAttribute="centerX" id="du1-9k-q8W"/>
                             <constraint firstItem="cog-F5-v9l" firstAttribute="leading" secondItem="eiP-oX-cJq" secondAttribute="leading" constant="16" id="jug-Zv-Itl"/>
                             <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="Z0M-a7-fzG" secondAttribute="trailing" constant="16" id="l3O-PK-fBG"/>
+                            <constraint firstItem="ZbW-Qe-EwY" firstAttribute="centerY" secondItem="GaW-v6-hWJ" secondAttribute="centerY" id="trc-y4-4oc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblAddAlert" destination="ZbW-Qe-EwY" id="f6P-Bh-Wqx"/>
                         <outlet property="lblPlaceEnjoyer" destination="w4c-EJ-PZ8" id="t4S-ys-MCg"/>
                         <outlet property="lblTotalPrice" destination="jOj-f7-JAc" id="oeI-zL-zeQ"/>
                         <outlet property="table" destination="cog-F5-v9l" id="ETJ-Ti-fBR"/>

@@ -14,6 +14,7 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var table: UITableView!
     @IBOutlet var viewLabel: UIView!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var lblAddAlert: UILabel!
     
     override func viewDidLoad() {
         navigationSetting()
@@ -30,6 +31,11 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     func viewSetting() {
         viewLabel.layer.cornerRadius = 10
         viewLabel.clipsToBounds = true
+        if(place?.menu.count != 0) {
+            lblAddAlert.isHidden = true
+        } else {
+            lblAddAlert.isHidden = false
+        }
     }
     
     @objc func navigationSetting() {

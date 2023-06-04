@@ -10,6 +10,7 @@ class InPartyViewController: UIViewController {
     @IBOutlet var viewLabel: UIView!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblUsers: UILabel!
+    @IBOutlet var lblAddAlert: UILabel!
     
     override func viewDidLoad() {
         viewSetting()
@@ -20,6 +21,11 @@ class InPartyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         table.reloadData()
         printInitLabel()
+        if(party()[index!].place.count != 0 ) {
+            lblAddAlert.isHidden = true
+        } else {
+            lblAddAlert.isHidden = false
+        }
     }
     
     func viewSetting() {
