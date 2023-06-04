@@ -3,22 +3,4 @@
    uuid = "5E04B898-E250-45EE-9CFC-B3FF3E6E2B65"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B9EE9519-1C29-4BD9-A1FA-CC2A6E9AD189"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NBbang/InPartyViewController.swift"
-            startingColumnNumber = "46"
-            endingColumnNumber = "46"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

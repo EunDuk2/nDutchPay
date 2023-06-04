@@ -10,7 +10,7 @@ class AddPartyViewController: UIViewController {
     
     let realm = try! Realm()
     var allCheck: Bool = false
-    let color = UIColor(hex: "#11009E")
+    let color = UIColor(hex: "#B1B2FF")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,7 @@ class AddPartyViewController: UIViewController {
         resetUserMemberDB()
         self.hideKeyboardWhenTappedAround()
         partyName.delegate = self
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,14 +46,20 @@ class AddPartyViewController: UIViewController {
         }
         
         let addButton = UIBarButtonItem(title: "만들기", style: .plain, target: self, action: #selector(addButtonTapped))
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
         
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
             .font: UIFont(name: "SeoulNamsanCM", size: 18)!
         ]
         addButton.setTitleTextAttributes(titleAttributes, for: .normal)
+        cancelButton.setTitleTextAttributes(titleAttributes, for: .normal)
         
         navigationItem.rightBarButtonItem = addButton
+        navigationItem.leftBarButtonItem = cancelButton
+    }
+    @objc func cancelButtonTapped() {
+        self.dismiss(animated: true)
     }
     @objc func addButtonTapped() {
         if(checkZeroUser(user: user())) {
@@ -77,7 +84,7 @@ class AddPartyViewController: UIViewController {
         textField.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
         
         let bottomLine = UIView(frame: CGRect(x: 0, y: textField.frame.size.height - 1, width: textField.frame.size.width, height: 1))
-        let hexColor = "#4364C9"
+        let hexColor = "#B1B2FF"
         if let color = UIColor(hex: hexColor) {
             bottomLine.backgroundColor = color
         }
@@ -176,11 +183,11 @@ class AddPartyViewController: UIViewController {
         let textColor = color
         
         if(bool == true) {
-            image = UIImage(named: "icon_check.png")
+            image = UIImage(named: "icon_check1.png")
             title = "전체 해제"
             
         } else {
-            image = UIImage(named: "icon_notcheck.png")
+            image = UIImage(named: "icon_notcheck1.png")
             title = "전체 선택"
         }
 
@@ -202,8 +209,20 @@ class AddPartyViewController: UIViewController {
         }
         table.reloadData()
     }
-    @IBAction func onCancel(_ sender: Any) {
-        self.dismiss(animated: true)
+    @IBAction func onSubmit(_ sender: Any) {
+        if(checkZeroUser(user: user())) {
+            if(partyName.text == "") {
+                addPartyNsaveDB(name: "이름 없는 파티방"+String(partyNameCount()))
+            } else {
+                addPartyNsaveDB(name: partyName.text!)
+            }
+            for i in 0..<user().count {
+                if(user()[i].member == 1) {
+                    addUser(userIndex: i)
+                }
+            }
+            self.dismiss(animated: true)
+        }
     }
 }
 

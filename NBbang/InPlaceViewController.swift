@@ -7,7 +7,7 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     var party: Party?
     var place: Place?
     var index:Int?
-    let color = UIColor(hex: "#11009E")
+    let color = UIColor(hex: "#B1B2FF")
     
     @IBOutlet var lblTotalPrice: UILabel!
     @IBOutlet var lblPlaceEnjoyer: UILabel!
@@ -26,6 +26,11 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         updateLabel()
         table.reloadData()
+        if(place?.menu.count != 0) {
+            lblAddAlert.isHidden = true
+        } else {
+            lblAddAlert.isHidden = false
+        }
     }
     
     func viewSetting() {

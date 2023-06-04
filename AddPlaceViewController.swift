@@ -5,11 +5,12 @@ class AddPlaceViewController: UIViewController {
     let realm = try! Realm()
     var party: Party?
     var allCheck: Bool = false
-    let color = UIColor(hex: "#11009E")
+    let color = UIColor(hex: "#B1B2FF")
     
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtName: UITextField!
     @IBOutlet var btnSubmit: UIBarButtonItem!
+    @IBOutlet var btnSubmit2: UIButton!
     @IBOutlet var btnCheck: UIButton!
     @IBOutlet var table: UITableView!
     
@@ -19,6 +20,7 @@ class AddPlaceViewController: UIViewController {
         
         resetUserMemberDB()
         btnSubmit.isEnabled = false
+        btnSubmit2.isEnabled = false
         txtName.delegate = self
         txtPrice.delegate = self
         
@@ -115,7 +117,7 @@ class AddPlaceViewController: UIViewController {
         let bottomLineName = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
         let bottomLinePrice = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
         
-        let hexColor = "#4364C9"
+        let hexColor = "#B1B2FF"
         if let color = UIColor(hex: hexColor) {
             bottomLineName.backgroundColor = color
             bottomLinePrice.backgroundColor = color
@@ -196,11 +198,11 @@ class AddPlaceViewController: UIViewController {
         let textColor = color
         
         if(bool == true) {
-            image = UIImage(named: "icon_check.png")
+            image = UIImage(named: "icon_check1.png")
             title = "전체 해제"
             
         } else {
-            image = UIImage(named: "icon_notcheck.png")
+            image = UIImage(named: "icon_notcheck1.png")
             title = "전체 선택"
         }
 
@@ -210,6 +212,29 @@ class AddPlaceViewController: UIViewController {
         btnCheck.setTitleColor(textColor, for: .normal)
     }
     
+    @IBAction func onSubmit(_ sender: Any) {
+        if(checkZeroUser(user: party!.user)) {
+            try! realm.write {
+                if(txtName.text == "") {
+                    party?.addPlace(name: "이름 없는 장소" + String(placeNameCount()), totalPrice: Int(txtPrice.text ?? "") ?? 0)
+                } else {
+                    party?.addPlace(name: txtName.text, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+                }
+                party?.plusPrice(price: Int(txtPrice.text!)!)
+            }
+            
+            for i in 0..<(party?.user.count)! {
+                if(party?.user[i].member == 1) {
+                    addPlaceUser(user: party?.user[i])
+                }
+            }
+            
+            addDefaultMenu(index: (party?.place.count)!-1, totalPrice: Int(txtPrice.text ?? "") ?? 0)
+            
+            
+            self.dismiss(animated: true)
+        }
+    }
     @IBAction func onAllCheck(_ sender: Any) {
         if(allCheck == false) {
             allCheck = true
@@ -223,9 +248,6 @@ class AddPlaceViewController: UIViewController {
         table.reloadData()
     }
     
-    @IBAction func onCancel(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
 }
 
 extension AddPlaceViewController: UITableViewDelegate, UITableViewDataSource {
@@ -286,8 +308,10 @@ extension AddPlaceViewController: UITextFieldDelegate {
                 //checkName(text: text, textField: textField)
                 if(text == "" || Int(text) == 0) {
                     btnSubmit.isEnabled = false
+                    btnSubmit2.isEnabled = false
                 } else {
                     btnSubmit.isEnabled = true
+                    btnSubmit2.isEnabled = true
                 }
             }
         }

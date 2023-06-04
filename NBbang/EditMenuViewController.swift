@@ -14,7 +14,7 @@ class EditMenuViewController: UIViewController {
     var party: Party?
     var place: Place?
     var bool: Bool?
-    let color = UIColor(hex: "#11009E")
+    let color = UIColor(hex: "#B1B2FF")
     
     override func viewDidLoad() {
         navigationSetting()
@@ -98,7 +98,7 @@ class EditMenuViewController: UIViewController {
         let bottomLine1 = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
         let bottomLine2 = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
         let bottomLine3 = UIView(frame: CGRect(x: 0, y: txtCount.frame.size.height - 1, width: txtCount.frame.size.width, height: 1))
-        let hexColor = "#4364C9"
+        let hexColor = "#B1B2FF"
         if let color = UIColor(hex: hexColor) {
             bottomLine1.backgroundColor = color
             bottomLine2.backgroundColor = color

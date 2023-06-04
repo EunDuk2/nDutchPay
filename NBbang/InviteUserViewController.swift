@@ -8,7 +8,7 @@ class InviteUserViewController: UIViewController {
     
     let realm = try! Realm()
     var index:Int?
-    let color = UIColor(hex: "#11009E")
+    let color = UIColor(hex: "#B1B2FF")
     var allCheck: Bool = false
     
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class InviteUserViewController: UIViewController {
         txtName.subviews.filter { $0 is UIView }.forEach { $0.removeFromSuperview() }
         
         let bottomLine = UIView(frame: CGRect(x: 0, y: txtName.frame.size.height - 1, width: txtName.frame.size.width, height: 1))
-        let hexColor = "#4364C9"
+        let hexColor = "#B1B2FF"
         if let color = UIColor(hex: hexColor) {
             bottomLine.backgroundColor = color
         }

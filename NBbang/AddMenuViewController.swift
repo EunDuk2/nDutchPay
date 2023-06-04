@@ -7,12 +7,13 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     var party: Party?
     var intdex: Int?
     var allCheck: Bool = false
-    let color = UIColor(hex: "11009E")
+    let color = UIColor(hex: "#B1B2FF")
     
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtCount: UITextField!
     @IBOutlet var btnSubmit: UIBarButtonItem!
+    @IBOutlet var btnSubmit2: UIButton!
     @IBOutlet var btnCheck: UIButton!
     @IBOutlet var table: UITableView!
     
@@ -22,6 +23,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         
         resetUserMemberDB()
         btnSubmit.isEnabled = false
+        btnSubmit2.isEnabled = false
         
         txtName.delegate = self
         txtPrice.delegate = self
@@ -109,7 +111,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         let bottomLinePrice = UIView(frame: CGRect(x: 0, y: txtPrice.frame.size.height - 1, width: txtPrice.frame.size.width, height: 1))
         let bottomLineCount = UIView(frame: CGRect(x: 0, y: txtCount.frame.size.height - 1, width: txtCount.frame.size.width, height: 1))
         
-        let hexColor = "#4364C9"
+        let hexColor = "#B1B2FF"
         if let color = UIColor(hex: hexColor) {
             bottomLineName.backgroundColor = color
             bottomLinePrice.backgroundColor = color
@@ -247,11 +249,11 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         let textColor = color
         
         if(bool == true) {
-            image = UIImage(named: "icon_check.png")
+            image = UIImage(named: "icon_check1.png")
             title = "전체 해제"
             
         } else {
-            image = UIImage(named: "icon_notcheck.png")
+            image = UIImage(named: "icon_notcheck1.png")
             title = "전체 선택"
         }
 
@@ -273,12 +275,14 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
         table.reloadData()
     }
     @IBAction func onSubmit(_ sender: Any) {
-        let textPrice: Int = Int(txtPrice.text!)!
-        let textCount: Int = Int(txtCount.text!)!
-        
-        let totalPrice: Int = textPrice * textCount
-        
-        preventTotalPriceExceedance(newPrice: totalPrice)
+        if(checkZeroUser(user: place!.enjoyer)) {
+            let textPrice: Int = Int(txtPrice.text!)!
+            let textCount: Int = Int(txtCount.text!)!
+            
+            let totalPrice: Int = textPrice * textCount
+            
+            preventTotalPriceExceedance(newPrice: totalPrice)
+        }
     }
     
 }
@@ -334,8 +338,10 @@ extension AddMenuViewController: UITextFieldDelegate {
                 //checkName(text: text, textField: textField)
                 if(text == "" || Int(text) == 0) {
                     btnSubmit.isEnabled = false
+                    btnSubmit2.isEnabled = false
                 } else {
                     btnSubmit.isEnabled = true
+                    btnSubmit2.isEnabled = true
                 }
             }
         }

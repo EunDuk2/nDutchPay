@@ -123,7 +123,7 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         
         let bottomLine1 = UIView(frame: CGRect(x: 0, y: name.frame.size.height - 1, width: name.frame.size.width, height: 1))
         let bottomLine2 = UIView(frame: CGRect(x: 0, y: phone.frame.size.height - 1, width: phone.frame.size.width, height: 1))
-        let hexColor = "#4364C9"
+        let hexColor = "#B1B2FF"
         if let color = UIColor(hex: hexColor) {
             bottomLine1.backgroundColor = color
             bottomLine2.backgroundColor = color

@@ -48,7 +48,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.28627450980392155" green="0.25882352941176467" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.66666666666666663" green="0.76862745098039209" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="height" constant="28.670000000000002" id="6Ti-19-XgW"/>
                                     <constraint firstAttribute="width" constant="195.66999999999999" id="WNf-5c-O4I"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="22"/>
                                 <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -285,7 +285,7 @@
                                     <constraint firstAttribute="width" constant="209" id="8Tw-Dg-r18"/>
                                     <constraint firstAttribute="height" constant="28.670000000000002" id="g2X-2w-CuM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="22"/>
                                 <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -361,7 +361,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98039215686274506" green="0.92156862745098034" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.94509803921568625" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -458,7 +458,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KP7-IE-mGj">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4c-EJ-PZ8">
-                                                        <color key="backgroundColor" red="0.98039215690000003" green="1" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.82352941176470584" green="0.85490196078431369" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -482,7 +482,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98039215690000003" green="1" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.82352941176470584" green="0.85490196078431369" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="By8-Oo-DKh" firstAttribute="leading" secondItem="Z0M-a7-fzG" secondAttribute="leading" constant="8" id="40h-Tw-7xp"/>
                                     <constraint firstItem="ezD-1L-pkl" firstAttribute="leading" secondItem="Z0M-a7-fzG" secondAttribute="leading" constant="8" id="63w-8w-HMR"/>
@@ -507,7 +507,7 @@
                                     <constraint firstAttribute="width" constant="352.32999999999998" id="QmQ-Pp-xBD"/>
                                     <constraint firstAttribute="height" constant="28.670000000000002" id="dYK-Wu-xxe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="21"/>
                                 <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -567,7 +567,7 @@
                                     <constraint firstAttribute="width" constant="88" id="hje-eM-hZf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7PH-54-n6K">
@@ -600,14 +600,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrw-5r-3bx">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrw-5r-3bx">
                                                     <rect key="frame" x="313" y="0.0" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="1lv-ow-lKM"/>
                                                         <constraint firstAttribute="height" constant="48" id="C9I-Lt-utd"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="icon_notcheck.png"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="icon_notcheck.png"/>
                                                     <connections>
                                                         <action selector="onCheck:" destination="yfy-69-FzV" eventType="touchUpInside" id="9cT-gs-CJN"/>
                                                     </connections>
@@ -654,7 +654,7 @@
                                     <constraint firstAttribute="height" constant="30" id="suk-Lf-ZlZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9a-jd-ZK3">
@@ -664,7 +664,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Ocv-tP-BGN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fh8-xB-eEO">
@@ -825,7 +825,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Own-1H-1zU">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHB-Uu-OoX">
-                                                        <color key="backgroundColor" red="0.86846658960000001" green="0.94176347029999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.66666666669999997" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -850,7 +850,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.86846658960000001" green="0.94176347029999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="wGD-4H-oOz" firstAttribute="top" secondItem="0zy-7h-GsM" secondAttribute="bottom" constant="8" symbolic="YES" id="0CL-wY-Xrg"/>
                                     <constraint firstItem="TKX-5h-AL0" firstAttribute="top" secondItem="pzS-uC-QNc" secondAttribute="bottom" constant="14" id="0He-D3-9Hl"/>
@@ -890,7 +890,7 @@
                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="18"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="계좌 추가">
-                                        <color key="titleColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </state>
                                     <connections>
                                         <action selector="onAccount:" destination="F5G-3v-uVH" eventType="touchUpInside" id="iMG-Ha-PAe"/>
@@ -960,7 +960,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixB-k5-ZF5">
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij7-Ua-fRY">
-                                                                    <color key="backgroundColor" red="0.98039215690000003" green="1" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <color key="backgroundColor" red="0.82352941180000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1077,7 +1077,7 @@
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="centerX" secondItem="t8X-Ub-1xH" secondAttribute="centerX" id="ggZ-i5-9gt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98039215686274506" green="1" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.82352941176470584" green="0.85490196078431369" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -1223,7 +1223,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="전체 선택" image="icon_notcheck.png">
+                                <state key="normal" title="전체 선택" image="icon_notcheck1.png">
                                     <color key="titleColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1237,7 +1237,7 @@
                                     <constraint firstAttribute="width" constant="88" id="aNg-CQ-XcB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용된 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcF-kG-PWf">
@@ -1247,7 +1247,7 @@
                                     <constraint firstAttribute="height" constant="30" id="iSD-Z6-vDS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0e-rN-zfE">
@@ -1257,10 +1257,9 @@
                                     <constraint firstAttribute="height" constant="90" id="wAS-Zj-P0W"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="" image="icon_cancel"/>
+                                <state key="normal" title="" image="icon_submit1"/>
                                 <connections>
-                                    <action selector="onCancel:" destination="fgx-M4-l5Q" eventType="touchUpInside" id="4Ph-hf-yET"/>
-                                    <action selector="onCancel:" destination="dvW-CU-638" eventType="touchUpInside" id="vT1-tb-wGP"/>
+                                    <action selector="onSubmit:" destination="fgx-M4-l5Q" eventType="touchUpInside" id="hhs-LX-Cdh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1290,6 +1289,7 @@
                     </view>
                     <connections>
                         <outlet property="btnCheck" destination="GK3-hz-8MG" id="hKg-9n-f5C"/>
+                        <outlet property="btnSubmit2" destination="N0e-rN-zfE" id="XtD-ZC-Rb4"/>
                         <outlet property="table" destination="Oxq-6l-JZY" id="7om-Hn-J44"/>
                         <outlet property="txtName" destination="fh2-2h-63c" id="FY8-1T-GUh"/>
                         <outlet property="txtPrice" destination="PYX-pO-H69" id="fJG-NZ-p8o"/>
@@ -1328,14 +1328,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-St-o0U">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-St-o0U">
                                                     <rect key="frame" x="313" y="0.0" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="MXt-kI-IMi"/>
                                                         <constraint firstAttribute="width" constant="48" id="lfo-eB-Bew"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="icon_notcheck.png"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="icon_notcheck.png"/>
                                                     <connections>
                                                         <action selector="onCheck:" destination="vTe-PA-0e0" eventType="touchUpInside" id="TWV-st-JhP"/>
                                                     </connections>
@@ -1375,7 +1375,7 @@
                                     <constraint firstAttribute="width" constant="104" id="xXs-rv-WT9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="30"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udu-p9-eNf">
@@ -1473,14 +1473,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-0u-I5C">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-0u-I5C">
                                                     <rect key="frame" x="313" y="0.0" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="OC8-Iq-gOd"/>
                                                         <constraint firstAttribute="width" constant="48" id="lRq-BZ-zJE"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="icon_notcheck.png"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="icon_notcheck.png"/>
                                                     <connections>
                                                         <action selector="onCheck:" destination="Orb-3o-3ds" eventType="touchUpInside" id="88y-Q6-lDk"/>
                                                     </connections>
@@ -1512,7 +1512,7 @@
                                     <constraint firstAttribute="width" constant="88" id="xbv-Tg-nBb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAP-qm-PP1">
@@ -1522,7 +1522,7 @@
                                     <constraint firstAttribute="height" constant="30" id="jDP-13-XiV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5da-b7-hh7">
@@ -1532,7 +1532,7 @@
                                     <constraint firstAttribute="width" constant="88" id="3sq-s2-TQt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOZ-d8-ule">
@@ -1543,8 +1543,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="전체 선택" image="icon_notcheck.png">
-                                    <color key="titleColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="전체 선택" image="icon_notcheck1.png">
+                                    <color key="titleColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="onAllCheck:" destination="fgx-M4-l5Q" eventType="touchUpInside" id="5od-Ha-4Qi"/>
@@ -1597,6 +1597,7 @@
                     </view>
                     <connections>
                         <outlet property="btnCheck" destination="aOZ-d8-ule" id="LT1-c5-oxw"/>
+                        <outlet property="btnSubmit2" destination="aBf-Mf-SPA" id="Fly-8K-jqu"/>
                         <outlet property="table" destination="9KU-xV-Yfu" id="lD6-fB-MeU"/>
                         <outlet property="txtCount" destination="7jf-Bm-070" id="VIb-51-pTO"/>
                         <outlet property="txtName" destination="d7K-QY-oMx" id="yzJ-Ph-sko"/>
@@ -1622,7 +1623,7 @@
                                     <constraint firstAttribute="width" constant="104" id="tFl-sD-ABp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="30"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764705882351" green="0.69803921568627447" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름 없는 파티방" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QAS-j1-0Qg">
@@ -1646,6 +1647,10 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-xF-Xcx">
                                                     <rect key="frame" x="313" y="0.0" width="48" height="48.333333333333336"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="jNd-1R-qJl"/>
+                                                        <constraint firstAttribute="height" constant="48" id="rTl-NB-HPl"/>
+                                                    </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="icon_notcheck.png"/>
                                                     <connections>
@@ -1685,9 +1690,9 @@
                                     <constraint firstAttribute="height" constant="90" id="YG6-E6-L7v"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="" image="icon_cancel"/>
+                                <state key="normal" title="" image="icon_submit1"/>
                                 <connections>
-                                    <action selector="onCancel:" destination="dvW-CU-638" eventType="touchUpInside" id="EFS-In-Q98"/>
+                                    <action selector="onSubmit:" destination="dvW-CU-638" eventType="touchUpInside" id="Im1-Dy-hLJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-bl-aAG">
@@ -1698,7 +1703,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="전체 선택" image="icon_notcheck.png">
+                                <state key="normal" title="전체 선택" image="icon_notcheck1.png">
                                     <color key="titleColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1770,7 +1775,7 @@
                                     <constraint firstAttribute="height" constant="30" id="jIn-z3-212"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용된 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-lN-wyo">
@@ -1780,7 +1785,7 @@
                                     <constraint firstAttribute="width" constant="109" id="vGD-cO-dgV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="25"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8il-6e-tgD">
@@ -1804,14 +1809,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77o-8j-GNP">
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77o-8j-GNP">
                                                     <rect key="frame" x="313" y="0.0" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="YYc-d4-naO"/>
                                                         <constraint firstAttribute="height" constant="48" id="rGS-r9-Gml"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="icon_notcheck.png"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="icon_notcheck.png"/>
                                                     <connections>
                                                         <action selector="onCheck:" destination="Ccj-hh-Vae" eventType="touchUpInside" id="NWL-ub-b7E"/>
                                                     </connections>
@@ -1998,7 +2003,7 @@
                                     <constraint firstAttribute="width" constant="46" id="jNn-fQ-zvy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="29"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHW-rh-LBi">
@@ -2008,7 +2013,7 @@
                                     <constraint firstAttribute="height" constant="35" id="YgL-sN-3s1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="29"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J85-Ys-sTd">
@@ -2127,7 +2132,7 @@
                                     <constraint firstAttribute="height" constant="35" id="CZ8-ka-YTg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="29"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBk-2m-fT3">
@@ -2137,7 +2142,7 @@
                                     <constraint firstAttribute="height" constant="35" id="pjo-R2-9WE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="29"/>
-                                <color key="textColor" red="0.26274509800000001" green="0.3921568627" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXy-4c-k05">
@@ -2224,7 +2229,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.066666666666666666" green="0.0" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.69411764705882351" green="0.69803921568627447" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="1gn-4Z-W1H" kind="relationship" relationship="viewControllers" id="D24-Va-dM4"/>
@@ -2311,10 +2316,12 @@
         <image name="icon_home.png" width="48" height="48"/>
         <image name="icon_money1.png" width="30" height="30"/>
         <image name="icon_name1.png" width="35" height="35"/>
-        <image name="icon_notcheck.png" width="48" height="48"/>
+        <image name="icon_notcheck.png" width="128" height="128"/>
+        <image name="icon_notcheck1.png" width="48" height="48"/>
         <image name="icon_partymember.png" width="32" height="32"/>
         <image name="icon_plus.png" width="256" height="256"/>
         <image name="icon_redcancel1.png" width="256" height="256"/>
+        <image name="icon_submit1" width="256" height="256"/>
         <image name="icon_submit1.png" width="256" height="256"/>
         <image name="icon_users.png" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">

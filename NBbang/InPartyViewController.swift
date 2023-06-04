@@ -50,8 +50,15 @@ class InPartyViewController: UIViewController {
             navigationItem.titleView = titleLabel
         }
         
-        let settingButtonImage = UIImage(named: "icon_setting3.png")?.withRenderingMode(.alwaysOriginal)
-        let settingButton = UIBarButtonItem(title: "", image: settingButtonImage, target: self, action: #selector(settingButtonTapped))
+        let settingButtonImage = UIImage(named: "icon_cancel.png")
+        let buttonSize = CGSize(width: 30, height: 30)
+        UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let resizedImage = UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let settingButton = UIBarButtonItem(title: "", image: resizedImage, target: self, action: #selector(settingButtonTapped))
 
         let settleButton = UIBarButtonItem(title: "정산", style: .plain, target: self, action: #selector(settleButtonTapped))
         let titleAttributes: [NSAttributedString.Key: Any] = [
