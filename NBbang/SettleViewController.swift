@@ -44,8 +44,15 @@ class SettleViewController: UIViewController {
             navigationItem.titleView = titleLabel
         }
         
-        let shareButtonImage = UIImage(named: "icon_share1.png")?.withRenderingMode(.alwaysOriginal)
-        let shareButton = UIBarButtonItem(title: "", image: shareButtonImage, target: self, action: #selector(shareButtonTapped))
+        let settingButtonImage = UIImage(named: "icon_share1.png")
+        let buttonSize = CGSize(width: 30, height: 30)
+        UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let resizedImage = UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let shareButton = UIBarButtonItem(title: "", image: resizedImage, target: self, action: #selector(shareButtonTapped))
         let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
         
         let titleAttributes: [NSAttributedString.Key: Any] = [

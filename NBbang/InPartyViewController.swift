@@ -50,7 +50,7 @@ class InPartyViewController: UIViewController {
             navigationItem.titleView = titleLabel
         }
         
-        let settingButtonImage = UIImage(named: "icon_cancel.png")
+        let settingButtonImage = UIImage(named: "icon_setting3.png")
         let buttonSize = CGSize(width: 30, height: 30)
         UIGraphicsImageRenderer(size: buttonSize).image { _ in
             settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))

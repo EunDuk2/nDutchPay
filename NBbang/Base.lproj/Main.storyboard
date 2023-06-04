@@ -387,7 +387,9 @@
                                     <constraint firstAttribute="width" constant="30" id="NC8-vt-3gv"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="icon_camera.png"/>
+                                <state key="normal" title="￼" image="icon_camera.png">
+                                    <color key="titleColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="onCamera:" destination="XcV-gi-0XQ" eventType="touchUpInside" id="MUV-Cx-cno"/>
                                 </connections>
@@ -2312,13 +2314,13 @@
     <resources>
         <image name="icon_camera.png" width="64" height="64"/>
         <image name="icon_cancel" width="256" height="256"/>
-        <image name="icon_coin1.png" width="48" height="48"/>
+        <image name="icon_coin1.png" width="100" height="100"/>
         <image name="icon_home.png" width="48" height="48"/>
-        <image name="icon_money1.png" width="30" height="30"/>
-        <image name="icon_name1.png" width="35" height="35"/>
+        <image name="icon_money1.png" width="100" height="100"/>
+        <image name="icon_name1.png" width="100" height="100"/>
         <image name="icon_notcheck.png" width="128" height="128"/>
         <image name="icon_notcheck1.png" width="48" height="48"/>
-        <image name="icon_partymember.png" width="32" height="32"/>
+        <image name="icon_partymember.png" width="100" height="100"/>
         <image name="icon_plus.png" width="256" height="256"/>
         <image name="icon_redcancel1.png" width="256" height="256"/>
         <image name="icon_submit1" width="256" height="256"/>
