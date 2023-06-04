@@ -6,7 +6,7 @@ class SettleViewController: UIViewController {
     var party: Party?
     var place: Place?
     var selectedIndexPath: IndexPath?
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     var settleText: String = ""
     
     @IBOutlet var lblName: UILabel!

@@ -4,7 +4,7 @@ import RealmSwift
 class UserViewController: UIViewController {
     
     let realm = try! Realm()
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     @IBOutlet var table: UITableView!
     

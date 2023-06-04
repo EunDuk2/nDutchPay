@@ -10,7 +10,7 @@ class AddPartyViewController: UIViewController {
     
     let realm = try! Realm()
     var allCheck: Bool = false
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     override func viewDidLoad() {
         super.viewDidLoad()

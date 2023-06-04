@@ -7,7 +7,7 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     var party: Party?
     var place: Place?
     var index:Int?
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     @IBOutlet var lblTotalPrice: UILabel!
     @IBOutlet var lblPlaceEnjoyer: UILabel!

@@ -8,7 +8,7 @@ class InviteUserViewController: UIViewController {
     
     let realm = try! Realm()
     var index:Int?
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     var allCheck: Bool = false
     
     override func viewDidLoad() {

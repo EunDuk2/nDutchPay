@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     @IBOutlet var table: UITableView!
     @IBOutlet var btnAdd: UIButton!
     
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#B1B2FF")
     let realm = try! Realm()
     
     
@@ -55,17 +55,20 @@ class ViewController: UIViewController {
     }
 
     func firstLaunch() {
-//        if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
-//            
-//            guard let du = self.storyboard?.instantiateViewController(withIdentifier: "AddUserViewController") as? AddUserViewController else {
-//                return
-//            }
-//            du.initBool = true
-//            
-//            self.present(du, animated: true)
-//            
-//            UserDefaults.standard.set(true, forKey: "launchedBefore")
-//        }
+        if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
+            
+            guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddUserViewController") as? AddUserViewController else {
+                return
+            }
+            na.initBool = true
+            
+            let navigationController = UINavigationController(rootViewController: na)
+            
+            navigationController.modalPresentationStyle = .fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
     }
     
     func party() -> Results<Party> {

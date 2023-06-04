@@ -7,7 +7,7 @@ class AddMenuViewController: UIViewController, MenuAddCellDelegate {
     var party: Party?
     var intdex: Int?
     var allCheck: Bool = false
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "11009E")
     
     @IBOutlet var txtName: UITextField!
     @IBOutlet var txtPrice: UITextField!

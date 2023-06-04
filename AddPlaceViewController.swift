@@ -5,7 +5,7 @@ class AddPlaceViewController: UIViewController {
     let realm = try! Realm()
     var party: Party?
     var allCheck: Bool = false
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     @IBOutlet var txtPrice: UITextField!
     @IBOutlet var txtName: UITextField!

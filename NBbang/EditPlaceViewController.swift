@@ -12,7 +12,7 @@ class EditPlaceViewController: UIViewController {
     var party: Party?
     var place: Place?
     var price: Int?
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     override func viewDidLoad() {
         navigationSetting()

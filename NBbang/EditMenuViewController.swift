@@ -14,7 +14,7 @@ class EditMenuViewController: UIViewController {
     var party: Party?
     var place: Place?
     var bool: Bool?
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     override func viewDidLoad() {
         navigationSetting()

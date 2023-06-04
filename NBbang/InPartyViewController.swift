@@ -4,7 +4,7 @@ import RealmSwift
 class InPartyViewController: UIViewController {
     let realm = try! Realm()
     var index:Int?
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#B1B2FF")
     
     @IBOutlet var table: UITableView!
     @IBOutlet var viewLabel: UIView!

@@ -14,7 +14,7 @@ class EditUserViewController: UIViewController {
     var nameBool: Bool = true
     var phoneBool: Bool = true
     let realm = try! Realm()
-    let color = UIColor(hex: "#4364C9")
+    let color = UIColor(hex: "#11009E")
     
     override func viewDidLoad() {
         navigationSetting()

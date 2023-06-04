@@ -26,7 +26,7 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         self.hideKeyboardWhenTappedAround()
         
         if(initBool == true) {
-            if let titleView = navigationItem.titleView as? UILabel {
+            if let titleView = navigationController?.navigationItem.titleView as? UILabel {
                 titleView.textColor = .white
                 titleView.font = UIFont(name: "SeoulNamsanCM", size: 21)
             } else {
@@ -34,7 +34,7 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
                 titleLabel.text = "본인 등록"
                 titleLabel.textColor = .white
                 titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
-                navigationItem.titleView = titleLabel
+                navigationController?.navigationItem.titleView = titleLabel
             }
             btnCancel?.isHidden = true
         }
@@ -69,6 +69,9 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         } else {
             let titleLabel = UILabel()
             titleLabel.text = "친구 등록"
+            if(initBool == true) {
+                titleLabel.text = "본인 등록"
+            }
             titleLabel.textColor = .white
             titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
             navigationItem.titleView = titleLabel
@@ -90,7 +93,9 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
 
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItems = [submitButton, contactButton]
-
+        if(initBool == true) {
+            cancelButton.isHidden = true
+        }
     }
     @objc func cancelButtonTapped() {
         self.dismiss(animated: true)
