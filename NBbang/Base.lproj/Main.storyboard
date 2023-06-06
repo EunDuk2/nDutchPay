@@ -2413,7 +2413,7 @@
         <image name="icon_camera1.png" width="96" height="96"/>
         <image name="icon_cancel" width="256" height="256"/>
         <image name="icon_coin1.png" width="100" height="100"/>
-        <image name="icon_home.png" width="48" height="48"/>
+        <image name="icon_home.png" width="38" height="38"/>
         <image name="icon_money1.png" width="100" height="100"/>
         <image name="icon_name1.png" width="100" height="100"/>
         <image name="icon_notcheck.png" width="128" height="128"/>

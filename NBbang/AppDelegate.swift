@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        sleep(1)
         // Override point for customization after application launch.
         UINavigationBar.appearance().tintColor = UIColor.white
         KakaoSDK.initSDK(appKey: "d8a4f3fa850222b7dafa22f08a016500")
