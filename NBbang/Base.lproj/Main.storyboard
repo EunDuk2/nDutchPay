@@ -1133,15 +1133,51 @@
                                     <outlet property="delegate" destination="F5G-3v-uVH" id="xrw-Xc-o5z"/>
                                 </connections>
                             </tableView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukt-at-gK9">
+                                <rect key="frame" x="0.0" y="686" width="393" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Uhy-gv-mJr"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="F5G-3v-uVH" id="SwN-wZ-3Uz"/>
+                                    <outlet property="delegate" destination="F5G-3v-uVH" id="ZLB-ZW-uKr"/>
+                                </connections>
+                            </pickerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psc-W0-kW3">
+                                <rect key="frame" x="0.0" y="642" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kng-3K-tNd"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="취소" id="Z80-5a-A2c">
+                                        <connections>
+                                            <action selector="onCancel:" destination="F5G-3v-uVH" id="MWm-hh-fzE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zaC-WP-Es3"/>
+                                    <barButtonItem title="확인" id="nJO-KX-Q4o">
+                                        <connections>
+                                            <action selector="onPickerSubmit:" destination="F5G-3v-uVH" id="LSN-p4-5Fh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Va3-GY-r4Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ukt-at-gK9" firstAttribute="leading" secondItem="Va3-GY-r4Z" secondAttribute="leading" id="4ga-9H-Vkb"/>
+                            <constraint firstItem="ukt-at-gK9" firstAttribute="top" secondItem="Psc-W0-kW3" secondAttribute="bottom" id="AGw-C2-qIx"/>
+                            <constraint firstAttribute="bottom" secondItem="ukt-at-gK9" secondAttribute="bottom" constant="4" id="D0x-Fg-bh2"/>
+                            <constraint firstItem="Psc-W0-kW3" firstAttribute="trailing" secondItem="Va3-GY-r4Z" secondAttribute="trailing" id="EtU-5c-Dun"/>
+                            <constraint firstItem="Psc-W0-kW3" firstAttribute="leading" secondItem="Va3-GY-r4Z" secondAttribute="leading" id="Gdu-R4-3fB"/>
                             <constraint firstItem="Va3-GY-r4Z" firstAttribute="bottom" secondItem="E6f-Wf-02t" secondAttribute="bottom" id="IPZ-xh-sSU"/>
                             <constraint firstItem="E6f-Wf-02t" firstAttribute="top" secondItem="Bg3-tF-02a" secondAttribute="bottom" constant="8" symbolic="YES" id="Plx-yq-dWL"/>
                             <constraint firstItem="Bg3-tF-02a" firstAttribute="leading" secondItem="Va3-GY-r4Z" secondAttribute="leading" constant="16" id="Rbn-5w-U1D"/>
                             <constraint firstItem="Va3-GY-r4Z" firstAttribute="trailing" secondItem="E6f-Wf-02t" secondAttribute="trailing" constant="16" id="Th7-iA-hav"/>
                             <constraint firstItem="E6f-Wf-02t" firstAttribute="leading" secondItem="Va3-GY-r4Z" secondAttribute="leading" constant="16" id="Zrv-KJ-wXQ"/>
+                            <constraint firstItem="ukt-at-gK9" firstAttribute="trailing" secondItem="Va3-GY-r4Z" secondAttribute="trailing" id="cl2-zS-ZLD"/>
                             <constraint firstItem="Bg3-tF-02a" firstAttribute="top" secondItem="Va3-GY-r4Z" secondAttribute="top" constant="13" id="lzI-k2-CzV"/>
                             <constraint firstItem="Va3-GY-r4Z" firstAttribute="trailing" secondItem="Bg3-tF-02a" secondAttribute="trailing" constant="16" id="rae-IL-9kx"/>
                         </constraints>
@@ -1151,7 +1187,9 @@
                         <outlet property="lblPrice" destination="TKX-5h-AL0" id="rhT-Q9-l1T"/>
                         <outlet property="lblRemainder" destination="8nf-rT-dMV" id="RkS-HO-lIu"/>
                         <outlet property="lblUser" destination="xHB-Uu-OoX" id="rkP-A5-i6i"/>
+                        <outlet property="pickerView" destination="ukt-at-gK9" id="svi-4V-2Af"/>
                         <outlet property="table" destination="E6f-Wf-02t" id="nQf-1h-26G"/>
+                        <outlet property="toolBar" destination="Psc-W0-kW3" id="4cO-ji-2jM"/>
                         <outlet property="viewLabel" destination="Bg3-tF-02a" id="c01-Z9-fVI"/>
                     </connections>
                 </viewController>

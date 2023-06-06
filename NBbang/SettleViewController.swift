@@ -11,6 +11,8 @@ class SettleViewController: UIViewController{
     var selectedIndexPath: IndexPath?
     let color = UIColor(hex: "#B1B2FF")
     var settleText: String = ""
+    var pickAccount: String?
+    var accountString:[String]?
     
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblPrice: UILabel!
@@ -19,6 +21,8 @@ class SettleViewController: UIViewController{
     @IBOutlet var table: UITableView!
     @IBOutlet var btnAccount: UIButton!
     @IBOutlet var lblRemainder: UILabel!
+    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet var toolBar: UIToolbar!
     
     override func viewDidLoad() {
         navigationSetting()
@@ -28,6 +32,10 @@ class SettleViewController: UIViewController{
         printInitLabel()
         plusUserMoney()
         lblRemainder.text = calRemainder()+"(원)"
+        
+        pickerView.isHidden = true
+        toolBar.isHidden = true
+        accountString = getAccount()
     }
     
     @objc func navigationSetting() {
@@ -325,49 +333,129 @@ class SettleViewController: UIViewController{
     }
     
     @IBAction func onAccount(_ sender: Any) {
-        let alert = UIAlertController(title: "계좌 추가", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
-        alert.addTextField { (bank) in
-            bank.placeholder = "은행이름(필수 입력)"
-        }
-        alert.addTextField { (account) in
-            account.placeholder = "계좌번호(필수 입력)"
-            account.keyboardType = .numberPad
-        }
-        alert.addTextField { (user) in
-            user.placeholder = "예금주"
-        }
+        showActionSheet()
+    }
+    @IBAction func onPickerSubmit(_ sender: Any) {
+        self.addAccount(account: pickAccount!)
+        self.table.reloadData()
+        
+        pickerView.isHidden = true
+        toolBar.isHidden = true
+    }
+    @IBAction func onCancel(_ sender: Any) {
+        pickerView.isHidden = true
+        toolBar.isHidden = true
+    }
+    func showActionSheet() {
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
-            if(alert.textFields?[0].text != "" && alert.textFields?[1].text != "") {
-                var accouontText = (alert.textFields?[0].text)! + " "
-                accouontText += (alert.textFields?[1].text)!
-                if(alert.textFields?[2].text != "") {
-                    accouontText += " (" + (alert.textFields?[2].text)! + ")"
+        let newAccountAction = UIAlertAction(title: "새로운 계좌 추가", style: .default) { _ in
+            // "새로운 계좌 추가" 선택 시 수행할 동작
+            let alert = UIAlertController(title: "계좌 추가", message: "송금 받을 계좌 정보를 입력해 주세요.", preferredStyle: .alert)
+            alert.addTextField { (bank) in
+                bank.placeholder = "은행이름(필수 입력)"
+            }
+            alert.addTextField { (account) in
+                account.placeholder = "계좌번호(필수 입력)"
+                account.keyboardType = .numberPad
+            }
+            alert.addTextField { (user) in
+                user.placeholder = "예금주"
+            }
+
+            let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+                if(alert.textFields?[0].text != "" && alert.textFields?[1].text != "") {
+                    var accouontText = (alert.textFields?[0].text)! + " "
+                    accouontText += (alert.textFields?[1].text)!
+                    if(alert.textFields?[2].text != "") {
+                        accouontText += " (" + (alert.textFields?[2].text)! + ")"
+                    }
+                    
+                    self.addAccount(account: accouontText)
+                    self.table.reloadData()
+                    self.accountString = self.getAccount()
+                    self.pickerView.reloadAllComponents()
+                } else {
+                    let alert = UIAlertController(title: "알림", message: "은행과 계좌번호는 필수 입력입니다.", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .default)
+                    
+                    alert.addAction(ok)
+                    
+                    self.present(alert, animated: true)
                 }
                 
-                self.addAccount(account: accouontText)
-                self.table.reloadData()
+            }
+
+            let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+
+            }
+
+            alert.addAction(cancel)
+            alert.addAction(ok)
+
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        let existingAccountAction = UIAlertAction(title: "기존 계좌 추가", style: .default) { [self] _ in
+            // "기존 계좌 추가" 선택 시 수행할 동작
+            // 이 부분에 원하는 동작을 구현하세요
+            
+            if(getAccount().count == 0) {
+                let alert = UIAlertController(title: "알람", message: "등록된 계좌가 없습니다.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
             } else {
-                let alert = UIAlertController(title: "알림", message: "은행과 계좌번호는 필수 입력입니다.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "확인", style: .default)
-                
-                alert.addAction(ok)
-                
-                self.present(alert, animated: true)
+                pickerView.isHidden = false
+                toolBar.isHidden = false
             }
             
         }
 
-        let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
 
-        }
+        alertController.addAction(newAccountAction)
+        alertController.addAction(existingAccountAction)
+        alertController.addAction(cancelAction)
 
-        alert.addAction(cancel)
-        alert.addAction(ok)
-
-        self.present(alert, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
+    func getAccount() -> Array<String> {
+        var accounts = Set<String>()
+
+        // Party 객체들의 account 속성을 Set에 추가
+        for party in realm.objects(Party.self) {
+            accounts.formUnion(party.account)
+        }
+        return Array(accounts)
+    }
+}
+
+extension SettleViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    // 선택한 항목을 출력
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            let selectedItem = accountString![row]
+            pickAccount = selectedItem
+            print("선택한 항목: \(selectedItem)")
+        }
+        
+        // MARK: - UIPickerViewDataSource
+        
+        // 컴포넌트(열)의 개수
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1 // 1개의 열만 사용
+        }
+        
+        // 컴포넌트(열)별 항목의 개수
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return accountString!.count
+        }
+        
+        // 컴포넌트(열)의 각 항목의 내용 설정
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return accountString![row]
+        }
 }
 
 extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
