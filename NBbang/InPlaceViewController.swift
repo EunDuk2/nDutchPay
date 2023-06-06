@@ -15,12 +15,14 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var viewLabel: UIView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var lblAddAlert: UILabel!
+    @IBOutlet var btnCamera: UIButton!
     
     override func viewDidLoad() {
         navigationSetting()
         viewSetting()
         
         updateLabel()
+        cameraSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +33,7 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
         } else {
             lblAddAlert.isHidden = false
         }
+        cameraSetting()
     }
     
     func viewSetting() {
@@ -104,6 +107,14 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
         self.navigationController?.pushViewController(na, animated: true)
     }
     
+    func cameraSetting() {
+        if(place?.imageData == nil) {
+            btnCamera.setImage(UIImage(named: "icon_camera1.png"), for: .normal)
+        } else {
+            btnCamera.setImage(UIImage(named: "icon_camera2.png"), for: .normal)
+        }
+    }
+    
     func updateLabel() {
         lblTotalPrice.text = fc(amount: place!.totalPrice) + "(원)"
         
@@ -149,7 +160,7 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
         // 사진 선택 완료 시 호출되는 delegate 메서드
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let selectedImage = info[.originalImage] as? UIImage {
-                imageView.image = selectedImage
+                //imageView.image = selectedImage
                 saveImageToRealm(image: selectedImage)
             }
             
@@ -175,7 +186,17 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func onCamera(_ sender: Any) {
-        showActionSheet()
+        if(place?.imageData == nil) {
+            showActionSheet()
+        } else {
+            guard let na = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController else {
+                        return
+                    }
+            na.place = self.place
+            
+            self.navigationController?.pushViewController(na, animated: true)
+        }
+        
     }
     
 }
@@ -309,11 +330,17 @@ extension InPlaceViewController: UIImagePickerControllerDelegate {
     }
     
     func saveImageToRealm(image: UIImage) {
-            let imageData = image.jpegData(compressionQuality: 1.0)
-            
-            try! realm.write {
-                place?.imageData = imageData
-            }
-            print("저장")
+        let imageData = image.jpegData(compressionQuality: 1.0)
+        
+        try! realm.write {
+            place?.imageData = imageData
+        }
+    
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController else {
+                    return
+                }
+        na.place = self.place
+        
+        self.navigationController?.pushViewController(na, animated: true)
         }
 }

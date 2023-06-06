@@ -7,4 +7,6 @@ target 'NBbang' do
 
   # Pods for NBbang
 	pod 'RealmSwift'
+	pod 'KakaoSDKShare'  
+	pod 'KakaoSDKTemplate'
 end

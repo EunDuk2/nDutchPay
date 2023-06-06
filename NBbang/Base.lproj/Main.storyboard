@@ -48,7 +48,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.66666666666666663" green="0.76862745098039209" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.82352941180000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -147,16 +147,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가격" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-uF-NPg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hz2-uF-NPg">
                                                     <rect key="frame" x="216" y="10" width="125" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="FAt-Cj-QyY"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Ga5-j5-JTv"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hz2-uF-NPg" secondAttribute="trailing" constant="20" symbolic="YES" id="Dvh-mq-hta"/>
+                                                <constraint firstItem="hz2-uF-NPg" firstAttribute="top" secondItem="vlf-sT-csc" secondAttribute="top" constant="10" id="Za5-0G-eTx"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.82352941176470584" green="0.85490196078431369" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.94509803921568625" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -236,7 +243,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctz-NA-XgG">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na5-YA-3Gf">
-                                                        <color key="backgroundColor" red="0.66666666669999997" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.82352941180000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -259,7 +266,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.76862745098039209" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.82352941180000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dmx-Lf-L1G" secondAttribute="trailing" constant="8" id="5M2-zc-Rqu"/>
                                     <constraint firstAttribute="height" constant="84" id="7WF-US-5sq"/>
@@ -352,14 +359,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 가격" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9V-2d-FNT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 가격" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9V-2d-FNT">
                                                     <rect key="frame" x="227" y="11" width="114" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="TFb-ci-FK2"/>
+                                                        <constraint firstAttribute="width" constant="114" id="U8Z-w9-DRV"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="i9V-2d-FNT" firstAttribute="top" secondItem="4Dc-lE-oVG" secondAttribute="topMargin" id="FgE-7M-nl7"/>
+                                                <constraint firstItem="i9V-2d-FNT" firstAttribute="trailing" secondItem="4Dc-lE-oVG" secondAttribute="trailingMargin" id="bJb-jL-4fD"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.93333333333333335" green="0.94509803921568625" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
@@ -381,13 +395,13 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiF-BC-Paz">
-                                <rect key="frame" x="347" y="172" width="30" height="30"/>
+                                <rect key="frame" x="345" y="172" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4YP-HS-2oK"/>
                                     <constraint firstAttribute="width" constant="30" id="NC8-vt-3gv"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="￼" image="icon_camera.png">
+                                <state key="normal" title="￼" image="icon_camera1.png">
                                     <color key="titleColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -522,7 +536,7 @@
                             <constraint firstItem="FWS-rz-p29" firstAttribute="centerX" secondItem="GaW-v6-hWJ" secondAttribute="centerX" id="6dl-VL-nOm"/>
                             <constraint firstAttribute="bottom" secondItem="FWS-rz-p29" secondAttribute="bottom" constant="45" id="7CL-Ov-3bN"/>
                             <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="cog-F5-v9l" secondAttribute="trailing" constant="16" id="7Lq-6E-Cll"/>
-                            <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="MiF-BC-Paz" secondAttribute="trailing" constant="16" id="7Y0-yF-xAn"/>
+                            <constraint firstItem="eiP-oX-cJq" firstAttribute="trailing" secondItem="MiF-BC-Paz" secondAttribute="trailing" constant="18" id="7Y0-yF-xAn"/>
                             <constraint firstItem="eiP-oX-cJq" firstAttribute="bottom" secondItem="cog-F5-v9l" secondAttribute="bottom" constant="20" id="88C-TE-Hvk"/>
                             <constraint firstItem="Z0M-a7-fzG" firstAttribute="leading" secondItem="eiP-oX-cJq" secondAttribute="leading" constant="16" id="8Po-yE-tmM"/>
                             <constraint firstItem="Z0M-a7-fzG" firstAttribute="top" secondItem="eiP-oX-cJq" secondAttribute="top" constant="13" id="Hm3-j2-IMb"/>
@@ -534,6 +548,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnCamera" destination="MiF-BC-Paz" id="1Bs-Xb-4AF"/>
                         <outlet property="lblAddAlert" destination="ZbW-Qe-EwY" id="f6P-Bh-Wqx"/>
                         <outlet property="lblPlaceEnjoyer" destination="w4c-EJ-PZ8" id="t4S-ys-MCg"/>
                         <outlet property="lblTotalPrice" destination="jOj-f7-JAc" id="oeI-zL-zeQ"/>
@@ -827,7 +842,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Own-1H-1zU">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHB-Uu-OoX">
-                                                        <color key="backgroundColor" red="0.66666666669999997" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.82352941180000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -852,7 +867,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66666666669999997" green="0.76862745099999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.82352941180000006" green="0.85490196080000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="wGD-4H-oOz" firstAttribute="top" secondItem="0zy-7h-GsM" secondAttribute="bottom" constant="8" symbolic="YES" id="0CL-wY-Xrg"/>
                                     <constraint firstItem="TKX-5h-AL0" firstAttribute="top" secondItem="pzS-uC-QNc" secondAttribute="bottom" constant="14" id="0He-D3-9Hl"/>
@@ -1079,7 +1094,7 @@
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="centerX" secondItem="t8X-Ub-1xH" secondAttribute="centerX" id="ggZ-i5-9gt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.82352941176470584" green="0.85490196078431369" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.94509803920000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -2075,6 +2090,51 @@
             </objects>
             <point key="canvasLocation" x="3336.6412213740455" y="474.64788732394368"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="vQw-tf-4dW">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="HmY-v2-h3H" customClass="ImageViewController" customModule="NBbang" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fiy-sS-8pc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="skq-im-I5r">
+                                <rect key="frame" x="0.0" y="59" width="393" height="734"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2a-Qa-pBR">
+                                <rect key="frame" x="151.66666666666666" y="717" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="1WA-4h-eIm"/>
+                                    <constraint firstAttribute="height" constant="90" id="SFD-XA-M5s"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="" image="icon_redcancel1.png"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="f2r-m8-F1Z" eventType="touchUpInside" id="SEk-6e-t56"/>
+                                    <action selector="onDelete:" destination="HmY-v2-h3H" eventType="touchUpInside" id="d8W-OE-Yuc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hbF-Fs-EOM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d2a-Qa-pBR" firstAttribute="centerX" secondItem="Fiy-sS-8pc" secondAttribute="centerX" id="D96-Cu-KfB"/>
+                            <constraint firstItem="skq-im-I5r" firstAttribute="trailing" secondItem="hbF-Fs-EOM" secondAttribute="trailing" id="OTq-DC-yTR"/>
+                            <constraint firstItem="hbF-Fs-EOM" firstAttribute="bottom" secondItem="skq-im-I5r" secondAttribute="bottom" constant="25" id="THf-aD-2qj"/>
+                            <constraint firstItem="skq-im-I5r" firstAttribute="leading" secondItem="hbF-Fs-EOM" secondAttribute="leading" id="aBv-KJ-wDJ"/>
+                            <constraint firstAttribute="bottom" secondItem="d2a-Qa-pBR" secondAttribute="bottom" constant="45" id="ddq-Hf-B6W"/>
+                            <constraint firstItem="skq-im-I5r" firstAttribute="top" secondItem="hbF-Fs-EOM" secondAttribute="top" id="xgd-h5-kwh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="89I-Q9-DWt"/>
+                    <connections>
+                        <outlet property="ivReceipt" destination="skq-im-I5r" id="GDy-yc-wyB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GMH-9F-X1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4055.7251908396943" y="474.64788732394368"/>
+        </scene>
         <!--Edit User View Controller-->
         <scene sceneID="UYx-wm-TAn">
             <objects>
@@ -2312,7 +2372,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="icon_camera.png" width="64" height="64"/>
+        <image name="icon_camera1.png" width="96" height="96"/>
         <image name="icon_cancel" width="256" height="256"/>
         <image name="icon_coin1.png" width="100" height="100"/>
         <image name="icon_home.png" width="48" height="48"/>

@@ -1,4 +1,17 @@
 PODS:
+  - Alamofire (5.7.1)
+  - KakaoSDKCommon (2.15.0):
+    - KakaoSDKCommon/Common (= 2.15.0)
+    - KakaoSDKCommon/Network (= 2.15.0)
+  - KakaoSDKCommon/Common (2.15.0)
+  - KakaoSDKCommon/Network (2.15.0):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.15.0)
+  - KakaoSDKShare (2.15.0):
+    - KakaoSDKCommon (= 2.15.0)
+    - KakaoSDKTemplate (= 2.15.0)
+  - KakaoSDKTemplate (2.15.0):
+    - KakaoSDKCommon/Common (= 2.15.0)
   - Realm (10.38.2):
     - Realm/Headers (= 10.38.2)
   - Realm/Headers (10.38.2)
@@ -6,17 +19,27 @@ PODS:
     - Realm (= 10.38.2)
 
 DEPENDENCIES:
+  - KakaoSDKShare
+  - KakaoSDKTemplate
   - RealmSwift
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - KakaoSDKCommon
+    - KakaoSDKShare
+    - KakaoSDKTemplate
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  KakaoSDKCommon: 89d863b7f34398e6fb93a0acb28a204908551a39
+  KakaoSDKShare: f9a7dc7baa8ad9eb7b6b6a3b99802407ab3c81a2
+  KakaoSDKTemplate: c9cbc64b0248c7a33c211a56dada7e38c1210751
   Realm: 4132817bce88db8415114f49070ff844aa2f5600
   RealmSwift: 4175fd7a42483a7951b2c2c79b9d291dfe3a5cf0
 
-PODFILE CHECKSUM: 2b00b36bbee1c04765d9e6ee73dc54396aea321b
+PODFILE CHECKSUM: b985fca2a514bbea69229bfa7e19ff973af33b02
 
 COCOAPODS: 1.12.1

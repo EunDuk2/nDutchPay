@@ -79,8 +79,16 @@ class AddUserViewController: UserViewController, CNContactPickerDelegate {
         
         let submitButton = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(submitButtonTapped))
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
-        let contactButtonImage = UIImage(named: "icon_cantac2.png")?.withRenderingMode(.alwaysOriginal)
-        let contactButton = UIBarButtonItem(image: contactButtonImage, style: .plain, target: self, action: #selector(contactButtonTapped))
+        
+        let settingButtonImage = UIImage(named: "icon_contact.png")
+        let buttonSize = CGSize(width: 30, height: 30)
+        UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let resizedImage = UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            settingButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let contactButton = UIBarButtonItem(image: resizedImage, style: .plain, target: self, action: #selector(contactButtonTapped))
         
         btnSubmit = submitButton
 

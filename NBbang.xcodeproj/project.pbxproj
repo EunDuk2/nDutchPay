@@ -37,8 +37,6 @@
 		61AA23312A08D3180020AFC9 /* SettleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA23302A08D3180020AFC9 /* SettleViewController.swift */; };
 		61AA9B2A2A232A3200FA9462 /* icon_redcancel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61AA9B292A232A3200FA9462 /* icon_redcancel1.png */; };
 		61AB20E429D3C93200817839 /* PartyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AB20E329D3C93200817839 /* PartyTableCell.swift */; };
-		61ADBD292A1FCC8A00885921 /* icon_contact1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD282A1FCC8A00885921 /* icon_contact1.png */; };
-		61ADBD2B2A1FCCF800885921 /* icon_cantac2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */; };
 		61ADBD2D2A206DA500885921 /* icon_settle.png in Resources */ = {isa = PBXBuildFile; fileRef = 61ADBD2C2A206DA500885921 /* icon_settle.png */; };
 		61B135CF2A1B218700EA671B /* SettleUserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */; };
 		61B18ED82A069D1D0092CAAD /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */; };
@@ -62,6 +60,10 @@
 		61C1B6FB2A1104A000906D4E /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */; };
 		61C1B6FD2A1104AB00906D4E /* name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C1B6FC2A1104AB00906D4E /* name.swift */; };
 		61C738D62A162E82002D56AD /* EditPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C738D52A162E82002D56AD /* EditPlaceViewController.swift */; };
+		61C7BDF42A2D9069005ADFC6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C7BDF32A2D9069005ADFC6 /* ImageViewController.swift */; };
+		61C7BDF62A2EF108005ADFC6 /* icon_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C7BDF52A2EF108005ADFC6 /* icon_contact.png */; };
+		61C7BDFD2A2EF695005ADFC6 /* icon_camera1.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C7BDFB2A2EF695005ADFC6 /* icon_camera1.png */; };
+		61C7BDFE2A2EF695005ADFC6 /* icon_camera2.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C7BDFC2A2EF695005ADFC6 /* icon_camera2.png */; };
 		61CC9A322A285C7E004AB103 /* AccountTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CC9A312A285C7E004AB103 /* AccountTableCell.swift */; };
 		61CE09CD2A027C9B00E9A657 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CC2A027C9B00E9A657 /* Place.swift */; };
 		61CE09CF2A02836400E9A657 /* PlaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */; };
@@ -103,8 +105,6 @@
 		61AA23302A08D3180020AFC9 /* SettleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleViewController.swift; sourceTree = "<group>"; };
 		61AA9B292A232A3200FA9462 /* icon_redcancel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_redcancel1.png; sourceTree = "<group>"; };
 		61AB20E329D3C93200817839 /* PartyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableCell.swift; sourceTree = "<group>"; };
-		61ADBD282A1FCC8A00885921 /* icon_contact1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_contact1.png; sourceTree = "<group>"; };
-		61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cantac2.png; sourceTree = "<group>"; };
 		61ADBD2C2A206DA500885921 /* icon_settle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settle.png; sourceTree = "<group>"; };
 		61B135CE2A1B218700EA671B /* SettleUserTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettleUserTableCell.swift; sourceTree = "<group>"; };
 		61B18ED72A069D1D0092CAAD /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +130,10 @@
 		61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		61C1B6FC2A1104AB00906D4E /* name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = name.swift; sourceTree = "<group>"; };
 		61C738D52A162E82002D56AD /* EditPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaceViewController.swift; sourceTree = "<group>"; };
+		61C7BDF32A2D9069005ADFC6 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		61C7BDF52A2EF108005ADFC6 /* icon_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_contact.png; sourceTree = "<group>"; };
+		61C7BDFB2A2EF695005ADFC6 /* icon_camera1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_camera1.png; path = ../../../../../Downloads/icon_camera1.png; sourceTree = "<group>"; };
+		61C7BDFC2A2EF695005ADFC6 /* icon_camera2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_camera2.png; path = ../../../../../Downloads/icon_camera2.png; sourceTree = "<group>"; };
 		61CC9A312A285C7E004AB103 /* AccountTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableCell.swift; sourceTree = "<group>"; };
 		61CE09CC2A027C9B00E9A657 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		61CE09CE2A02836400E9A657 /* PlaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableCell.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				61C1B6FA2A11049F00906D4E /* EditUserViewController.swift */,
 				61C738D52A162E82002D56AD /* EditPlaceViewController.swift */,
 				619EB3632A19D54F0052216A /* EditMenuViewController.swift */,
+				61C7BDF32A2D9069005ADFC6 /* ImageViewController.swift */,
 				61BD96F429D31E5D00125849 /* Assets.xcassets */,
 				61BD96F629D31E5D00125849 /* LaunchScreen.storyboard */,
 				61BD96F929D31E5D00125849 /* Info.plist */,
@@ -236,6 +241,9 @@
 		61D647FC2A13A8160065B707 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				61C7BDFB2A2EF695005ADFC6 /* icon_camera1.png */,
+				61C7BDFC2A2EF695005ADFC6 /* icon_camera2.png */,
+				61C7BDF52A2EF108005ADFC6 /* icon_contact.png */,
 				6195C6732A2CEC2A0093BAD1 /* icon_cancel.png */,
 				6195C66F2A2CE8C90093BAD1 /* icon_check1.png */,
 				6195C6752A2CED890093BAD1 /* icon_submit1.png */,
@@ -252,8 +260,6 @@
 				61A7E38A2A2B9FA20058CFB9 /* icon_camera.png */,
 				61ADBD2C2A206DA500885921 /* icon_settle.png */,
 				6195C6772A2CF5110093BAD1 /* icon_name1.png */,
-				61ADBD2A2A1FCCF800885921 /* icon_cantac2.png */,
-				61ADBD282A1FCC8A00885921 /* icon_contact1.png */,
 				61B9D76A2A1E4AE200DAEE6C /* icon_users.png */,
 				61B9D7282A1E19C600DAEE6C /* icon_home.png */,
 				61B9D7262A1E120C00DAEE6C /* icon_menu.png */,
@@ -335,6 +341,7 @@
 				6195C6702A2CE8C90093BAD1 /* icon_check1.png in Resources */,
 				6195C6722A2CE9070093BAD1 /* icon_notcheck1.png in Resources */,
 				61B9D76D2A1E507200DAEE6C /* KNPSKkomi.ttf in Resources */,
+				61C7BDFE2A2EF695005ADFC6 /* icon_camera2.png in Resources */,
 				61B9D7292A1E19C600DAEE6C /* icon_home.png in Resources */,
 				61A7E38B2A2B9FA20058CFB9 /* icon_camera.png in Resources */,
 				61B9D7272A1E120C00DAEE6C /* icon_menu.png in Resources */,
@@ -343,16 +350,16 @@
 				6195C6782A2CF5110093BAD1 /* icon_name1.png in Resources */,
 				6195C6662A2CE4990093BAD1 /* icon_plus.png in Resources */,
 				61AA9B2A2A232A3200FA9462 /* icon_redcancel1.png in Resources */,
-				61ADBD2B2A1FCCF800885921 /* icon_cantac2.png in Resources */,
+				61C7BDF62A2EF108005ADFC6 /* icon_contact.png in Resources */,
 				61BD96F529D31E5D00125849 /* Assets.xcassets in Resources */,
 				61BD96F329D31E5B00125849 /* Main.storyboard in Resources */,
-				61ADBD292A1FCC8A00885921 /* icon_contact1.png in Resources */,
 				6195C6802A2CFA1D0093BAD1 /* icon_setting3.png in Resources */,
 				61B9D76B2A1E4AE200DAEE6C /* icon_users.png in Resources */,
 				6195C67E2A2CF66B0093BAD1 /* icon_partymember.png in Resources */,
 				6195C6762A2CED890093BAD1 /* icon_submit1.png in Resources */,
 				6195C6822A2CFB4D0093BAD1 /* icon_share1.png in Resources */,
 				6195C67A2A2CF5990093BAD1 /* icon_money1.png in Resources */,
+				61C7BDFD2A2EF695005ADFC6 /* icon_camera1.png in Resources */,
 				6195C67C2A2CF5EA0093BAD1 /* icon_coin1.png in Resources */,
 				6195C6742A2CEC2A0093BAD1 /* icon_cancel.png in Resources */,
 			);
@@ -424,6 +431,7 @@
 				61BD970029D31FDD00125849 /* Party.swift in Sources */,
 				61C1B6FD2A1104AB00906D4E /* name.swift in Sources */,
 				61BD970229D321D100125849 /* User.swift in Sources */,
+				61C7BDF42A2D9069005ADFC6 /* ImageViewController.swift in Sources */,
 				61B2D5AF2A07C34700523FDC /* AddMenuTableCell.swift in Sources */,
 				61AA23312A08D3180020AFC9 /* SettleViewController.swift in Sources */,
 				619AFAE72A11FC8E00103ABA /* ContactViewController.swift in Sources */,
@@ -593,11 +601,17 @@
 				DEVELOPMENT_TEAM = 53TT286T39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NBbang/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "N빵";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSContactsUsageDescription = Contact;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,11 +636,17 @@
 				DEVELOPMENT_TEAM = 53TT286T39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NBbang/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "N빵";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSContactsUsageDescription = Contact;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

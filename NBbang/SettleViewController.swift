@@ -1,7 +1,10 @@
 import UIKit
+import KakaoSDKShare
+import KakaoSDKTemplate
+import KakaoSDKCommon
 import RealmSwift
 
-class SettleViewController: UIViewController {
+class SettleViewController: UIViewController{
     let realm = try! Realm()
     var party: Party?
     var place: Place?
@@ -65,14 +68,72 @@ class SettleViewController: UIViewController {
         navigationItem.rightBarButtonItem = submitButton
     }
     @objc func shareButtonTapped() {
-        var shareItems = [String]()
-        
+        //var shareItems = [String]()
+
+        //shareItems.append(writeSettleText())
+
+        var shareItems = [Any]()
+
+        // 텍스트 추가
         shareItems.append(writeSettleText())
 
+
         let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
+        //activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.modalPresentationStyle = .fullScreen
         self.present(activityViewController, animated: true, completion: nil)
+        
+        //메세지 번호 자동입ㄹㄱ돼서 보내기
+//        let message = writeSettleText()
+//        var sms : String = "sms:01012341234"
+//
+////        // 메시지 내용이 있으면 전화번호 뒤에 &body=메시지를 붙이고 인코딩을 한다
+////        if let msg = message[0] , !(msg as AnyObject).isEmpty {
+////            sms = sms + "&body=" + msg
+////        }
+//
+//        sms = sms + "&body=" + message
+//
+//        sms = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!   // 인코딩
+//
+//        // UIApplication.shared.open : 지정된 url을 비동기로 연다
+//        UIApplication.shared.open( URL.init(string: sms)!, options: [:], completionHandler: nil )
+//
+    
+    
     }
+    func sharePhotoToKakaoTalk(image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            return
+        }
+        
+        guard let kakaoURL = URL(string: "kakaotalk://") else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(kakaoURL) {
+            let pasteboard = UIPasteboard.general
+            pasteboard.setData(imageData, forPasteboardType: "public.jpeg")
+            
+            let alert = UIAlertController(title: nil, message: "카카오톡으로 사진을 공유하시겠습니까?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+                if let url = URL(string: "kakaotalk://sendimage?image=public.jpeg"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            print("카카오톡 앱이 설치되어 있지 않습니다.")
+        }
+    }
+
+
+
+
     @objc func submitButtonTapped() {
         self.dismiss(animated: true)
     }

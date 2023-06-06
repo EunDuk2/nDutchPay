@@ -95,4 +95,8 @@ extension UserViewController: UITableViewDataSource, UITableViewDelegate {
             table.endUpdates()
         }
     }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
+
 }

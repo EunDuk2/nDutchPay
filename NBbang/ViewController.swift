@@ -156,7 +156,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.partyName?.text = row
         cell.userList?.text = userList(index: indexPath.section)
-        
+        cell.layer.cornerRadius = 10
+        cell.clipsToBounds = true
         
         
         return cell
@@ -198,7 +199,32 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         // 섹션 푸터의 높이를 조정하는 로직을 구현
         return 10
     }
-    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        let cell = tableView.cellForRow(at: indexPath) as? PartyTableCell
+        cell?.layer.cornerRadius = 15
+        cell?.clipsToBounds = true
+        print(cell!.partyName)
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? PartyTableCell
+        cell?.layer.cornerRadius = 15
+        cell?.clipsToBounds = true
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            try! realm.write {
+                realm.delete(party()[indexPath.section])
+            }
+            
+            table.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+            table.endUpdates()
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
 }
 
 extension UIColor {
