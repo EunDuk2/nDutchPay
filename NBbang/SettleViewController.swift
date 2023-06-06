@@ -268,12 +268,12 @@ class SettleViewController: UIViewController{
     
     func writeSettleText() -> String {
         
-        settleText += "🎉 " + (party?.name)! + "\n"
+        settleText = "🎉 " + (party?.name)! + "\n"
         settleText += "파티 총 사용금액: " + fc(amount: party!.totalPrice) + "(원)\n"
         if(calRemainder() != "0") {
             settleText += "정산 후 잔돈: " + calRemainder() + "(원)\n"
         }
-        settleText += "\n🙆‍♂️🙆‍♀️ 파티원 정산\n"
+        settleText += "\n🙆‍♂️🙆‍♀️ 파티원 정산 (" + String((party?.user.count)!) + "명)\n"
         for i in 0..<(party?.user.count)! {
             settleText += (party?.user[i].name)! + "(" + fc(amount: (party?.user[i].money)!) + "원)\n"
         }
@@ -286,14 +286,14 @@ class SettleViewController: UIViewController{
                 placeText += calPlaceUserMoney(place: (party?.place[i])!, i: j)
                 placeText += "원)"
             }
-            placeText += "]\n"
+            placeText += "]\n\n"
             settleText += placeText
             
             var menuText:String = "["
             if(party?.place[i].menu.count != 0) {
                 settleText += "🍔🍰 메뉴:\n"
                 settleText += "-" + (party?.place[i].defaultMenu?.name)!
-                settleText += "(" + fc(amount: (party?.place[i].defaultMenu?.totalPrice)!) + "원)\n"
+                settleText += "(" + fc(amount: (party?.place[i].defaultMenu?.totalPrice)!) + "원)\n["
                 
                 for j in 0..<(party?.place[i].defaultMenu?.enjoyer.count)! {
                     menuText += (party?.place[i].defaultMenu?.enjoyer[j].name)! + "("
@@ -304,15 +304,15 @@ class SettleViewController: UIViewController{
             }
             menuText = ""
             for j in 0..<(party?.place[i].menu.count)! {
-                settleText += "-" + (party?.place[i].menu[j].name)!
-                settleText += "(" + fc(amount: (party?.place[i].menu[j].totalPrice)!) + "원)\n"
+                menuText += "\n-" + (party?.place[i].menu[j].name)!
+                menuText += "(" + fc(amount: (party?.place[i].menu[j].totalPrice)!) + "원)\n"
                 for k in 0..<(party?.place[i].menu[j].enjoyer.count)! {
                     menuText += (party?.place[i].menu[j].enjoyer[k].name)! + "("
                     menuText += calMenuUserMoney(menu: (party?.place[i].menu[j])!, i: k) + "원)"
                 }
                 menuText += "]\n"
             }
-            settleText += menuText + "\n"
+            settleText += menuText + "\n\n"
         }
         if(party?.account.count != 0) {
             settleText += "💰 계좌정보:\n"

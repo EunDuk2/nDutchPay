@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     
     let color = UIColor(hex: "#B1B2FF")
     let realm = try! Realm()
-    
+    var partyCount:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         firstLaunch()
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+        partyCount = party().count
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
         } else {
             lblAddAlert.isHidden = false
         }
+        newPartyAdd()
     }
     
     @objc func navigationSetting() {
@@ -74,6 +76,18 @@ class ViewController: UIViewController {
             self.present(navigationController, animated: true, completion: nil)
             
             UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+    }
+    
+    func newPartyAdd() {
+        if(partyCount! < party().count) {
+            guard let na = self.storyboard?.instantiateViewController(withIdentifier: "InPartyViewController") as? InPartyViewController else {
+                return
+            }
+            na.index = party().count - 1
+            partyCount = party().count
+            
+            self.navigationController?.pushViewController(na, animated: true)
         }
     }
     
