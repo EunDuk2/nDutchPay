@@ -1738,6 +1738,16 @@
                                     <outlet property="delegate" destination="dvW-CU-638" id="7dp-2n-KTa"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구를 추가해주세요 !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIj-yF-gyN">
+                                <rect key="frame" x="98.666666666666671" y="411.66666666666669" width="195.66666666666663" height="28.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28.670000000000002" id="EIz-zR-Jab"/>
+                                    <constraint firstAttribute="width" constant="195.66999999999999" id="wel-eX-9PL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="22"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoa-RQ-tOL">
                                 <rect key="frame" x="151.66666666666666" y="717" width="90" height="90"/>
                                 <constraints>
@@ -1774,11 +1784,13 @@
                             <constraint firstItem="bUM-Hh-2R3" firstAttribute="leading" secondItem="dTb-CB-Wu5" secondAttribute="leading" constant="16" id="DgV-o8-WW1"/>
                             <constraint firstItem="EZS-aC-frK" firstAttribute="centerX" secondItem="33h-zA-hlh" secondAttribute="centerX" id="GXG-oD-F1V"/>
                             <constraint firstItem="EZS-aC-frK" firstAttribute="top" secondItem="Acn-bl-aAG" secondAttribute="bottom" id="Lkt-9W-40w"/>
+                            <constraint firstItem="dIj-yF-gyN" firstAttribute="centerX" secondItem="33h-zA-hlh" secondAttribute="centerX" id="RQm-1b-fg3"/>
                             <constraint firstItem="dTb-CB-Wu5" firstAttribute="bottom" secondItem="EZS-aC-frK" secondAttribute="bottom" constant="20" id="Wia-Ho-Vwd"/>
                             <constraint firstItem="dTb-CB-Wu5" firstAttribute="trailing" secondItem="QAS-j1-0Qg" secondAttribute="trailing" constant="16" id="XaW-42-rNk"/>
                             <constraint firstItem="EZS-aC-frK" firstAttribute="leading" secondItem="dTb-CB-Wu5" secondAttribute="leading" constant="16" id="cVY-qA-5Ii"/>
                             <constraint firstItem="QAS-j1-0Qg" firstAttribute="top" secondItem="bUM-Hh-2R3" secondAttribute="bottom" constant="20" id="cpT-Vc-Rmp"/>
                             <constraint firstItem="dTb-CB-Wu5" firstAttribute="trailing" secondItem="EZS-aC-frK" secondAttribute="trailing" constant="16" id="iLo-UA-UiT"/>
+                            <constraint firstItem="dIj-yF-gyN" firstAttribute="centerY" secondItem="33h-zA-hlh" secondAttribute="centerY" id="isN-Nq-DK6"/>
                             <constraint firstItem="QAS-j1-0Qg" firstAttribute="leading" secondItem="dTb-CB-Wu5" secondAttribute="leading" constant="16" id="koN-ia-Kwg"/>
                             <constraint firstItem="bUM-Hh-2R3" firstAttribute="top" secondItem="dTb-CB-Wu5" secondAttribute="top" constant="30" id="ouU-F1-f0X"/>
                             <constraint firstAttribute="bottom" secondItem="zoa-RQ-tOL" secondAttribute="bottom" constant="45" id="x2O-dk-ECk"/>
@@ -1789,6 +1801,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnCheck" destination="Acn-bl-aAG" id="3sy-tS-HAC"/>
+                        <outlet property="lblAddAlert" destination="dIj-yF-gyN" id="00n-jA-eKE"/>
                         <outlet property="partyName" destination="QAS-j1-0Qg" id="as5-Hw-3ak"/>
                         <outlet property="table" destination="EZS-aC-frK" id="7SP-QE-4cV"/>
                         <outlet property="textField" destination="QAS-j1-0Qg" id="d3X-k4-z4Q"/>
@@ -1980,6 +1993,16 @@
                                     <outlet property="delegate" destination="rbh-jx-coL" id="jEb-Fb-amS"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구를 추가해주세요 !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EW8-qx-Y39">
+                                <rect key="frame" x="98.666666666666671" y="411.66666666666669" width="195.66666666666663" height="28.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28.670000000000002" id="iQe-Ge-AVF"/>
+                                    <constraint firstAttribute="width" constant="195.66999999999999" id="zQL-5w-1mH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="22"/>
+                                <color key="textColor" red="0.52549019610000003" green="0.58823529409999997" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6y-5L-v24">
                                 <rect key="frame" x="151.66666666666666" y="717" width="90" height="90"/>
                                 <constraints>
@@ -2000,6 +2023,8 @@
                             <constraint firstItem="m6y-5L-v24" firstAttribute="centerX" secondItem="Fs2-Qp-8Cm" secondAttribute="centerX" id="2Lc-bJ-7T3"/>
                             <constraint firstAttribute="bottom" secondItem="m6y-5L-v24" secondAttribute="bottom" constant="45" id="8Nh-Go-Pu1"/>
                             <constraint firstItem="u8o-Ae-OjN" firstAttribute="trailing" secondItem="e53-AK-f7Z" secondAttribute="trailing" constant="16" id="Wr8-YD-2ki"/>
+                            <constraint firstItem="EW8-qx-Y39" firstAttribute="centerX" secondItem="Fs2-Qp-8Cm" secondAttribute="centerX" id="hWO-v6-sns"/>
+                            <constraint firstItem="EW8-qx-Y39" firstAttribute="centerY" secondItem="Fs2-Qp-8Cm" secondAttribute="centerY" id="iml-TF-dbH"/>
                             <constraint firstItem="e53-AK-f7Z" firstAttribute="leading" secondItem="u8o-Ae-OjN" secondAttribute="leading" constant="16" id="ioe-za-Bex"/>
                             <constraint firstItem="e53-AK-f7Z" firstAttribute="centerX" secondItem="Fs2-Qp-8Cm" secondAttribute="centerX" id="n6F-u2-vct"/>
                             <constraint firstItem="e53-AK-f7Z" firstAttribute="centerY" secondItem="Fs2-Qp-8Cm" secondAttribute="centerY" id="rS5-0E-xgP"/>
@@ -2007,6 +2032,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="EVI-OZ-9Mn"/>
                     <connections>
+                        <outlet property="lblAddAlert" destination="EW8-qx-Y39" id="ZDl-Zg-LIf"/>
                         <outlet property="table" destination="e53-AK-f7Z" id="Z4M-ZF-aUb"/>
                     </connections>
                 </viewController>

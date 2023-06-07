@@ -7,6 +7,7 @@ class UserViewController: UIViewController {
     let color = UIColor(hex: "#B1B2FF")
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var lblAddAlert: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,11 @@ class UserViewController: UIViewController {
         if let tableView = table {
                 tableView.reloadData()
             }
+        if(user().count != 0 ) {
+            lblAddAlert?.isHidden = true
+        } else {
+            lblAddAlert?.isHidden = false
+        }
     }
     
     @objc func navigationSetting() {

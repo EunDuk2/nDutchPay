@@ -7,6 +7,7 @@ class AddPartyViewController: UIViewController {
     @IBOutlet var btnCheck: UIButton!
     @IBOutlet var table: UITableView!
     @IBOutlet var textField: UITextField!
+    @IBOutlet var lblAddAlert: UILabel!
     
     let realm = try! Realm()
     var allCheck: Bool = false
@@ -25,6 +26,12 @@ class AddPartyViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         textFieldSetting()
+        
+        if(user().count == 1) {
+            lblAddAlert.isHidden = false
+        } else {
+            lblAddAlert.isHidden = true
+        }
     }
 
     
@@ -225,6 +232,18 @@ class AddPartyViewController: UIViewController {
         }
         
     }
+    @IBAction func onAddUser(_ sender: Any) {
+        guard let tabBarController = self.tabBarController else {
+                return
+            }
+            
+            tabBarController.selectedIndex = 1 // 탭바 컨트롤러의 1번째 인덱스 아이템으로 이동
+            
+            // 현재 모달로 표시된 뷰 컨트롤러를 해제
+            self.dismiss(animated: true, completion: nil)
+
+    }
+    
 }
 
 extension AddPartyViewController: UITableViewDelegate, UITableViewDataSource {

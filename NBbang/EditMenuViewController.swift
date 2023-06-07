@@ -24,7 +24,9 @@ class EditMenuViewController: UIViewController {
         printMenuName()
         printMenuPriceNCount()
         
+        txtName.delegate = self
         txtPrice.delegate = self
+        txtCount.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(priceDidChange(_:)),
                                                     name: UITextField.textDidChangeNotification,
@@ -136,8 +138,10 @@ class EditMenuViewController: UIViewController {
     func printMenuPriceNCount() {
         if(section == 0) {
             txtPrice.text = String((place?.defaultMenu?.totalPrice)!)
+            txtCount.text = "1"
             txtPrice.isEnabled = false
             txtCount.isEnabled = false
+            defaultMenuAlert()
         }
         else if(section == 1) {
             txtPrice.text = String((place?.menu[index!].price)!)
@@ -319,6 +323,14 @@ class EditMenuViewController: UIViewController {
             }
         }
     }
+    func defaultMenuAlert() {
+        let alertController = UIAlertController(title: "알림", message: "기타 메뉴는 인원 초대 및 방출만 가능합니다.", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "확인", style: .default)
+
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
     @IBAction func onDelete(_ sender: Any) {
         let alert = UIAlertController(title: "메뉴 삭제", message: "메뉴를 삭제하면 해당 메뉴의 모든 정보가 삭제됩니다.", preferredStyle: .alert)
@@ -385,6 +397,7 @@ extension EditMenuViewController: TableViewCellDelegate {
 }
 
 extension EditMenuViewController: UITextFieldDelegate {
+    
     @objc private func priceDidChange(_ notification: Notification) {
             if let textField = notification.object as? UITextField {
                 if let text = textField.text {
