@@ -30,6 +30,16 @@ class ImageViewController: UIViewController, UINavigationControllerDelegate {
             navigationItem.titleView = titleLabel
         }
         
+        let shareButtonImage = UIImage(named: "icon_share1.png")
+        let buttonSize = CGSize(width: 30, height: 30)
+        UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            shareButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let resizedImage = UIGraphicsImageRenderer(size: buttonSize).image { _ in
+            shareButtonImage!.draw(in: CGRect(origin: .zero, size: buttonSize))
+        }
+        let shareButton = UIBarButtonItem(title: "", image: resizedImage, target: self, action: #selector(shareButtonTapped))
+        
         let settleButton = UIBarButtonItem(title: "변경", style: .plain, target: self, action: #selector(settleButtonTapped))
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
@@ -37,10 +47,21 @@ class ImageViewController: UIViewController, UINavigationControllerDelegate {
         ]
         settleButton.setTitleTextAttributes(titleAttributes, for: .normal)
         
-        navigationItem.rightBarButtonItem = settleButton
+        navigationItem.rightBarButtonItems = [shareButton, settleButton]
         
         let backBarButtonItem = UIBarButtonItem(title: "메뉴 목록", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
+    }
+    @objc func shareButtonTapped() {
+
+        var shareItems = [UIImage]()
+        
+        shareItems.append(UIImage(data: (place?.imageData)!)!)
+
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityViewController.modalPresentationStyle = .fullScreen
+        
+        self.present(activityViewController, animated: true, completion: nil)
     }
     @objc func settleButtonTapped() {
         showActionSheet()
