@@ -37,6 +37,7 @@ class SettleViewController: UIViewController, UINavigationControllerDelegate{
         pickerView.isHidden = true
         toolBar.isHidden = true
         accountString = getAccount()
+        pickAccount = accountString![0]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -345,6 +346,7 @@ class SettleViewController: UIViewController, UINavigationControllerDelegate{
         showActionSheet()
     }
     @IBAction func onPickerSubmit(_ sender: Any) {
+        
         self.addAccount(account: pickAccount!)
         self.table.reloadData()
         
@@ -522,7 +524,7 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
             else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SettlePlaceTableCell") as! SettlePlaceTableCell
                 
-                let row1 = (party?.place[indexPath.section-1].name)! + "(" + String((party?.place[indexPath.section-1].enjoyer.count)!) +  "), "
+                let row1 = (party?.place[indexPath.section-1].name)! + "(" + String((party?.place[indexPath.section-1].enjoyer.count)!) +  "명), "
                 let row2 = fc(amount: (party?.place[indexPath.section-1].totalPrice)!) + "(원)"
                 var row3:String = ""
                 

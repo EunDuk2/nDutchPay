@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         let addButtonImage = UIImage(named: "icon_menu.png")?.withRenderingMode(.alwaysOriginal)
         let addButton = UIBarButtonItem(title: "", image: addButtonImage, target: self, action: #selector(addButtonTapped))
 
-        navigationItem.rightBarButtonItem = addButton
+        //navigationItem.rightBarButtonItem = addButton
         
         let backBarButtonItem = UIBarButtonItem(title: "파티목록", style: .plain, target: self, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem

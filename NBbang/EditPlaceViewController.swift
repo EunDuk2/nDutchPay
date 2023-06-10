@@ -144,7 +144,7 @@ class EditPlaceViewController: UIViewController {
         }
         
         if(allMenuPrice > totalPrice) {
-            let alert = UIAlertController(title: "금액 경고", message: "입력하신 금액이 해당 장소의 모든 메뉴들의 총가격보다 낮습니다.\n메뉴들의 총가격: "+String(allMenuPrice)+" 원", preferredStyle: .alert)
+            let alert = UIAlertController(title: "금액 경고", message: "입력하신 금액이 해당 장소의 모든 메뉴들의 총가격보다 낮습니다.\n메뉴들의 총가격: "+fc(amount: allMenuPrice)+" 원", preferredStyle: .alert)
             let clear = UIAlertAction(title: "확인", style: .default)
             
             alert.addAction(clear)

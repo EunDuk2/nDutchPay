@@ -68,7 +68,7 @@ extension SettlePlaceTableCell: UITableViewDelegate, UITableViewDataSource {
             var row2: String = ""
             
             row1 += "기타"
-            row1 += "(" + String((party?.place[index!].defaultMenu!.enjoyer.count)!) + "), "
+            row1 += "(" + String((party?.place[index!].defaultMenu!.enjoyer.count)!) + "명), "
             row1 += fc(amount: (party?.place[index!].defaultMenu?.totalPrice)!) + "(원)"
             cell.lblMenuInfo.text = row1
             
@@ -84,7 +84,7 @@ extension SettlePlaceTableCell: UITableViewDelegate, UITableViewDataSource {
             var row2: String = ""
             
             row1 += (party?.place[index!].menu[indexPath.row].name)!
-            row1 += "(" + String((party?.place[index!].menu[indexPath.row].enjoyer.count)!) + "), "
+            row1 += "(" + String((party?.place[index!].menu[indexPath.row].enjoyer.count)!) + "명), "
             row1 += fc(amount: (party?.place[index!].menu[indexPath.row].totalPrice)!) + "(원)"
             cell.lblMenuInfo.text = row1
             
