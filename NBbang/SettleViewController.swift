@@ -4,7 +4,7 @@ import KakaoSDKTemplate
 import KakaoSDKCommon
 import RealmSwift
 
-class SettleViewController: UIViewController{
+class SettleViewController: UIViewController, UINavigationControllerDelegate{
     let realm = try! Realm()
     var party: Party?
     var place: Place?
@@ -13,6 +13,7 @@ class SettleViewController: UIViewController{
     var settleText: String = ""
     var pickAccount: String?
     var accountString:[String]?
+    var cellIndex:Int?
     
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblPrice: UILabel!
@@ -36,6 +37,10 @@ class SettleViewController: UIViewController{
         pickerView.isHidden = true
         toolBar.isHidden = true
         accountString = getAccount()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
     }
     
     @objc func navigationSetting() {
@@ -285,8 +290,17 @@ class SettleViewController: UIViewController{
         for i in 0..<(party?.user.count)! {
             settleText += (party?.user[i].name)! + "(" + fc(amount: (party?.user[i].money)!) + "원)\n"
         }
+        
+        if(party?.account.count != 0) {
+            settleText += "\n💰 계좌정보:\n"
+            for i in 0..<(party?.account.count)! {
+                settleText += (party?.account[i])! + "\n"
+            }
+        }
+        
+        settleText += "\n"
         for i in 0..<(party?.place.count)! {
-            settleText += "\n🏠 장소: " + (party?.place[i].name)! + "(" + fc(amount: (party?.place[i].totalPrice)!) + "원)\n"
+            settleText += "🏠 장소: " + (party?.place[i].name)! + "(" + fc(amount: (party?.place[i].totalPrice)!) + "원)\n"
             var placeText: String = "["
             for j in 0..<(party?.place[i].enjoyer.count)! {
                 placeText += (party?.place[i].enjoyer[j].name)!
@@ -294,39 +308,34 @@ class SettleViewController: UIViewController{
                 placeText += calPlaceUserMoney(place: (party?.place[i])!, i: j)
                 placeText += "원)"
             }
-            placeText += "]\n\n"
+            placeText += "]\n"
             settleText += placeText
             
             var menuText:String = "["
             if(party?.place[i].menu.count != 0) {
                 settleText += "🍔🍰 메뉴:\n"
                 settleText += "-" + (party?.place[i].defaultMenu?.name)!
-                settleText += "(" + fc(amount: (party?.place[i].defaultMenu?.totalPrice)!) + "원)\n["
+                settleText += "(" + fc(amount: (party?.place[i].defaultMenu?.totalPrice)!) + "원)\n"
                 
                 for j in 0..<(party?.place[i].defaultMenu?.enjoyer.count)! {
                     menuText += (party?.place[i].defaultMenu?.enjoyer[j].name)! + "("
                     menuText += calMenuUserMoney(menu: (party?.place[i].defaultMenu)!, i: j) + "원)"
                 }
+                
                 menuText += "]\n"
                 settleText += menuText
             }
             menuText = ""
             for j in 0..<(party?.place[i].menu.count)! {
                 menuText += "\n-" + (party?.place[i].menu[j].name)!
-                menuText += "(" + fc(amount: (party?.place[i].menu[j].totalPrice)!) + "원)\n"
+                menuText += "(" + fc(amount: (party?.place[i].menu[j].totalPrice)!) + "원)\n["
                 for k in 0..<(party?.place[i].menu[j].enjoyer.count)! {
                     menuText += (party?.place[i].menu[j].enjoyer[k].name)! + "("
                     menuText += calMenuUserMoney(menu: (party?.place[i].menu[j])!, i: k) + "원)"
                 }
                 menuText += "]\n"
             }
-            settleText += menuText + "\n\n"
-        }
-        if(party?.account.count != 0) {
-            settleText += "💰 계좌정보:\n"
-            for i in 0..<(party?.account.count)! {
-                settleText += (party?.account[i])! + "\n"
-            }
+            settleText += menuText + "\n"
         }
         
         return settleText
@@ -523,12 +532,17 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
                     row3 += calPlaceUserMoney(place: (party?.place[indexPath.section-1])!, i: i)
                     row3 += "원)"
                 }
-                
+                cell.delegate = self
                 cell.index = indexPath.section-1
                 cell.place = self.place
                 cell.party = self.party
                 cell.lblName.text = row1 + row2
                 cell.lblUsers.text = row3
+                if(party?.place[indexPath.section-1].imageData == nil) {
+                    cell.btnCamera.setImage(UIImage(named: "icon_camera1.png"), for: .normal)
+                } else {
+                    cell.btnCamera.setImage(UIImage(named: "icon_camera2.png"), for: .normal)
+                }
                 
                 return cell
             }
@@ -664,6 +678,111 @@ extension SettleViewController: UITableViewDelegate, UITableViewDataSource {
         }
         table.reloadData()
     }
-}
-    
 
+}
+
+extension SettleViewController: SettlePlaceTableCellDelegate {
+    
+    func didTapButton(cellIndex: Int?, button: UIButton?) {
+        self.cellIndex = cellIndex
+        if(party?.place[cellIndex!].imageData == nil) {
+            showCameraActionSheet()
+        } else {
+            guard let na = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController else {
+                        return
+                    }
+            na.place = self.party?.place[cellIndex!]
+            na.bool = true
+            
+            let backBarButtonItem = UIBarButtonItem(title: "정산 내역", style: .plain, target: self, action: nil)
+            navigationItem.backBarButtonItem = backBarButtonItem
+            self.navigationController?.pushViewController(na, animated: true)
+        }
+    }
+    func showCameraActionSheet() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // 사진 촬영 액션
+        let takePhotoAction = UIAlertAction(title: "사진 촬영", style: .default) { _ in
+            self.openCamera()
+        }
+        
+        // 앨범에서 가져오기 액션
+        let choosePhotoAction = UIAlertAction(title: "앨범에서 가져오기", style: .default) { _ in
+            self.openPhotoLibrary()
+        }
+        
+        // 취소 액션
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        // 액션 추가
+        alertController.addAction(takePhotoAction)
+        alertController.addAction(choosePhotoAction)
+        alertController.addAction(cancelAction)
+        
+        // 액션 시트 표시
+        present(alertController, animated: true, completion: nil)
+    }
+    
+}
+
+extension SettleViewController: UIImagePickerControllerDelegate {
+    // 카메라 열기
+    func openCamera() {
+        let imagePicker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            print("카메라를 사용할 수 없습니다.")
+        }
+    }
+    
+    // 앨범 열기
+    func openPhotoLibrary() {
+        let imagePicker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            print("앨범에 접근할 수 없습니다.")
+        }
+    }
+    
+    // 사진 선택 완료 시 호출되는 delegate 메서드
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            //imageView.image = selectedImage
+            saveImageToRealm(image: selectedImage)
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    // 사진 선택 취소 시 호출되는 delegate 메서드
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveImageToRealm(image: UIImage) {
+        let imageData = image.jpegData(compressionQuality: 1.0)
+        
+        try! realm.write {
+            party?.place[cellIndex!].imageData = imageData
+        }
+    
+        guard let na = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController else {
+                    return
+                }
+        na.place = self.party?.place[cellIndex!]
+        na.bool = true
+        
+        let backBarButtonItem = UIBarButtonItem(title: "정산 내역", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationController?.pushViewController(na, animated: true)
+        }
+}

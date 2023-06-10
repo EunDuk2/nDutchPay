@@ -1,14 +1,21 @@
 import UIKit
 
+// 프로토콜 선언
+protocol SettlePlaceTableCellDelegate: AnyObject {
+    func didTapButton(cellIndex: Int?, button: UIButton?)
+}
+
 class SettlePlaceTableCell: UITableViewCell {
     //let realm = try! Realm()
     var party: Party?
     var place: Place?
     var index: Int?
+    weak var delegate: SettlePlaceTableCellDelegate?
     
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblUsers: UILabel!
     @IBOutlet var menuTable: UITableView!
+    @IBOutlet var btnCamera: UIButton!
     
     var isExpanded = false
     let originalHeight: CGFloat = 70.0
@@ -24,6 +31,11 @@ class SettlePlaceTableCell: UITableViewCell {
         let money = menu.totalPrice / menu.enjoyer.count
         return fc(amount: money)
     }
+    
+    @IBAction func onCamera(_ sender: Any) {
+        self.delegate?.didTapButton(cellIndex: index, button: btnCamera)
+    }
+    
 }
 
 extension SettlePlaceTableCell: UITableViewDelegate, UITableViewDataSource {

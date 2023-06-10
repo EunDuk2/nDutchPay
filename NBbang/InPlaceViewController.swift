@@ -131,46 +131,44 @@ class InPlaceViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func showActionSheet() {
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            
-            // 사진 촬영 액션
-            let takePhotoAction = UIAlertAction(title: "사진 촬영", style: .default) { _ in
-                self.openCamera()
-            }
-            
-            // 앨범에서 가져오기 액션
-            let choosePhotoAction = UIAlertAction(title: "앨범에서 가져오기", style: .default) { _ in
-                self.openPhotoLibrary()
-            }
-            
-            // 취소 액션
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-            
-            // 액션 추가
-            alertController.addAction(takePhotoAction)
-            alertController.addAction(choosePhotoAction)
-            alertController.addAction(cancelAction)
-            
-            // 액션 시트 표시
-            present(alertController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // 사진 촬영 액션
+        let takePhotoAction = UIAlertAction(title: "사진 촬영", style: .default) { _ in
+            self.openCamera()
         }
         
-        
-        
-        // 사진 선택 완료 시 호출되는 delegate 메서드
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let selectedImage = info[.originalImage] as? UIImage {
-                //imageView.image = selectedImage
-                saveImageToRealm(image: selectedImage)
-            }
-            
-            picker.dismiss(animated: true, completion: nil)
+        // 앨범에서 가져오기 액션
+        let choosePhotoAction = UIAlertAction(title: "앨범에서 가져오기", style: .default) { _ in
+            self.openPhotoLibrary()
         }
         
-        // 사진 선택 취소 시 호출되는 delegate 메서드
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true, completion: nil)
+        // 취소 액션
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        // 액션 추가
+        alertController.addAction(takePhotoAction)
+        alertController.addAction(choosePhotoAction)
+        alertController.addAction(cancelAction)
+        
+        // 액션 시트 표시
+        present(alertController, animated: true, completion: nil)
+    }
+        
+    // 사진 선택 완료 시 호출되는 delegate 메서드
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            //imageView.image = selectedImage
+            saveImageToRealm(image: selectedImage)
         }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    // 사진 선택 취소 시 호출되는 delegate 메서드
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func onAddMenu(_ sender: Any) {
         guard let na = self.storyboard?.instantiateViewController(withIdentifier: "AddMenuViewController") as? AddMenuViewController else {

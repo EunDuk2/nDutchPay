@@ -198,7 +198,7 @@
                                 <rect key="frame" x="16" y="72" width="361" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파티 총 사용 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sd-58-gl1">
-                                        <rect key="frame" x="46" y="14" width="111" height="21"/>
+                                        <rect key="frame" x="45.999999999999993" y="14" width="117.33333333333331" height="21"/>
                                         <fontDescription key="fontDescription" name="SeoulNamsanCM" family="SeoulNamsanC" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -971,6 +971,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycg-Pg-dHE">
+                                                    <rect key="frame" x="328" y="8.3333333333333357" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="TEz-QY-LD0"/>
+                                                        <constraint firstAttribute="height" constant="25" id="c5L-q0-UXs"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="￼" image="icon_camera1.png">
+                                                        <color key="titleColor" red="0.69411764710000001" green="0.69803921570000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onCamera:" destination="3Jj-kx-PcF" eventType="touchUpInside" id="ig6-Yw-Ib6"/>
+                                                    </connections>
+                                                </button>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2H-mc-08a">
                                                     <rect key="frame" x="20" y="39" width="341" height="35"/>
                                                     <subviews>
@@ -1083,6 +1097,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="W2H-mc-08a" secondAttribute="trailing" id="6fe-8U-SGb"/>
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="bottom" secondItem="t8X-Ub-1xH" secondAttribute="bottomMargin" id="8tw-L4-HMs"/>
+                                                <constraint firstAttribute="trailing" secondItem="ycg-Pg-dHE" secondAttribute="trailing" constant="8" id="DSL-yk-mLB"/>
                                                 <constraint firstItem="vLo-9o-HAP" firstAttribute="leading" secondItem="t8X-Ub-1xH" secondAttribute="leading" constant="20" symbolic="YES" id="EII-mw-pvz"/>
                                                 <constraint firstItem="vLo-9o-HAP" firstAttribute="trailing" secondItem="W2H-mc-08a" secondAttribute="trailing" id="KoZ-ug-sIl"/>
                                                 <constraint firstItem="vLo-9o-HAP" firstAttribute="top" secondItem="t8X-Ub-1xH" secondAttribute="top" constant="10" id="NqJ-8P-pOe"/>
@@ -1091,6 +1106,7 @@
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="leading" secondItem="t8X-Ub-1xH" secondAttribute="leading" constant="20" symbolic="YES" id="aKJ-O0-UGB"/>
                                                 <constraint firstItem="W2H-mc-08a" firstAttribute="leading" secondItem="vLo-9o-HAP" secondAttribute="leading" id="b7r-wb-UhN"/>
                                                 <constraint firstItem="W2H-mc-08a" firstAttribute="top" secondItem="vLo-9o-HAP" secondAttribute="bottom" constant="8" symbolic="YES" id="d4m-u9-GTy"/>
+                                                <constraint firstItem="ycg-Pg-dHE" firstAttribute="top" secondItem="t8X-Ub-1xH" secondAttribute="top" constant="8.3300000000000001" id="fOE-uA-eyF"/>
                                                 <constraint firstItem="KrS-6b-4Ms" firstAttribute="centerX" secondItem="t8X-Ub-1xH" secondAttribute="centerX" id="ggZ-i5-9gt"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1102,6 +1118,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="btnCamera" destination="ycg-Pg-dHE" id="JmT-hC-Hpb"/>
                                             <outlet property="lblName" destination="vLo-9o-HAP" id="Nn8-lt-d8B"/>
                                             <outlet property="lblUsers" destination="Ij7-Ua-fRY" id="wQI-xH-s0w"/>
                                             <outlet property="menuTable" destination="KrS-6b-4Ms" id="hWN-V5-fkg"/>
@@ -2192,6 +2209,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="89I-Q9-DWt"/>
                     <connections>
+                        <outlet property="btnDelete" destination="d2a-Qa-pBR" id="aPb-sr-38M"/>
                         <outlet property="ivReceipt" destination="skq-im-I5r" id="GDy-yc-wyB"/>
                     </connections>
                 </viewController>

@@ -5,12 +5,17 @@ class ImageViewController: UIViewController, UINavigationControllerDelegate {
     let realm = try! Realm()
     var place: Place?
     let color = UIColor(hex: "#B1B2FF")
+    var bool:Bool = false
     
     @IBOutlet var ivReceipt: UIImageView!
+    @IBOutlet var btnDelete: UIButton!
     
     override func viewDidLoad() {
         navigationSetting()
         ivReceipt.image = UIImage(data: (place?.imageData)!)
+        if(bool == true) {
+            btnDelete.isHidden = true
+        }
     }
     
     @objc func navigationSetting() {

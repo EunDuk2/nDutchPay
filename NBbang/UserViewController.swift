@@ -42,6 +42,8 @@ class UserViewController: UIViewController {
             titleLabel.font = UIFont(name: "SeoulNamsanCM", size: 21)
             navigationItem.titleView = titleLabel
         }
+        let backBarButtonItem = UIBarButtonItem(title: "친구 목록", style: .plain, target: self, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     func user() -> Results<User> {
